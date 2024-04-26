@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+
+        <title>jalsol&#x27;s personal notes during CS161</title>
+        
+        <meta name="title" content="jalsol&#x27;s personal notes during CS161">
+        
+        
+        <meta name="generator" content="Zola v0.16.1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jalsol.github.io/blog/cs161-notes/">
+        <meta property="og:site_name" content="">
+        <meta property="og:title" content="jalsol&#x27;s personal notes during CS161">
+        
+        
+
+        
+        
+        
+        <link rel="canonical" href="https://jalsol.github.io/blog/cs161-notes/">
+        
+        <script type="application/ld+json">
+            {
+                
+                "url":"https://jalsol.github.io/blog/cs161-notes/",
+                "@type":"WebSite",
+                "headline":"jalsol's personal notes during CS161",
+                "name":"jalsol's personal notes during CS161",
+                
+                "@context":"https://schema.org"
+            }
+        </script>
+        
+        
+        
+        <link rel="stylesheet" href="https://jalsol.github.io/style.css"/>
+        
+    </head>
+    <body theme="auto">
+        <div class="w">
+            <header>
+                
+                <nav>
+                    
+                    <a href="/" >~home</a>
+                    
+                    <a href="/blog" >*blogs</a>
+                    
+                </nav>
+                
+                
+<p class="post-meta"><time datetime="2022-12-05">2022-12-05</time></p>
+<h1>jalsol&#x27;s personal notes during CS161</h1>
+
+            </header>
+            <main class="page-content" aria-label="Content">
+                
+
+
+Table of contents
+<ul>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#a-few-words-before-the-main-content">A few words before the main content</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#variables-naming">Variables naming</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#character-literals-and-string-literals">Character literals and string literals</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cs161-notes/#character-representation">Character representation</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cs161-notes/#use-what-you-mean-to-use">Use what you mean to use</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#coding-styles">Coding styles</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#using-namespace-std">using namespace std;</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#passing-by-value-vs-passing-by-reference">&quot;Passing by value&quot; vs. &quot;Passing by reference&quot;</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#ifndef-guard-for-header-files">#ifndef guard for header files</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#something-h-vs-csomething">&lt;something.h&gt; vs. &lt;csomething&gt;</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#header-vs-header">&lt;header&gt; vs. &quot;header&quot;</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#using-strlen-inside-a-loop-condition">Using strlen inside a loop condition</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#constexpr">constexpr</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#global-variables">Global variables</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#string-strlen-string-0">string[strlen(string)] == &#x27;\0&#x27;</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#type-of-string-literals">Type of string literals</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cs161-notes/#istream-get-an-empty-line">istream::get an empty line</a>
+        
+    </li>
+
+</ul>
+
+
+<p>These are my personal thoughts. I just write them down and expand them into notes. <del>Please forgive me if I become aggressive at times.</del></p>
+<p>I am open to all suggestions! If there is something you would like to add/correct (that is related to the course), please <a rel="noopener" target="_blank" href="https://www.facebook.com/12.despair">message</a>/<a href="mailto:jalsol@protonmail.com">email</a> me. Thank you so much!</p>
+<h2 id="a-few-words-before-the-main-content">A few words before the main content</h2>
+<p>We all start from nothing. We all make mistakes at some point. If you have been doing something wrong, change it. If you have no idea about something, learn about it.</p>
+<p>If you see vulgar language from me on this blog, it's <strong>most likely satire and there's no intention to hurt anyone</strong>. That is how I am, this is my own place. Don't take it personally and interpret it as &quot;shaming the newbies&quot;, because this place wouldn't have existed if that were the case.</p>
+<h2 id="variables-naming">Variables naming</h2>
+<p>This is a <strong>difficult and time-consuming</strong> task. For real. You <strong>cannot</strong> just name your variables <code>a</code> or <code>b</code> or <code>z</code> or <em>some random bullshit from the alphabet like in Mathematics and Physics and whatever subjects there are</em>. Make the code explain itself.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// Bad example
+</span><span style="color:#8839ef;">int</span><span> fuck </span><span style="color:#179299;">= </span><span style="color:#fe640b;">60</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// minutes in an hour
+</span><span style="color:#8839ef;">int</span><span> you </span><span style="color:#179299;">= </span><span style="color:#fe640b;">60</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// seconds in a minutes
+</span><span>
+</span><span style="color:#8839ef;">bool</span><span> shit </span><span style="color:#179299;">= </span><span style="color:#d20f39;">true</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// print duration in seconds?
+</span><span>
+</span><span style="color:#8839ef;">if </span><span style="color:#7c7f93;">(</span><span>shit</span><span style="color:#7c7f93;">) {
+</span><span>    std</span><span style="color:#179299;">::</span><span>cout </span><span style="color:#179299;">&lt;&lt; </span><span style="color:#fe640b;">5 </span><span style="color:#179299;">*</span><span> fuck </span><span style="color:#179299;">*</span><span> you </span><span style="color:#179299;">&lt;&lt; </span><span style="color:#40a02b;">&#39;</span><span style="color:#ea76cb;">\n</span><span style="color:#40a02b;">&#39;</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p><em>What the fuck does this even mean? What exactly do <code>fuck</code>, <code>you</code>, and <code>shit</code> represent? What is that <code>5</code> doing over there? Not even the comments can save this shitshow.</em></p>
+<p>We can do better:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// Good example
+</span><span style="color:#8839ef;">int</span><span> minutes_per_hour </span><span style="color:#179299;">= </span><span style="color:#fe640b;">60</span><span style="color:#7c7f93;">;
+</span><span style="color:#8839ef;">int</span><span> seconds_per_minute </span><span style="color:#179299;">= </span><span style="color:#fe640b;">60</span><span style="color:#7c7f93;">;
+</span><span style="color:#8839ef;">int</span><span> duration_hours </span><span style="color:#179299;">= </span><span style="color:#fe640b;">5</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span style="color:#8839ef;">bool</span><span> print_duration_seconds </span><span style="color:#179299;">= </span><span style="color:#d20f39;">true</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span style="color:#8839ef;">if </span><span style="color:#7c7f93;">(</span><span>print_duration_seconds</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="color:#8839ef;">int</span><span> duration_seconds </span><span style="color:#179299;">=
+</span><span>        duration_hours </span><span style="color:#179299;">*</span><span> minutes_per_hour </span><span style="color:#179299;">*</span><span> seconds_per_minute</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>    std</span><span style="color:#179299;">::</span><span>cout </span><span style="color:#179299;">&lt;&lt;</span><span> duration_seconds </span><span style="color:#179299;">&lt;&lt; </span><span style="color:#40a02b;">&#39;</span><span style="color:#ea76cb;">\n</span><span style="color:#40a02b;">&#39;</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>Now, this is a lot clearer. Variables now have <strong>names with proper meanings</strong>. You don't even need comments to explain anything, <strong>the code just explains itself</strong>. This is the effect of having good variable names.</p>
+<p>I highly recommend you read/watch the references below to understand more.</p>
+<p>References:</p>
+<p><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=-J3wNP6u5YU">Naming Things in Code</a></p>
+<p><a rel="noopener" target="_blank" href="https://www.learncpp.com/cpp-tutorial/keywords-and-naming-identifiers/">1.7 - Keywords and naming identifiers</a></p>
+<p><a rel="noopener" target="_blank" href="https://google.github.io/styleguide/cppguide.html#General_Naming_Rules">Google C++ Style Guide</a></p>
+<h2 id="character-literals-and-string-literals">Character literals and string literals</h2>
+<h3 id="character-representation">Character representation</h3>
+<p>This is an example from a classmate of mine:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// What the fuck?
+</span><span style="color:#8839ef;">if </span><span style="color:#7c7f93;">(</span><span>s</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">== </span><span style="color:#fe640b;">32</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// something
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>What does this <code>32</code> mean? Is it the number of bits of an <code>int</code> or something else?</p>
+<p>In fact, it's actually the decimal representation of the space character (<code>' '</code>) on the ASCII table (since <code>s[i]</code> is a <code>char</code>).</p>
+<p>My advice is to simply <em>use the motherfucking character, ffs.</em></p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// This is better
+</span><span style="color:#8839ef;">if </span><span style="color:#7c7f93;">(</span><span>s</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">== </span><span style="color:#40a02b;">&#39; &#39;</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// something
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>The same should be applied to other characters as well. Use <code>'a'</code> instead of <code>97</code>. Use <code>'A'</code> instead of <code>65</code>. And so on.</p>
+<h3 id="use-what-you-mean-to-use">Use what you mean to use</h3>
+<p>Another example that can be seen from my classmates (even experienced ones):</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>std</span><span style="color:#179299;">::</span><span>cout </span><span style="color:#179299;">&lt;&lt;</span><span> first_value </span><span style="color:#179299;">&lt;&lt; </span><span style="color:#40a02b;">&quot; &quot; </span><span style="color:#179299;">&lt;&lt;</span><span> second_value </span><span style="color:#179299;">&lt;&lt; </span><span style="color:#40a02b;">&quot;</span><span style="color:#ea76cb;">\n</span><span style="color:#40a02b;">&quot;</span><span style="color:#7c7f93;">;
+</span></code></pre>
+<p>Using <code>&quot; &quot;</code> instead of <code>' '</code> and <code>&quot;\n&quot;</code> instead of <code>'\n'</code> is <strong>not</strong> a good idea.</p>
+<p>If you want to use a single character, use <code>' '</code> and not <code>&quot; &quot;</code>.</p>
+<p>Imagine a scenario when you want to print one space, but then you accidentally type two spaces inside the quotes.</p>
+<ul>
+<li><code>'  '</code> will return some <em>fuckery</em> value (or if you enable some warning options, the compiler can even tell you that you have multiple characters).</li>
+<li><code>&quot;  &quot;</code> will return 2 spaces. And no one will ever tell you what will go wrong.</li>
+</ul>
+<p>Even classmates with years of (competitive) programming make this mistake. So don't worry if you are new, it's actually easier to change that habit this soon.</p>
+<h2 id="coding-styles">Coding styles</h2>
+<p><img src="https://jalsol.github.io/blog/cs161-notes/format_error.png" alt="" loading="lazy" decoding="async" /></p>
+<p><em>I fucking love you all. That was a fun(ny) read.</em> <em>Reminded me of a certain &quot;S&quot; guy.</em></p>
+<p><em>Please, for the love of god,</em> <strong>follow a good coding convention</strong> (maybe someone else's or create your own from the other good ones).</p>
+<p><em>A bad coding style will make everyone (including yourselves) question their very own existence, to the point of suicide. You fuckers will cause The Fifth Impact and kill every-fucking-body with your smelly codes.</em></p>
+<p><strong>Tech companies do have their own conventions</strong> for different languages (and tools to format their codes to follow such conventions as well, like <code>clang-format</code>).</p>
+<p>Here are some of the guides that I've found online:</p>
+<ul>
+<li>
+<p><a rel="noopener" target="_blank" href="https://github.com/isocpp/CppCoreGuidelines">The Core Guidelines</a> (a project led by Bjarne Stroustrup, the creator of C++)</p>
+</li>
+<li>
+<p><a rel="noopener" target="_blank" href="https://llvm.org/docs/CodingStandards.html">LLVM</a></p>
+</li>
+<li>
+<p><a rel="noopener" target="_blank" href="https://google.github.io/styleguide/cppguide.html">Google</a> (my favorite, although there are minor stuff I don't like)</p>
+</li>
+<li>
+<p><a rel="noopener" target="_blank" href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/styleguide/styleguide.md">Chromium</a></p>
+</li>
+<li>
+<p><a rel="noopener" target="_blank" href="https://firefox-source-docs.mozilla.org/code-quality/coding-style/index.html">Mozilla</a></p>
+</li>
+<li>
+<p><a rel="noopener" target="_blank" href="https://webkit.org/code-style-guidelines/">Webkit</a></p>
+</li>
+<li>
+<p><a rel="noopener" target="_blank" href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/code-style-rule-options?view=vs-2022">Microsoft</a></p>
+</li>
+<li>
+<p><a rel="noopener" target="_blank" href="https://www.gnu.org/prep/standards/standards.html">GNU</a> (tbh this one scares me, the ancient <em>standard</em> by boomers, like <em>wtf are those brackets</em>)</p>
+<p><img src="https://jalsol.github.io/blog/cs161-notes/no_extreme.png" alt="" loading="lazy" decoding="async" /></p>
+<p>No. Please, no.</p>
+</li>
+</ul>
+<p><strong>Do not try to go to an extreme</strong>. Your codes should <strong>look readable, not look cool</strong>. If you ever see extreme examples, they are merely for demonstration purposes. <em>People will hate you if they cannot read your codes.</em></p>
+<h2 id="using-namespace-std"><code>using namespace std;</code></h2>
+<p><em>You are fucking mental if you use <code>using namespace std;</code>. It is goddamn evil and <a rel="noopener" target="_blank" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#sf7-dont-write-using-namespace-at-global-scope-in-a-header-file">it is forbidden by the core guidelines</a>.</em> <strong>It defeats the whole purpose of namespaces.</strong> <em>People will fucking hate you</em>. <em>This is not Competitive Programming.</em> The professors will not let you do this later in the curriculum. Get used to not using it while you can.</p>
+<p><em>(Actually, you can still use it, but you'll eventually have to stop and adapt to the new coding style without it. Change your habits sooner than later ig?)</em></p>
+<p><strong>For advanced readers:</strong> There are some exceptions to this &quot;rule&quot;, like <code>using namespace</code> inside a block. If a namespace is too long, consider namespace aliases. You can read more about <code>using</code> from the reference below.</p>
+<p>Reference:</p>
+<p><a rel="noopener" target="_blank" href="https://www.learncpp.com/cpp-tutorial/using-declarations-and-using-directives/">6.12 - Using declarations and using directives</a></p>
+<h2 id="passing-by-value-vs-passing-by-reference">&quot;Passing by value&quot; vs. &quot;Passing by reference&quot;</h2>
+<p>Dr. Tien mentioned that &quot;passing by reference&quot; is faster. This is true for <strong>many, but not all</strong> cases. I had an argument, and the professor agreed, but some classmates did not pay attention (which made me sad).</p>
+<p>Reference: </p>
+<p><a rel="noopener" target="_blank" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-in">C++ Core Guidelines</a></p>
+<p>To summarize, <strong>&quot;cheap-to-copy&quot; data types should be copied,</strong> which is better both performance-wise and safety-wise. <strong>Others should be referenced</strong>. </p>
+<p>A &quot;cheap-to-copy&quot; data type usually has a size of 2 or 3 words (which is 32 to 48 bits on 32-bit architectures, like <code>int</code>, <code>float</code>, or <code>char</code> for example). Examples of more complex data types are <code>std::vector</code> or <code>std::string</code>.</p>
+<p>This is why <code>const int&amp; x</code> does not make sense. Be aware of what you use and think about them.</p>
+<h2 id="ifndef-guard-for-header-files"><code>#ifndef</code> guard for header files</h2>
+<p>Reference:</p>
+<p><a rel="noopener" target="_blank" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#sf8-use-include-guards-for-all-header-files">C++ Core Guidelines</a></p>
+<p><img src="https://jalsol.github.io/blog/cs161-notes/no_guard.png" alt="" loading="lazy" decoding="async" /></p>
+<p><img src="https://jalsol.github.io/blog/cs161-notes/search.png" alt="" loading="lazy" decoding="async" /></p>
+<p>Right, as if every freshman knows how to use a search engine properly. </p>
+<p>Many of you have the <code>MyFunction.h</code> file implemented like this:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// MyFunction.h
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">SomeFunc</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">char </span><span style="font-style:italic;color:#e64553;">a</span><span style="color:#7c7f93;">[]);
+</span></code></pre>
+<p>This is indeed problematic. Here's an example.</p>
+<p>If your code somehow includes <code>MyFunction.h</code> multiple times:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// main.cpp
+</span><span style="color:#8839ef;">#include </span><span style="color:#40a02b;">&quot;MyFunction.h&quot;
+</span><span style="color:#8839ef;">#include </span><span style="color:#40a02b;">&quot;MyFunction.h&quot;
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// something
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>Including a header file is basically copying the whole content of that file. So, after preprocessing, <code>main.cpp</code> will look like this:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// main.cpp
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">SomeFunc</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">char </span><span style="font-style:italic;color:#e64553;">a</span><span style="color:#7c7f93;">[]);
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">SomeFunc</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">char </span><span style="font-style:italic;color:#e64553;">a</span><span style="color:#7c7f93;">[]); </span><span style="font-style:italic;color:#9ca0b0;">// duplicated
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// something
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p><code>SomeFunc</code> is declared twice. You cannot declare a function exactly twice like this. This is where the <code>#ifndef</code> guard becomes useful.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// MyFunction.h
+</span><span style="color:#8839ef;">#ifndef</span><span> MY_FUNCTION_H
+</span><span style="color:#8839ef;">#define </span><span style="color:#fe640b;">MY_FUNCTION_H
+</span><span>
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">SomeFunc</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">char </span><span style="font-style:italic;color:#e64553;">a</span><span style="color:#7c7f93;">[]);
+</span><span>
+</span><span style="color:#8839ef;">#endif </span><span style="font-style:italic;color:#9ca0b0;">// MY_FUNCTION_H
+</span></code></pre>
+<p>This is how it works:</p>
+<ul>
+<li>It checks whether there's any existing definition of <code>MY_FUNCTION_H</code></li>
+<li>If it is <strong>already defined</strong> then it will <strong>stop</strong>, otherwise, continue</li>
+<li>Create the definition <code>MY_FUNCTION_H</code></li>
+<li>Declare the function <code>SomeFunc</code></li>
+</ul>
+<p>With this, if a header file is included multiple times, only the first time counts.</p>
+<p>Another alternative is <code>#pragma once</code>, but it is not standard and not portable (although major C++ compilers do support it).</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// MyFunction.h
+</span><span style="color:#8839ef;">#pragma</span><span> once
+</span><span>
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">SomeFunc</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">char </span><span style="font-style:italic;color:#e64553;">a</span><span style="color:#7c7f93;">[]);
+</span></code></pre>
+<p><del>My take is <strong>just don't use it</strong>. Others might have different opinions.</del> I now use it for my projects. There are some caveats here and there, but it's fine.</p>
+<p><strong>Naming convention:</strong> If your header file is <code>MyFunction.h</code>, <strong>follow the <em>goddamn</em> file name</strong> and name your definition <code>MY_FUNCTION_H</code>.</p>
+<p><em>Do not name it <code>toanthemcu</code>, <code>TOANTHEMCU</code>, or <code>TOAN_THEM_CU</code>, or other random stuff because you feel like it (Toan doesn't like this).</em></p>
+<p><em>Well, maybe if your header file is <code>ToanThemCu.h</code> then <code>TOAN_THEM_CU_H</code> is a good choice.</em></p>
+<p>I don't strictly follow <a rel="noopener" target="_blank" href="https://google.github.io/styleguide/cppguide.html#The__define_Guard">Google</a>'s convention but it's good. Check that out.</p>
+<h2 id="something-h-vs-csomething"><code>&lt;something.h&gt;</code> vs. <code>&lt;csomething&gt;</code></h2>
+<p>On the slides, header files such as <code>string.h</code> and <code>ctype.h</code> are included. Those are actually C header files. Not C++.</p>
+<p>There are updated, standardized C++ versions of them.</p>
+<ul>
+<li><code>string.h</code> → <code>cstring</code></li>
+<li><code>ctype.h</code> → <code>cctype</code></li>
+</ul>
+<p>You can see the pattern here. Replace <code>something.h</code> with <code>csomething</code>.</p>
+<p>One thing to notice is that, since these are made to follow the C++ standard, functions like <code>strlen</code> are now implemented inside <code>namespace std</code>. So use <code>std::strlen</code> instead of <code>strlen</code> <em>(remember to use <code>std::</code> and not <code>using namespace std;</code>).</em></p>
+<h2 id="header-vs-header"><code>&lt;header&gt;</code> vs. <code>&quot;header&quot;</code></h2>
+<p>Reference:</p>
+<p><a rel="noopener" target="_blank" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#sf12-prefer-the-quoted-form-of-include-for-files-relative-to-the-including-file-and-the-angle-bracket-form-everywhere-else">C++ Core Guidelines</a></p>
+<p>Quick one to answer. </p>
+<ul>
+<li><code>&lt;header&gt;</code> will try to look for <code>header</code> in the compiler's directories right away.</li>
+<li><code>&quot;header&quot;</code> will look in <strong>your local directory</strong> first, then look in the compiler's directories.</li>
+</ul>
+<p>Use <code>&lt;&gt;</code> for system headers and <code>&quot;&quot;</code> for your stuff (including files you write and libraries you install as third parties).</p>
+<h2 id="using-strlen-inside-a-loop-condition">Using <code>strlen</code> inside a loop condition</h2>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">int</span><span> i </span><span style="color:#179299;">= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">;</span><span> i </span><span style="color:#179299;">&lt; </span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#1e66f5;">strlen</span><span style="color:#7c7f93;">(</span><span>str</span><span style="color:#7c7f93;">); </span><span style="color:#179299;">++</span><span>i</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// something
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>This is bad (<em>unless you don't give a fuck about performance</em>).</p>
+<p>The condition is checked before every iteration. <code>std::strlen</code> will be <strong>executed for every single check</strong>. It will <strong>run through the whole string</strong> to get the size.</p>
+<p>This means that you are repeatedly running through the whole string, again and again, while you know that its size will not change (or will have minor changes that you can easily control).</p>
+<p>That is very inefficient. This is what I would do instead:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int</span><span> len </span><span style="color:#179299;">= </span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#1e66f5;">strlen</span><span style="color:#7c7f93;">(</span><span>str</span><span style="color:#7c7f93;">);
+</span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">int</span><span> i </span><span style="color:#179299;">= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">;</span><span> i </span><span style="color:#179299;">&lt;</span><span> len</span><span style="color:#7c7f93;">; </span><span style="color:#179299;">++</span><span>i</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// something
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p><code>std::strlen</code> is run <strong>once</strong>. Its result is now stored in a variable called <code>len</code>.</p>
+<p>Dr. Tien did mention that the compiler can optimize out <code>std::strlen</code>. However, apparently, <a rel="noopener" target="_blank" href="https://stackoverflow.com/questions/50237841/is-strlen-optimized-out-for-string-literals">it's only true for string literals</a> (strings with constant values), and that only applies to <em>some</em> compilers, not all of them. So watch out if you care about performance (which is not exactly something you should care about on CS161, but meh).</p>
+<h2 id="constexpr"><code>constexpr</code></h2>
+<p>Some of you might remember seeing me using this. Now that you are probably introduced to <code>const</code>, I will talk a bit about <code>constexpr</code> as well.</p>
+<p><strong>Note:</strong> <code>constexpr</code> is available since C++11, so perhaps it's fine to skip this part for now.</p>
+<p>Here's the thing: <code>const</code> is <strong>not</strong> truly constant.</p>
+<p>The <strong>only</strong> &quot;constant&quot; thing about <code>const</code> is that it <strong>disallows</strong> <strong>direct modification</strong> of the value of the variable (however, with some <em>pointer magic fuckery</em>, you can work around this).</p>
+<p>To have &quot;true constants&quot;, C users use <code>#define</code> or <code>enum</code>. There are certain ups and downs of each method. You can find a ton of talks about these online (for <a rel="noopener" target="_blank" href="https://stackoverflow.com/questions/1674032/static-const-vs-define-vs-enum">example</a>).</p>
+<p>However, since C++11, we C++ programmers will have <code>constexpr</code>.</p>
+<ul>
+<li><code>constexpr</code> assigns the value at compile time (so it will take a bit of a while to compile) instead of run time, thus your program runs faster. <code>const</code> however assigns the value at run time (although the compiler can assign them at compile time if possible as a way to optimize your program, but still a hit-or-miss).</li>
+<li><code>constexpr</code> will produce a symbol so you can look it up via a debugger (which won't work with <code>#define</code>).</li>
+<li><code>constexpr</code> is more expressive than <code>enum</code> in many cases. <code>constexpr</code> is used to express some single values, while <code>enum</code> is used with a collection of values (<em>single-value-<code>enum</code>s are cringe and you can't say otherwise</em>).</li>
+</ul>
+<p>There's also this <code>consteval</code> thingy but it's available since C++20, so I will not talk about it here.</p>
+<h2 id="global-variables">Global variables</h2>
+<p>Example:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// main.cpp
+</span><span style="color:#8839ef;">#include </span><span style="color:#40a02b;">&lt;iostream&gt;
+</span><span>
+</span><span style="color:#8839ef;">int</span><span> a</span><span style="color:#7c7f93;">;
+</span><span style="color:#8839ef;">float</span><span> x</span><span style="color:#7c7f93;">;
+</span><span style="color:#8839ef;">bool</span><span> nig</span><span style="color:#7c7f93;">[</span><span style="color:#fe640b;">69420</span><span style="color:#7c7f93;">];
+</span><span>
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">f</span><span style="color:#7c7f93;">();
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// something
+</span><span style="color:#7c7f93;">}
+</span><span>
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">f</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// something
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p><code>a</code>, <code>x</code>, and <code>nig</code> are global variables. They are declared in the global scope. They are automatically initialized with their default values. They don't crash your stack size all of a sudden. They help you not write a long list of function arguments. <em>You are a competitive programmer.</em> And stuff.</p>
+<p>Ok, that seems cool. <strong>But it's actually a bad practice if you don't know what you are doing.</strong></p>
+<ul>
+<li>Every function can change such variables. Your functions will have a hard time trying to control when and how 'em variables update.</li>
+<li>They stay persistent in your program until it stops. It's a waste of memory if you only use them a few times.</li>
+<li>And other reasons I can't recall for now.</li>
+</ul>
+<p>If you <strong>really</strong> need to use global variables, there are measures for that. This is actually a very debatable topic. You can look it up online. Those style guides provide some cool insights that you can learn from.</p>
+<h2 id="string-strlen-string-0"><code>string[strlen(string)] == '\0'</code></h2>
+<p>Dr. Tien mentioned this. This is a special thing about C-string.</p>
+<p>Assuming the length of the string is <code>n</code>, then <code>string[n]</code> is <code>'\0'</code> (if the string is safely null-terminated). It is fine to access this element.</p>
+<p>However, if the array is <strong>not an array of char</strong>, then it <strong>will not be safe</strong> anymore.</p>
+<h2 id="type-of-string-literals">Type of string literals</h2>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">func</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">char </span><span style="font-style:italic;color:#e64553;">str</span><span style="color:#7c7f93;">[]);
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">func</span><span style="color:#7c7f93;">(</span><span style="color:#40a02b;">&quot;something&quot;</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// Failed
+</span><span>
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// workaround
+</span><span>    </span><span style="color:#8839ef;">char</span><span> str</span><span style="color:#7c7f93;">[] </span><span style="color:#179299;">= </span><span style="color:#40a02b;">&quot;something&quot;</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">func</span><span style="color:#7c7f93;">(</span><span>str</span><span style="color:#7c7f93;">);
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>This leads to a compilation error. What's the reason behind this?</p>
+<p><code>&quot;something&quot;</code> actually has the type of <code>const char[10]</code>.</p>
+<p><code>10</code> is the size of our string, including the terminating null. However, what I would like to point out is the <code>const</code>. <code>&quot;something&quot;</code> is a constant value, so it's just intuitive that its type contains a <code>const</code>.</p>
+<p>Since you can't really pass a <code>const char[]</code> to a <code>char[]</code> parameter, the compilation will fail. The fix is to make <code>str</code> in the parameter also a <code>const char[]</code>.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// Notice it&#39;s now &quot;const&quot;
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">func</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">const char </span><span style="font-style:italic;color:#e64553;">str</span><span style="color:#7c7f93;">[]);
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">func</span><span style="color:#7c7f93;">(</span><span style="color:#40a02b;">&quot;something&quot;</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// OK
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>You can, however, pass a <code>char[]</code> to a <code>const char[]</code> parameter. That means the above fix will still allow you to do something like this:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// Notice it&#39;s now &quot;const&quot;
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">func</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">const char </span><span style="font-style:italic;color:#e64553;">str</span><span style="color:#7c7f93;">[]);
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">char</span><span> str</span><span style="color:#7c7f93;">[] </span><span style="color:#179299;">= </span><span style="color:#40a02b;">&quot;something&quot;</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">func</span><span style="color:#7c7f93;">(</span><span>str</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// OK
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>You may also notice there is a similar relationship with reference parameters (<code>int&amp; a</code> vs. <code>const int&amp; a</code>): adding a <code>const</code> allow you to pass literals as parameters.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">funcRef</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">int</span><span style="color:#179299;">&amp; </span><span style="font-style:italic;color:#e64553;">a</span><span style="color:#7c7f93;">);
+</span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">funcConstRef</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">const int</span><span style="color:#179299;">&amp; </span><span style="font-style:italic;color:#e64553;">a</span><span style="color:#7c7f93;">);
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">funcRef</span><span style="color:#7c7f93;">(</span><span style="color:#fe640b;">5</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// Failed
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">funcConstRef</span><span style="color:#7c7f93;">(</span><span style="color:#fe640b;">5</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// OK
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>Reference:</p>
+<p><a rel="noopener" target="_blank" href="https://en.cppreference.com/w/cpp/language/string_literal">String literal</a></p>
+<p><a rel="noopener" target="_blank" href="https://stackoverflow.com/questions/15508148/what-is-the-type-of-a-string-literal-in-c">https://stackoverflow.com/questions/15508148/what-is-the-type-of-a-string-literal-in-c</a></p>
+<p><a rel="noopener" target="_blank" href="https://stackoverflow.com/questions/15508148/what-is-the-type-of-a-string-literal-in-c">What is the type of a string literal in C++?</a></p>
+<h2 id="istream-get-an-empty-line"><code>istream::get</code> an empty line</h2>
+<p>A pretty good topic was brought up. <code>istream::get</code> is the way you are taught to read a line.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">char</span><span> s</span><span style="color:#7c7f93;">[</span><span style="color:#fe640b;">50</span><span style="color:#7c7f93;">];
+</span><span>std</span><span style="color:#179299;">::</span><span>cin</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">get</span><span style="color:#7c7f93;">(</span><span>s</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">50</span><span style="color:#7c7f93;">, </span><span style="color:#40a02b;">&#39;</span><span style="color:#ea76cb;">\n</span><span style="color:#40a02b;">&#39;</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// First read
+</span><span>std</span><span style="color:#179299;">::</span><span>cin</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">ignore</span><span style="color:#7c7f93;">(</span><span style="color:#fe640b;">10000000</span><span style="color:#7c7f93;">, </span><span style="color:#40a02b;">&#39;</span><span style="color:#ea76cb;">\n</span><span style="color:#40a02b;">&#39;</span><span style="color:#7c7f93;">);
+</span><span>std</span><span style="color:#179299;">::</span><span>cin</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">get</span><span style="color:#7c7f93;">(</span><span>s</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">50</span><span style="color:#7c7f93;">, </span><span style="color:#40a02b;">&#39;</span><span style="color:#ea76cb;">\n</span><span style="color:#40a02b;">&#39;</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// Second read
+</span></code></pre>
+<p>If we press Enter right at the first read, then the second read will be skipped altogether. Why does this happen?</p>
+<p>Let's have a closer look at the <a rel="noopener" target="_blank" href="https://en.cppreference.com/w/cpp/io/basic_istream/get">document of <code>istream::get</code></a>, from overload (4) of the function:</p>
+<blockquote>
+<p>If no characters were extracted, calls <code>setstate(failbit)</code>.</p>
+</blockquote>
+<p>This <code>failbit</code> state is the reason why the second read is not called.</p>
+<p><code>istream::clear()</code> can be used to solve it, but <strong>I'd advise using <code>istream::getline</code> to read an actual line</strong>.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">char</span><span> s</span><span style="color:#7c7f93;">[</span><span style="color:#fe640b;">50</span><span style="color:#7c7f93;">];
+</span><span>std</span><span style="color:#179299;">::</span><span>cin</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">getline</span><span style="color:#7c7f93;">(</span><span>s</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">50</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// First read
+</span><span>std</span><span style="color:#179299;">::</span><span>cin</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">getline</span><span style="color:#7c7f93;">(</span><span>s</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">50</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// Second read
+</span></code></pre>
+<p>Notice there is no <code>istream::ignore</code> between 2 reads. It is because <strong><code>istream::getline</code> reads the end-line character and then discards it</strong>. <code>istream::get</code> will leave the end-line character in the buffer, so you would have to clear it manually.</p>
+
+
+            </main>
+            <footer>
+                
+<p class="taxonomies">
+
+</p>
+
+                
+            </footer>
+        </div>
+    </body>
+</html>
+        
