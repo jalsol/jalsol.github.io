@@ -158,14 +158,14 @@ func1():
         mov     rbp, rsp
         mov     DWORD PTR [rbp-4], 17
         mov     DWORD PTR [rbp-8], 9
-        mov     eax, DWORD PTR [rbp-4]
+        mov     eax, DWORD PTR [rbp-4] # load dividend
         cdq
-        idiv    DWORD PTR [rbp-8]
+        idiv    DWORD PTR [rbp-8]      # load divisor -> divide
         pop     rbp
         ret
 ```
 
-Both the value of `a` and `b` are loaded to the memory at `[rbp-4]` and
+Both the values of `a` and `b` are loaded to the memory at `[rbp-4]` and
 `[rbp-8]`, respectively.
 
 > Note: Due to keeping the stack as is (because no optimization flags are
@@ -195,9 +195,10 @@ func2():
         mov     rbp, rsp
         mov     DWORD PTR [rbp-4], 17
         mov     DWORD PTR [rbp-8], 9
-        mov     eax, 17 # <== updated here
+        mov     eax, 17 # load dividend as 17,
+                        # no memory access
         cdq
-        idiv    DWORD PTR [rbp-8]
+        idiv    DWORD PTR [rbp-8] # load divisor -> divide
         pop     rbp
         ret
 ```
@@ -215,8 +216,9 @@ int func2p() {
 }
 ```
 
-Notice how `a` is gone. Using `constexpr` like `func2()`, we can have the code
-with the same performance as `func2p()` without "losing" a variable.
+Notice how `a` is gone. Using `constexpr` like in `func2()`, we can have the
+code with the same performance as `func2p()` without replacing the variable
+with its value by hand.
 
 ### `constexpr` divisor
 
@@ -234,13 +236,14 @@ func3():
         mov     rbp, rsp
         mov     DWORD PTR [rbp-4], 17
         mov     DWORD PTR [rbp-8], 9
-        mov     eax, DWORD PTR [rbp-4]
+        mov     eax, DWORD PTR [rbp-4] # load dividend
         movsx   rdx, eax
-        imul    rdx, rdx, 954437177
-        shr     rdx, 32
-        sar     edx
-        sar     eax, 31
-        sub     edx, eax
+        imul    rdx, rdx, 954437177    # multiply the dividend
+                                       # with (1/9 mod 2^32)
+        shr     rdx, 32     # these lines of code are
+        sar     edx         # normalizing the result
+        sar     eax, 31     # of the division
+        sub     edx, eax    # to account for inaccuracy
         mov     eax, edx
         pop     rbp
         ret
@@ -251,6 +254,10 @@ Notice we are not using `idiv` anymore. We are using another trick instead.
 This seemingly "magic" value of `954437177` is actually (1/9 mod 2^32). Instead
 of doing `17/9`, we are doing `17 * 1/9` with the faster `imul` instruction. The
 compiler calculates 1/9 beforehand.
+
+This technique is called "Division by Invariant Multiplication". A bunch of
+arithmetic instructions in the second half of the function are normalizing the
+result to compensate for the inaccuracy that may happen.
 
 The equivalent C++ code will be:
 
@@ -277,7 +284,7 @@ func4():
         mov     rbp, rsp
         mov     DWORD PTR [rbp-4], 17
         mov     DWORD PTR [rbp-8], 9
-        mov     eax, 1
+        mov     eax, 1    # return 1
         pop     rbp
         ret
 ```
@@ -329,18 +336,19 @@ main:
         push    rbp
         mov     rbp, rsp
         sub     rsp, 16
-        mov     DWORD PTR [rbp-4], 5
-        mov     eax, DWORD PTR [rbp-4]
-        mov     edi, eax
-        call    add_five(int)
-        mov     DWORD PTR [rbp-8], eax
-        mov     DWORD PTR [rbp-12], 15
+        mov     DWORD PTR [rbp-4], 5    # n := 5
+        mov     eax, DWORD PTR [rbp-4]  # eax := n
+        mov     edi, eax                # edi := eax
+        call    add_five(int)           # eax := add_five(edi)
+        mov     DWORD PTR [rbp-8], eax  # a := eax
+        mov     DWORD PTR [rbp-12], 15  # b := 15
         mov     eax, 0
         leave
         ret
 ```
 
-`add_five` is a `constexpr` function.
+`add_five` is a `constexpr` function. It is kept in the assembly, because later
+on, it will be used in run time.
 
 It can be seen that `a` is an **immutable** variable as its value will be
 determined during run time. There is indeed a call to `add_five`, with `n` as
@@ -383,7 +391,7 @@ int main() {
 main:
         push    rbp
         mov     rbp, rsp
-        mov     DWORD PTR [rbp-4], 15
+        mov     DWORD PTR [rbp-4], 15   # b := 15
         mov     eax, 0
         pop     rbp
         ret
@@ -391,6 +399,9 @@ main:
 
 Pretty much the same effect. However, it will fail to compile if it can't
 evaluate during compile time.
+
+The function `add_five` is also gone in the assembly as well: it can only be
+executed in compile time, and it should not exist after compilation is done.
 
 ## `if constexpr`
 
