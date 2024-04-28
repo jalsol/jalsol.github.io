@@ -23,7 +23,7 @@ I assume you have read my notes on CS161, and you know how I write my content.
 
 > Once again, if you see vulgar language from me on this blog, it's **most likely ~~satire~~ a safety warning and there's no intention to hurt anyone**. Don't take it personally.
 
-> **I will also assume that you know your lessons from the lectures.** I will not be discussing basic concepts. This is more like an expansion to provide deeper knowledge. **Thus, this blog can be useless for reviewing your lessons.** For review, check out [Study with 22APCS2](https://hc22apcs2.github.io/docs/CS162/).
+> **I will also assume that you know your lessons from the lectures.** I will not be discussing basic concepts. This is more like an expansion to provide deeper knowledge. **Thus, this blog can be useless for reviewing your lessons.** For review, check out [Study with 22APCS2](https://hc22apcs2.github.io/docs/Sem_2/CS162/).
 
 ![](preface.png)
 
