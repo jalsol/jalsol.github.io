@@ -45,6 +45,8 @@ LinkedIn: [in/nqtr12](https://www.linkedin.com/in/nqtr12)
 <br/>
 Facebook page: [@jalsol.page](https://www.facebook.com/jalsol.page)
 <br/>
+YouTube channel: [@jalsol](https://www.youtube.com/@jalsol)
+<br/>
 Discord: [@jalsol](https://discordapp.com/users/773302164923351042)
 <br/>
 SoundCloud: [@jalsol](https://soundcloud.com/jalsol)
