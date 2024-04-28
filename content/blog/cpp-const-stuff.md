@@ -3,6 +3,7 @@ title: "C++'s const, constexpr, consteval"
 date: 2024-04-27
 extra:
     add_toc: true
+description: "Achieve better performance with C++'s const keywords."
 ---
 
 ## The `const` keywords in C++
