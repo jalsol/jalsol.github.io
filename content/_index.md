@@ -5,8 +5,8 @@ title: jalsol
 # ✨just a little spark of light.✨
 
 *"The hope is that the progress in hardware will cure all software ills. However,
-a critical observer may observe that software manages to outgrow hardware in
-size and sluggishness."*
+a critical observer may observe that **software manages to outgrow hardware in
+size and sluggishness.**"*
 
 ## who am i?
 
