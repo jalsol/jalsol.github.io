@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://jalsol.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://jalsol.github.io/blog/</loc>
+    </url>
+    <url>
+        <loc>https://jalsol.github.io/blog/cpp-const-stuff/</loc>
+        <lastmod>2024-04-27</lastmod>
+    </url>
+    <url>
+        <loc>https://jalsol.github.io/blog/cs161-notes/</loc>
+        <lastmod>2022-12-05</lastmod>
+    </url>
+    <url>
+        <loc>https://jalsol.github.io/blog/cs162-notes/</loc>
+        <lastmod>2023-03-18</lastmod>
+    </url>
+    <url>
+        <loc>https://jalsol.github.io/blog/cs201-decipher/</loc>
+        <lastmod>2023-11-30</lastmod>
+    </url>
+    <url>
+        <loc>https://jalsol.github.io/blog/jaledit/</loc>
+        <lastmod>2023-08-16</lastmod>
+    </url>
+    <url>
+        <loc>https://jalsol.github.io/blog/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://jalsol.github.io/blog/tt23-recap/</loc>
+        <lastmod>2023-03-25</lastmod>
+    </url>
+</urlset>
