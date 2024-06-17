@@ -41,7 +41,7 @@ audience).
 
 ## how do you contact me?
 
-Email: [jalsol@protonmail.com](mailto:jalsol@protonmail.com)
+Email: [nqtruong.1002@gmail.com](mailto:nqtruong.1002@gmail.com)
 <br/>
 GitHub: [@jalsol](https://github.com/jalsol)
 <br/>
