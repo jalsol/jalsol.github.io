@@ -3,6 +3,9 @@ title: jalsol's personal notes during CS161
 date: 2022-12-05
 extra:
     add_toc: true
+description: "Stuff you need to know while taking CS161"
+taxonomies:
+    tags: ["english", "cpp"]
 ---
 
 These are my personal thoughts. I just write them down and expand them into notes. ~~Please forgive me if I become aggressive at times.~~

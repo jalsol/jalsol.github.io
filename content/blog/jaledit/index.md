@@ -4,6 +4,8 @@ description: "Vim-like text editor that outperforms other existing editors"
 date: 2023-08-16
 extra:
     add_toc: true
+taxonomies:
+    tags: ["english", "cpp", "project", "coursework"]
 ---
 
 **NOTE**: This blog does not support TeX, so the TeX inline commands are all over the place. To see the submitted version, [click here](jaledit_report.pdf).

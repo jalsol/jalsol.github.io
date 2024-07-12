@@ -3,6 +3,9 @@ title: "Cảm nhận Thách thức 2024"
 date: 2024-07-10
 extra:
     add_toc: true
+description: "Tóm tắt và cảm nhận Thách Thức 2024"
+taxonomies:
+    tags: ["vietnamese", "thach thuc"]
 ---
 
 

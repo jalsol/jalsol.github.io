@@ -5,6 +5,10 @@ compile_sass = false
 build_search_index = false
 generate_feed = false
 
+taxonomies = [
+    { name = "tags" },
+]
+
 [markdown]
 highlight_code = true
 extra_syntaxes_and_themes = ["highlight_themes"]
@@ -21,5 +25,5 @@ twitter_card = false
 header_nav = [
     { name = "~home", url = "/" },
     { name = "*blogs", url = "/blog" },
+    { name = "#tags", url = "/tags" },
 ]
-

@@ -3,6 +3,9 @@ title: jalsol's insight notes on CS162
 date: 2023-03-18
 extra:
     add_toc: true
+description: "Stuff you need to know while taking CS162"
+taxonomies:
+    tags: ["english", "cpp"]
 ---
 
 ("C++ Weekly with Jalsol Turner")

@@ -3,6 +3,9 @@ title: "Thách Thức 2023: jalsol's recap"
 date: 2023-03-25
 extra:
     add_toc: true
+description: "Tóm tắt và cảm nhận Vòng loại Thách Thức 2023"
+taxonomies:
+    tags: ["vietnamese", "thach thuc"]
 ---
 
 # Lời nói đầu

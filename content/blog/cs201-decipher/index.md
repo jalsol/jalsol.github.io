@@ -4,6 +4,8 @@ date: 2023-11-30
 extra:
     add_toc: true
 description: "What are there beyond the usual CS201/CMU bomb defusion?"
+taxonomies:
+    tags: ["english", "coursework"]
 ---
 
 ## Introduction
