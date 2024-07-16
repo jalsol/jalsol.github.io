@@ -36,7 +36,7 @@ I like sharing my thoughts on the internet. My online posts usually consist of:
 - Competition afterthoughts;
 - Other thoughts about things in life.
 
-I write blogs in either English (for general blogs) or Vietnamese (for the local
+I write blogs in either [English](/tags/english/) (for general blogs) or [Vietnamese](/tags/vietnamese/) (for the local
 audience).
 
 ## how do you contact me?
