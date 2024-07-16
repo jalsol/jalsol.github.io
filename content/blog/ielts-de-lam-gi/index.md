@@ -3,7 +3,7 @@ title: "IELTS để làm gì?"
 date: 2024-07-05
 extra:
     add_toc: true
-description: "3 ngày nữa, chứng chỉ IELTS của mình hết hạn. Trong 2 năm vừa qua, IELTS 8.0 đã giúp mình được gì?"
+description: "Trong 2 năm vừa qua, IELTS 8.0 đã giúp mình được gì?"
 taxonomies:
     tags: ["vietnamese", "ielts"]
 ---
@@ -38,3 +38,9 @@ Mình thi IELTS quá trễ để được miễn môn Tiếng Anh khi thi tốt 
 Lý do mình thi là vì (1) và (4) ở trên. Mình biết thừa (1) với mình là quá dễ, nên mình nỗ lực chủ yếu là vì (4) - để khẳng định trình độ tiếng Anh của bản thân vẫn còn tốt, dù đã rời bỏ Anh sang Tin được 5 năm.
 
 (mấy đứa chuyên Anh cùng khóa gà vl)
+
+{{hr()}}
+
+Hồi trước, có một trung tâm luyện IELTS có đến quảng cáo ở bên ngoài thư viện của HCMUS cơ sở Q5. Họ cũng tư vấn mình đủ kiểu cho đến khi mình tiết lộ mình đã có IELTS 8.0. Họ hỏi mình rằng có IELTS thì cơ hội học hành và cơ hội việc làm trong lĩnh vực CNTT thì như thế nào.
+
+Ý đầu của bài viết này chính là câu trả lời của mình khi đó. Hy vọng lời khuyên của mình có thể giúp họ lùa gà nhiều hơn.

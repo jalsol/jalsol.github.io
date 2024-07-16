@@ -5,7 +5,7 @@ extra:
     add_toc: true
 description: "Cái giai đoạn năm lớp 10-11, tôi từng khá thân với một người bạn qua internet..."
 taxonomies:
-    tags: ["vietnamese"]
+    tags: ["vietnamese", "life"]
 ---
 
 [Đọc bài viết này trên Facebook của mình](https://www.facebook.com/jalsol.page/posts/pfbid02AC7gE2fKTLzSPdJkkJ8Lqpyn35mDAGie5mxsYq67ZsnKEeYFYDzh1BwRhJqrHJbUl)
