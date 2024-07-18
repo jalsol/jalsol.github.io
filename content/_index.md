@@ -43,14 +43,16 @@ audience).
 
 Email: [nqtruong.1002@gmail.com](mailto:nqtruong.1002@gmail.com)
 <br/>
-GitHub: [@jalsol](https://github.com/jalsol)
-<br/>
 LinkedIn: [in/nqtr12](https://www.linkedin.com/in/nqtr12)
+<br/>
+Discord: [@jalsol](https://discordapp.com/users/773302164923351042)
+<br/>
+Telegram: [@jalsol_12](https://t.me/jalsol_12)
+
+GitHub: [@jalsol](https://github.com/jalsol)
 <br/>
 Facebook page: [@jalsol.page](https://www.facebook.com/jalsol.page)
 <br/>
 YouTube channel: [@jalsol](https://www.youtube.com/@jalsol)
-<br/>
-Discord: [@jalsol](https://discordapp.com/users/773302164923351042)
 <br/>
 SoundCloud: [@jalsol](https://soundcloud.com/jalsol)
