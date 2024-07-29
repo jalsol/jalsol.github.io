@@ -4,29 +4,28 @@ title: jalsol
 
 # ✨just a little spark of light.✨
 
-*"The hope is that the progress in hardware will cure all software ills. However,
-a critical observer may observe that **software manages to outgrow hardware in
-size and sluggishness.**"*
-
 ## who am i?
 
-My (real) name is **Quang-Truong Nguyen**. I also have an internet nickname:
-**jalsol** (acronym for *"just a little spark of light"*).
+My (real) name is **<u>Nguyen</u> Quang Truong**. I also have an internet
+nickname: **jalsol** (acronym for *"just a little spark of light"*).
 
 You can call me:
 - **Truong** (the Vietnamese way);
-- **Quang-Truong** (the Chinese/Korean/etc. way);
+- **Quang Truong** (the Chinese/Korean/etc. way);
 - **jalsol** (my internet nickname).
+
+*I should probably have an English name? I used to have one, but I haven't used
+it since childhood.*
 
 My pronouns are **he/him** (ever since birth and will always be).
 
 ## what do i do?
 
-I am currently a student of **APCS @ VNUHCM - University of Science**, class of
+I am a student of **APCS @ VNUHCM - University of Science**, class of
 2022 - 2026.
 
-In August 2024, I'm becoming a **DiscoverNUS** exchange student at the
-**National University of Singapore** for AY2024/2025-S1.
+I'm also exchanging at **National University of Singapore** during AY2024/2025-S1
+(as a VNUHCM representative via **[DiscoverNUS](https://masters.nus.edu.sg/docs/default-source/scholarships-and-financial-aid/nus-asean-master's-scholarship/discovernus-and-nus-asean-master's-scholarship.pdf))**.
 
 ## what are these all about?
 
@@ -48,6 +47,8 @@ LinkedIn: [in/nqtr12](https://www.linkedin.com/in/nqtr12)
 Discord: [@jalsol](https://discordapp.com/users/773302164923351042)
 <br/>
 Telegram: [@jalsol_12](https://t.me/jalsol_12)
+<br/>
+WhatsApp: *(please ask me directly for this one)*
 
 GitHub: [@jalsol](https://github.com/jalsol)
 <br/>
