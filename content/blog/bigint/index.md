@@ -136,7 +136,7 @@ Why 9 characters? 10^9 fits an `int` and (10^9) * (10^9) fits a `long long`. We 
 
 This is another trick up in my sleeves.
 
-So far, I have been using `std::vector`. However, `std::string`s (or `std::baisc_string`s to be precise) are implemented a bit differently.
+So far, I have been using `std::vector`. However, `std::string`s (or `std::basic_string`s to be precise) are implemented a bit differently.
 
 A dynamic array usually contains a pointer to the allocated data, a size and a capacity:
 
@@ -195,7 +195,7 @@ Each "digit" stores 9 characters at a time. `int` technically should be enough, 
 
 ### `constexpr`
 
-I also wanted to try making my `BigInt` class `constexpr`-friendly. Well yes it is, but since being `constexpr`-friendly doesn't mean being `constexpr` (you can only use it as an intermediate for calculation, not the returning container). I read somewhere that the C++ committee rejected the idea of turning heap allocation `constexpr`.
+I also wanted to try making my `BigInt` class `constexpr`-friendly. Well yes it is, but for now, being `constexpr`-friendly doesn't mean being `constexpr` (you can only use it as an intermediate value for calculation, not as the actual returning value). I read somewhere that the C++ committee rejected the idea of turning heap allocation `constexpr`.
 
 ## Actual result
 
@@ -207,7 +207,7 @@ I also wanted to try making my `BigInt` class `constexpr`-friendly. Well yes it 
 
 ### Multiplication
 
-Well, I use the kid method, what do you expect? [It got Time Limit Exceeded](https://judge.yosupo.jp/submission/212882). The solution is to use FFT and/or Karatsuba. I was too lazy, and the problem statement said nothing about execution speed, so I settled with the simplest trick.
+Well, I use the kid method, what do you expect? [It got Time Limit Exceeded](https://judge.yosupo.jp/submission/212882). The solution is to use FFT and/or Karatsuba. I was too lazy, and the problem statement said nothing about execution speed, so I settled down with the simplest trick.
 
 ### Did I actually get the internship?
 
