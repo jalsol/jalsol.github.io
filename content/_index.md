@@ -14,9 +14,6 @@ You can call me:
 - **Quang Truong** (the Chinese/Korean/etc. way);
 - **jalsol** (my internet nickname).
 
-*I should probably have an English name? I used to have one, but I haven't used
-it since childhood.*
-
 My pronouns are **he/him** (ever since birth and will always be).
 
 ## what do i do?
