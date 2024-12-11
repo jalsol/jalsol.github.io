@@ -18,11 +18,11 @@ My pronouns are **he/him** (ever since birth and will always be).
 
 ## what do i do?
 
-I am a student of **APCS @ VNUHCM - University of Science**, class of
-2022 - 2026.
+I am a student of **APCS @ VNUHCM - University of Science**, cohort of
+2022-2026.
 
-I'm also exchanging at **National University of Singapore** during AY2024/2025-S1
-(as a VNUHCM representative via **[DiscoverNUS](https://masters.nus.edu.sg/docs/default-source/scholarships-and-financial-aid/nus-asean-master's-scholarship/discovernus-and-nus-asean-master's-scholarship.pdf))**.
+I exchanged at **National University of Singapore** in AY2024/2025-S1
+(as a VNUHCM representative from **[DiscoverNUS](https://masters.nus.edu.sg/docs/default-source/scholarships-and-financial-aid/nus-asean-master's-scholarship/discovernus-and-nus-asean-master's-scholarship.pdf))**.
 
 ## what are these all about?
 
@@ -44,8 +44,6 @@ LinkedIn: [in/nqtr12](https://www.linkedin.com/in/nqtr12)
 Discord: [@jalsol](https://discordapp.com/users/773302164923351042)
 <br/>
 Telegram: [@jalsol_12](https://t.me/jalsol_12)
-<br/>
-WhatsApp: *(please ask me directly for this one)*
 
 GitHub: [@jalsol](https://github.com/jalsol)
 <br/>
