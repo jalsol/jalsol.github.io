@@ -6,17 +6,15 @@ title: jalsol
 
 ## who am i?
 
-My (real) name is **<u>Nguyen</u> Quang Truong**. I also have an internet
-nickname: **jalsol** (acronym for *"just a little spark of light"*).
-
-You can call me:
-- **Truong** (the Vietnamese way);
-- **Quang Truong** (the Chinese/Korean/etc. way);
-- **jalsol** (my internet nickname).
+My (legal) name is **<u>Nguyen</u> Quang Truong**. I also have an internet
+nickname: **jalsol** (acronym for *"just a little spark of light"*). You can
+call me **Truong** or **jalsol**.
 
 My pronouns are **he/him** (ever since birth and will always be).
 
 ## what do i do?
+
+I am a **Software Engineer Intern @ [Holistics](https://www.holistics.io/)**.
 
 I am a student of **APCS @ VNUHCM - University of Science**, cohort of
 2022-2026.
