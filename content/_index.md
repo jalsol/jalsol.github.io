@@ -16,8 +16,7 @@ My pronouns are **he/him** (ever since birth and will always be).
 
 I am a **Software Engineer Intern @ [Holistics](https://www.holistics.io/)**.
 
-I am a student of **APCS @ VNUHCM - University of Science**, cohort of
-2022-2026.
+I am a student at VNUHCM, majoring in Computer Science, cohort of 2022-2026.
 
 I exchanged at **National University of Singapore** in AY2024/2025-S1
 (as a VNUHCM representative from **[DiscoverNUS](https://masters.nus.edu.sg/docs/default-source/scholarships-and-financial-aid/nus-asean-master's-scholarship/discovernus-and-nus-asean-master's-scholarship.pdf))**.
