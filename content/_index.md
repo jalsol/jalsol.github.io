@@ -36,7 +36,7 @@ audience).
 
 Email: [nqtruong.1002@gmail.com](mailto:nqtruong.1002@gmail.com)
 <br/>
-LinkedIn: [in/nqtr12](https://www.linkedin.com/in/nqtr12)
+LinkedIn: [in/nqtr](https://www.linkedin.com/in/nqtr)
 <br/>
 Discord: [@jalsol](https://discordapp.com/users/773302164923351042)
 <br/>
