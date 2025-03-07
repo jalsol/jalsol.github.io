@@ -12,7 +12,7 @@ taxonomies:
 
 ![](cover.png)
 
-CMU is known for having arguably the best Introduction to Computer Systems course in the world. Its course book (CS:APP) and its lab exercises are also brought into similar courses in universities around the world, including the course CS201 of APCS from VNUHCM-US.
+CMU is known for having arguably the best Introduction to Computer Systems course in the world. Its course book (CS:APP) and its lab exercises are also brought into similar courses in universities around the world.
 
 ## The normal process of the lab
 

@@ -12,7 +12,7 @@ taxonomies:
 
 3 ngày nữa, chứng chỉ IELTS của mình hết hạn. Trong 2 năm vừa qua, IELTS 8.0 đã giúp mình được gì?
 
-1. Đạt chuẩn đầu ra tiếng Anh của APCS (chỉ cần **IELTS 6.0/TOEFL iBT 79**);
+1. Đạt chuẩn đầu ra tiếng Anh của trường mình (chỉ cần **IELTS 6.0/TOEFL iBT 79**);
 2. Miễn bài kiểm tra tiếng Anh của Viettel Digital Talent (chỉ cần **tương đương TOEIC 600**);
 3. (Có lẽ?) một chút lợi thế khi đăng ký DiscoverNUS (**không bắt buộc chứng chỉ**);
 4. Khoe.
@@ -41,6 +41,6 @@ Lý do mình thi là vì (1) và (4) ở trên. Mình biết thừa (1) với m�
 
 {{hr()}}
 
-Hồi trước, có một trung tâm luyện IELTS có đến quảng cáo ở bên ngoài thư viện của HCMUS cơ sở Q5. Họ cũng tư vấn mình đủ kiểu cho đến khi mình tiết lộ mình đã có IELTS 8.0. Họ hỏi mình rằng có IELTS thì cơ hội học hành và cơ hội việc làm trong lĩnh vực CNTT thì như thế nào.
+Hồi trước, có một trung tâm luyện IELTS có đến quảng cáo ở bên ngoài thư viện trường mình. Họ cũng tư vấn mình đủ kiểu cho đến khi mình tiết lộ mình đã có IELTS 8.0. Họ hỏi mình rằng có IELTS thì cơ hội học hành và cơ hội việc làm trong lĩnh vực CNTT thì như thế nào.
 
 Ý đầu của bài viết này chính là câu trả lời của mình khi đó. Hy vọng lời khuyên của mình có thể giúp họ lùa gà nhiều hơn.
