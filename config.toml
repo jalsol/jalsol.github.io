@@ -1,9 +1,10 @@
 base_url = "https://jalsol.github.io"
+author = "Nguyen Quang Truong"
 theme = "no-style-please"
 description = "just a little spark of light."
 compile_sass = false
 build_search_index = false
-generate_feed = false
+generate_feed = true
 
 taxonomies = [
     { name = "tags" },
@@ -17,7 +18,6 @@ external_links_target_blank = true
 lazy_async_image = true
 
 [extra]
-author = "Quang-Truong Nguyen"
 logo = "images/hanabi_pfp.jpg"
 list_pages = false
 twitter_card = false
