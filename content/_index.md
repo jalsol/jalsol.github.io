@@ -2,32 +2,19 @@
 title: jalsol
 ---
 
-# ✨just a little spark of light.✨
+# ✨ *just a little spark of light.* ✨
 
 ## who am i?
 
-My (legal) name is **<u>Nguyen</u> Quang Truong**. I also have an internet
-nickname: **jalsol** (acronym for *"just a little spark of light"*). You can
-call me **Truong** or **jalsol**.
+I am **<u>Nguyen</u> Quang Truong**. My internet nickname is **jalsol** (acronym for *"just a little spark of light"*).
 
-My pronouns are **he/him** (ever since birth and will always be).
+You can call me **Truong** or **jalsol**.
 
-## what do i do?
-
-I am a **Software Engineer Intern @ [Holistics](https://www.holistics.io/)** (fyi we created **[dbdiagram](https://dbdiagram.io/)** and **[dbml](https://dbml.dbdiagram.io/home)**).
-
-I am a student at **VNUHCM**, majoring in Computer Science, cohort of 2022-2026.
-
-I exchanged at **National University of Singapore** in AY2024/2025-S1
-(as a VNUHCM representative from **[DiscoverNUS](https://masters.nus.edu.sg/docs/default-source/scholarships-and-financial-aid/nus-asean-master's-scholarship/discovernus-and-nus-asean-master's-scholarship.pdf))**.
+Pronouns are **he/him** (ever since birth and will always be).
 
 ## what are these all about?
 
-I like sharing my thoughts on the internet. My online posts usually consist of:
-- Personal project sharing;
-- Tips and tricks;
-- Competition afterthoughts;
-- Other thoughts about things in life.
+I like sharing my thoughts on the internet.
 
 I write blogs in either [English](/tags/english/) (for general blogs) or [Vietnamese](/tags/vietnamese/) (for the local
 audience).
