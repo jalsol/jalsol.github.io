@@ -8,8 +8,6 @@ taxonomies:
     tags: ["vietnamese", "life"]
 ---
 
-[Đọc bài viết này trên Facebook của mình](https://www.facebook.com/jalsol.page/posts/pfbid0CU9tgTEWUr33NwbGggJwk5kEVuXLGcVscGp5wGncVkYJfUt5uwf7cwFsEPBvJooDl)
-
 **TL;DR**: Khí hậu Kon Tum vô địch. Một vài hình ảnh về khí hậu Kon Tum trong ký ức của tôi. So sánh với Sài Gòn (thua Kon Tum là rõ).
 
 

@@ -9,12 +9,9 @@ taxonomies:
 
 Another project showcase. I am a huge music nerd, and the idea of a music player project came naturally. In fact, back in high school, I wanted to make my own self-hosted Spotify clone.
 
-<!-- <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-
-<object width="560" height="315">
-  <param name="movie" value="https://www.youtube-nocookie.com/embed/W366DG6BUpc">
-  <embed src="https://www.youtube-nocookie.com/embed/W366DG6BUpc" width="560" height="315">
-</object>
+<div style="display: flex;">
+  <iframe style="aspect-ratio: 16 / 9; width: 100% !important;" src="https://www.youtube.com/embed/W366DG6BUpc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 The theme is (clearly) inspired by Windows Media Player 11/12. I extracted wmploc.dll for the assets. I used Qt for this project, mainly because of the convenience and a reason for me to try a different C++ "flavor". Took a while to get used to, but then the development speed went significantly better (most of the programming was done in the very last week).
 

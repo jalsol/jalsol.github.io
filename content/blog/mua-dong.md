@@ -6,8 +6,6 @@ taxonomies:
     tags: ["vietnamese", "life"]
 ---
 
-[Đọc bài viết này trên Facebook của mình](https://www.facebook.com/jalsol.page/posts/pfbid02bDX8sfHcgXUwMf9vfKsRsGmwZYXoqRnpiWtFPkE8D8GUhR9evBGRmVMfKs9tCu1kl)
-
 Thời tiết sáng nay cũng lạnh dần rồi. Cái mùa "đông" đang dần kề cận mọi ngóc ngách của không khí muôn nơi. Mùa đông, không ấm áp như mùa xuân, chẳng cuồng nhiệt như mùa hạ, mà cũng đâu có dịu nhẹ như mùa thu. Ấy vậy, mùa đông là cái mùa tôi đã phải lòng từ lâu. Trừ cái việc đắp chăn ngủ nướng ra thì bản thân tôi cũng có mấy câu chuyện vui vẻ khác.
 
 ## 1. Bệnh

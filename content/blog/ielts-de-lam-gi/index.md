@@ -8,8 +8,6 @@ taxonomies:
     tags: ["vietnamese", "ielts"]
 ---
 
-[Đọc bài viết này trên Facebook của mình.](https://www.facebook.com/jalsol.page/posts/pfbid028Dt7p3D4P3SnM9U1xEsFR6GPcL6TBLWrxYn1uHAq2MR5npZhnyYGCWem6f1QU9cAl)
-
 3 ngày nữa, chứng chỉ IELTS của mình hết hạn. Trong 2 năm vừa qua, IELTS 8.0 đã giúp mình được gì?
 
 1. Đạt chuẩn đầu ra tiếng Anh của trường mình (chỉ cần **IELTS 6.0/TOEFL iBT 79**);

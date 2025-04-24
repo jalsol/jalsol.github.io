@@ -6,8 +6,6 @@ taxonomies:
     tags: ["vietnamese", "life"]
 ---
 
-Đọc [bài viết chính](https://www.facebook.com/jalsol.page/posts/pfbid0HM1Qi8Mh7p8EBmcjfnv8ejGTyPxp2ogWdwmLJcX5Y5UR8omkaXfUdWMkKiuP8MLUl) và [bài viết nối tiếp](https://www.facebook.com/jalsol.page/posts/pfbid0q8UUTAHPzwbyTAiNqKmVP4Ez5jUWyUWDB1m5seNHX275gUn5VY2umS5pjcNua6Ysl) trên Facebook của mình.
-
 **TL;DR**:
 - Câu chuyện của tôi về quà (và mấy thứ tương tự) cho người thân và người không phải người thân;
 - Đàn ông cũng muốn được yêu thương, nhưng điều đó có tới dễ dàng như với phụ nữ?

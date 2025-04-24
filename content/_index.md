@@ -31,8 +31,4 @@ Telegram: [@jalsol_12](https://t.me/jalsol_12)
 
 GitHub: [@jalsol](https://github.com/jalsol)
 <br/>
-Facebook page: [@jalsol.page](https://www.facebook.com/jalsol.page)
-<br/>
 YouTube channel: [@jalsol](https://www.youtube.com/@jalsol)
-<br/>
-SoundCloud: [@jalsol](https://soundcloud.com/jalsol)
