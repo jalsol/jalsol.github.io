@@ -13,7 +13,7 @@ TL;DR: Quan điểm của mình: Dù không cấm, nhưng không nên cúng ti�
 
 ![up-sot](up-sot.jpg)
 
-=============
+{{hr()}}
 
 Mình sống trên đời được 21 năm (sắp hẹo tới nơi, vừa mới đi khám ở Lão Khoa (!!) BV Quân Y 7a xong). Cũng đã đi trao đổi 1 (một) lần.
 

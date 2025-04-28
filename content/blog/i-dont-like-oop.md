@@ -27,7 +27,9 @@ Key takeaways from the video:
 
 OOP is extremely popular. OOP is taught right during the first or second year of college. Popular languages and frameworks have featured OOP for decades. People say that using OOP makes code cleaner, more flexible, and easier to develop. People learn OOP, learn design patterns, and some even worship them mindlessly.
 
-I don't like OOP (or at least the kind of OOP people are used to). I hate the fact that there are people arguing on the internet (very dumb of me, I know) and even professors who consider OOP to be the best (I was disappointed with Computer Science education in Vietnam).
+I don't like OOP (or at least the kind of OOP people are used to). I hate the fact that there are people arguing on the internet (very dumb of me, I know) and even professors who consider OOP to be the best **(I was disappointed with Computer Science education in Vietnam)**.
+
+{{hr()}}
 
 There is a paradox is that although OOP has existed for a very, very long time alongside the development of software engineering, it does not have a solid theoretical foundation. Functional Programming (the paradigm I currently like the most) is based on lambda calculus, while Imperative Programming is based on Turing machine. OOP is the opposite: people created OOP from decades ago, and only recently have they devised [a theory for it](https://arxiv.org/abs/2111.13384).
 
@@ -36,3 +38,7 @@ A huge problem in OOP and software engineering in general is too much abstractio
 There are design patterns in OOP created just because people wanted to "bypass" things that could be done very easily in other paradigms, such as Singleton or Facade. Bundling state and behavior together into a class makes it difficult to test behaviors (because you have to achieve the right state and the right dependency to replicate the behavior).
 
 I prefer to view OOP as a method for objects to communicate data with each other through a contract/interface. This perspective on OOP is not bound by classes and inheritance, is more flexible, more direct, and allows for better integration of other paradigms (like Functional Programming). You can watch the video to understand more.
+
+{{hr()}}
+
+![wisdom](/images/wisdom.png)
