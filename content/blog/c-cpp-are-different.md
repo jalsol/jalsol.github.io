@@ -8,7 +8,7 @@ taxonomies:
 
 **UPDATE** (2023-09-03)
 
-I am reimplementing [jaledit](/blog/jaledit) in C.
+I am reimplementing [jaledit](/blog/jaledit/) in C.
 
 It is 95% complete compared to the C++ version. The source code is available in the `c-rereimpl` branch of the original repository.
 
@@ -22,7 +22,7 @@ At least I can say that I have fulfilled a goal I set for myself by working with
 
 Programming with C is tremendously difficult. It's an entirely different kind of beast. I usually tell people that C and C++ are completely different languages, and proficiency in one language doesn't necessarily translate well to the other.
 
-I am currently working on my lab project: [a text editor](/blog/jaledit). At first, I thought C would be a nice idea: I am somewhat comfortable with C++ already, and I want to push my boundaries even further. And I started working with C.
+I am currently working on my lab project: [a text editor](/blog/jaledit/). At first, I thought C would be a nice idea: I am somewhat comfortable with C++ already, and I want to push my boundaries even further. And I started working with C.
 
 However, it turns out, as the project is evolving, there is just too much work. I am already missing C++ features, including (but not limited to) its standard containers, smart pointers, RAII, and OOP features. The time is limited, and the development speed is painfully slow with all the manual work.
 

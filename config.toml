@@ -24,6 +24,6 @@ twitter_card = false
 
 header_nav = [
     { name = "~home", url = "/" },
-    { name = "*blogs", url = "/blog" },
-    { name = "#tags", url = "/tags" },
+    { name = "*blogs", url = "/blog/" },
+    { name = "#tags", url = "/tags/" },
 ]
