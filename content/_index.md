@@ -12,12 +12,16 @@ You can call me **Truong** or **jalsol**.
 
 Pronouns are **he/him** (ever since birth and will always be).
 
+Most of my information are available [here](#how-do-you-contact-me).
+
 ## what are these all about?
 
 I like sharing my thoughts on the internet.
 
 I write blogs in either [English](/tags/english/) (for general blogs) or [Vietnamese](/tags/vietnamese/) (for the local
 audience).
+
+[Atom/RSS feed.](/atom.xml)
 
 ## how do you contact me?
 
