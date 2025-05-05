@@ -9,9 +9,12 @@ taxonomies:
 
 [Read the English version here.](/blog/i-dont-like-oop/)
 
+**CẬP NHẬT:** Uncle Bob (người đẻ ra SOLID, Agile Manifesto, TDD; tác giả của cuốn Clean Code, Clean Architecture...) [cũng vừa lên video về "định nghĩa OOP chuẩn"](https://x.com/unclebobmartin/status/1918276572760486249).
+
+
 Hôm nay có dịp tôi đào lại một bài nói của anh Đinh Ngọc Thành - Chief Architect tại Holistics, công ty (cũ) của tôi. Vì là một bài tôi rất thích nên tôi chia sẻ ở đây, và góp thêm vài lời của bản thân.
 
-TL;DR: Tôi không thích OOP. Lạm dụng OOP có thể hại nhiều hơn lợi. Tôi ghét những kẻ sùng bái OOP và design pattern. Anh Thành có phân tích một góc nhìn khác của OOP trong video. Tôi thích góc nhìn đấy và tôi nghĩ mọi người cũng nên như vậy.
+**TL;DR:** Tôi không thích OOP. Lạm dụng OOP có thể hại nhiều hơn lợi. Tôi ghét những kẻ sùng bái OOP và design pattern. Anh Thành có phân tích một góc nhìn khác của OOP trong video. Tôi thích góc nhìn đấy và tôi nghĩ mọi người cũng nên như vậy.
 
 <div style="display: flex;">
   <iframe style="aspect-ratio: 16 / 9; width: 100% !important;" src="https://www.youtube.com/embed/7PGCvpJl_0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

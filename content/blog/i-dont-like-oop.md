@@ -9,9 +9,11 @@ taxonomies:
 
 [Đọc bản tiếng Việt tại đây.](/blog/toi-khong-thich-oop/)
 
+**UPDATE:** Uncle Bob (known for SOLID, Agile Manifesto, TDD; the books Clean Code, Clean Architecture...) [has also spoken about the "true OOP definition"](https://x.com/unclebobmartin/status/1918276572760486249).
+
 Today I encountered a talk (in Vietnamese) by Dinh Ngoc Thanh - Chief Architect at Holistics, my (former) company. Since it's a talk I really like, I'm sharing it here and adding a few words of my own.
 
-TL;DR: I don't like OOP. The abuse of OOP can do more harm than good. I hate the OOP and design patterns cultists. Anh Thanh has analyzed a different perspective on OOP in the video. I like this perspective and I think everyone should too.
+**TL;DR:** I don't like OOP. The abuse of OOP can do more harm than good. I hate the OOP and design patterns cultists. Anh Thanh has analyzed a different perspective on OOP in the video. I like this perspective and I think everyone should too.
 
 <div style="display: flex;">
   <iframe style="aspect-ratio: 16 / 9; width: 100% !important;" src="https://www.youtube.com/embed/7PGCvpJl_0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
