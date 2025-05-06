@@ -1,9 +1,9 @@
 ---
-title: "Deciphering the non-bomb parts of the CS201/CMU Bomb Lab"
+title: "Deciphering the non-bomb parts of the CMU Bomb Lab"
 date: 2023-11-30
 extra:
     add_toc: true
-description: "What are there beyond the usual CS201/CMU bomb defusion?"
+description: "What are there beyond the usual CMU bomb defusion?"
 taxonomies:
     tags: ["english", "coursework"]
 ---

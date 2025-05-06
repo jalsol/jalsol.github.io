@@ -6,11 +6,11 @@ title: jalsol
 
 ## who am i?
 
-I am **<u>Nguyen</u> Quang Truong**. My internet nickname is **jalsol** (acronym for *"just a little spark of light"*).
+I am **<u>Nguyen</u> Quang Truong**. You can call me **Truong**.
 
-You can call me **Truong** or **jalsol**.
+I do not have an English name. [Learn how to pronounce my name.](https://en.wiktionary.org/wiki/tr%C6%B0%E1%BB%9Dng#Pronunciation)
 
-Pronouns are **he/him** (ever since birth and will always be).
+My pronouns are **he/him**.
 
 Most of my information are available [here](#how-do-you-contact-me).
 
@@ -18,8 +18,7 @@ Most of my information are available [here](#how-do-you-contact-me).
 
 I like sharing my thoughts on the internet.
 
-I write blogs in either [English](/tags/english/) (for general blogs) or [Vietnamese](/tags/vietnamese/) (for the local
-audience).
+I write blogs in either [English](/tags/english/) or [Vietnamese](/tags/vietnamese/).
 
 [Atom/RSS feed.](/atom.xml)
 
