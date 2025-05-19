@@ -4,7 +4,7 @@ extra:
     add_toc: true
 ---
 
-### Preface
+## Preface
 
 I've started reading again for quite a while now, after I bought a [used Kindle Paperwhite 4 in Singapore](https://www.carousell.sg/p/kindle-paperwhite-1320674112/) for a very good price (even better than in Vietnam).
 
@@ -12,7 +12,9 @@ These are some of my very short reviews of books I've read. I don't like leaving
 
 Most of them are novels, but there are also technical CS books, and even philosophy books, too. This list does also include books that I read years ago as well, but I would like to put them here.
 
-### **Kimi no Na wa.**
+## Novels
+
+### **Your name.**
 
 Rating: 5*
 <br/>
@@ -24,7 +26,7 @@ The novel, using text as a medium, brought some more details to the story that w
 
 I gave this one a mid 5*. It was relatable to me. It also introduced me to novels and made me realize why novels are better than anime.
 
-### **Kimi no Na wa. Another Side: Earthbound**
+### **Your name. Another Side: Earthbound**
 
 Rating: 5*
 <br/>
@@ -34,7 +36,7 @@ An extension of the original. It provided more stories that are told in the pers
 
 It is an extension, obviously it won't make sense without the original. If you are the kind of person who bothers to go look around communities, forums, wikis... after a manga/anime ends to learn more about the details like me, this one is for you.
 
-A light 5* **(in conjunction with the original)**.
+A light 5* **(in conjunction with [the original](#your-name))**.
 
 ### **The Wage of Angel of Death is 300 Yen Per Hour.**
 
@@ -49,20 +51,6 @@ This one made me cry. It is almost **too relatable**. I've suffered from lost on
 Although the execution was not the best (hence the lower ratings on Goodreads), the story was still enjoyable and the author tried to put in some messages about life. It managed to get [its own manga](https://myanimelist.net/manga/130380/Jikyuu_300-en_no_Shinigami) with a decent rating on MAL.
 
 A strong 5* because, again, this one is relatable to me.
-
-### **Epictetus - The Complete Works: Handbook, Discourses, and Fragments**
-
-Rating: (reading, but potential 4-5*)
-<br/>
-[*Link to Goodreads*](https://www.goodreads.com/book/show/60557014-the-complete-works)
-
-Stoicism has been quite a topic nowadays. Unfortunately, people often have a misunderstanding of stoicism, especially those with the "redpill", "alpha male" premise on the internet.
-
-I learned about stoicism from Youtube videos, especially [this video from Pewdiepie](https://www.youtube.com/watch?v=FinMGtpTud0). I had heard about some of the points, thought they made sense, and decided to start reading books that cited Epictetus's teachings. For anyone who wants to have some insights on what stoicism actually is, this book is the one to start (**not** Meditations by Marcus Aurelius).
-
-Keep in mind that Epictetus was not chill. He would roast the shit out of anybody and used slurs against them (despite being a former slave himself). Some of his teachings may not align well with the modern society. You have to adapt his teachings into your world view (thus truly learn), and not just blindly accept/reject them.
-
-This book changed me - in the way that I am able to focus on the right things and remove the unnecessary burdens, in the way that I can control my emotions better.
 
 ### **Pain, Pain, Go Away**
 
@@ -82,7 +70,9 @@ Rating: what the fuck did I just read
 <br/>
 [*Link to Goodreads*](https://www.goodreads.com/book/show/58245334-my-stepsister-is-my-ex-girlfriend)
 
-TODO
+I wanted a brainless series to try (since the amount of technical readings for courses at NUS was heavy enough). I looked up some of the series. Initially, I thought this one was complete because on some fan translation sites that I found, they no longer added new volumes. I was wrong. The series was still ongoing, but luckily, the storyline already reached the climax ~~the main characters finally had sex in Vol 11~~.
+
+Yeah. A fun brainless series for shit and giggles. This is a work of fiction. Do not try this in real life *(unless you are a professional)*. My thoughts for this one can be seen from the rating.
 
 ### **Wait For Me Yesterday in Spring**
 
@@ -111,16 +101,6 @@ It's the best novel I've read so far. It was fun. It was touching. It was beauti
 I do like that the whole premise was pivoted around the "Three Days of Happiness", but in the end, that didn't matter anymore.
 
 A strong 5*. The [manga adaptation](https://myanimelist.net/manga/100448/Jumyou_wo_Kaitotte_Moratta_Ichinen_ni_Tsuki_Ichimanen_de) was well deserved. Maybe even an anime series? Mind you that this novel did not win any award at all.
-
-### **Trading Systems Developer Interview Guide (C++ Edition): Insider's Guide to Top Tech Jobs in Finance**
-
-Rating: 3*
-<br/>
-[*Link to Goodreads*](https://www.goodreads.com/book/show/57025157-trading-systems-developer-interview-guide-c-edition)
-
-To me, it's a mid book. I expected some more mind-blowing optimization techniques, or some weird C++ stuff. If you are brand new to C++ and low-level optimization, you might learn a thing or two.
-
-Read [Algorithms for Modern Hardware](https://en.algorithmica.org/hpc/) instead.
 
 ### **Convenience Store Woman**
 
@@ -156,7 +136,9 @@ Rating: 5*
 <br/>
 [*Link to Goodreads*](https://www.goodreads.com/book/show/61399263-even-if-this-love-disappears-tonight)
 
-TODO
+Lovely. Bittersweet. Dramatic. Has a [live-action adaptation](https://www.imdb.com/title/tt21115444/).
+
+A slow waltz that ended with a sudden turn. Despite the situation of the female protagonist, they were actually able to develop a cute relationship together (spoiler: it did not end well). The third wheel was a really cool friend as well, and had a pivotal role throughout the storyline.
 
 ### **An Autumn in Amber, a Zero-Second Journey**
 
@@ -164,7 +146,11 @@ Rating: 4*
 <br/>
 [*Link to Goodreads*](https://www.goodreads.com/book/show/209969160-an-autumn-in-amber-a-zero-second-journey)
 
-TODO
+As the title implies, the focus of the story is the journey itself. There is a variety in pacing: it can get chill, it can get fast-paced and action-packed. The protagonist pair has a good chemistry.
+
+Still, the romantic aspect is underwhelming, even more so than [The Tunnel to Summer](#the-tunnel-to-summer-the-exit-of-goodbyes). I'd like to see the two protagonists as platonic friends throughout their journey rather than a couple.
+
+Strong 3* to light 4*.
 
 ### **I Had That Same Dream Again**
 
@@ -172,7 +158,13 @@ Rating: 5*
 <br/>
 [*Link to Goodreads*](https://www.goodreads.com/book/show/48672814-i-had-that-same-dream-again)
 
-TODO
+Easy to read. Touching. Has a [manga adaptation](https://www.goodreads.com/book/show/48672808-i-had-that-same-dream-again).
+
+I haven't read the Japanese version yet (because my Japanese sucks), but apparently it's one of the easier ones, since the main character is literally 10 years old and her speech is written in Hiragana.
+
+It has a steady pace. It has stories and the meaning behind about life, from the perspective of a little kid to the perspective of other people. If you can make a conclusion about the connection between the characters, congratulations! That's a life lesson to you.
+
+The only thing I don't particularly like is the one boy she tries to get back to school, and the relationship between them. I'm somewhat pissed, but then again, they are literal children, so not a major complaint (and maybe that's the intention of the author).
 
 ### **Starting Over**
 
@@ -180,7 +172,7 @@ Rating: 4*
 <br/>
 [*Link to Goodreads*](https://www.goodreads.com/book/show/20680962)
 
-TODO
+Interesting premise.
 
 ### **The Personal MBA**
 
@@ -211,5 +203,65 @@ TODO
 Rating: 4*
 <br/>
 [*Link to Goodreads*](https://www.goodreads.com/book/show/3950627-tabi-ni-deyou-horobiyuku-sekai-no-hate-made)
+
+TODO
+
+### **Azure and Claude**
+
+Rating: 4*
+<br/>
+[*Link to Goodreads*](https://www.goodreads.com/book/show/57328280-blue-sky-and-cloudy-sky)
+
+TODO
+
+## Technical
+
+### **Trading Systems Developer Interview Guide (C++ Edition): Insider's Guide to Top Tech Jobs in Finance**
+
+Rating: 3*
+<br/>
+[*Link to Goodreads*](https://www.goodreads.com/book/show/57025157-trading-systems-developer-interview-guide-c-edition)
+
+To me, it's a mid book. I expected some more mind-blowing optimization techniques, or some weird C++ stuff. If you are brand new to C++ and low-level optimization, you might learn a thing or two.
+
+Read [Algorithms for Modern Hardware](https://en.algorithmica.org/hpc/) instead.
+
+### **Hypermedia Systems**
+
+Rating: (reading, but potential 5*)
+<br/>
+[*Link to Goodreads*](https://www.goodreads.com/book/show/192405005-hypermedia-systems)
+
+TODO
+
+## Others
+
+### **Epictetus - The Complete Works: Handbook, Discourses, and Fragments**
+
+Rating: (reading, but potential 4-5*)
+<br/>
+[*Link to Goodreads*](https://www.goodreads.com/book/show/60557014-the-complete-works)
+
+Stoicism has been quite a topic nowadays. Unfortunately, people often have a misunderstanding of stoicism, especially those with the "redpill", "alpha male" premise on the internet.
+
+I learned about stoicism from Youtube videos, especially [this video from Pewdiepie](https://www.youtube.com/watch?v=FinMGtpTud0). I had heard about some of the points, thought they made sense, and decided to start reading books that cited Epictetus's teachings. For anyone who wants to have some insights on what stoicism actually is, this book is the one to start (**not** Meditations by Marcus Aurelius).
+
+Keep in mind that Epictetus was not chill. He would roast the shit out of anybody and used slurs against them (despite being a former slave himself). Some of his teachings may not align well with the modern society. You have to adapt his teachings into your world view (thus truly learn), and not just blindly accept/reject them.
+
+This book changed me - in the way that I am able to focus on the right things and remove the unnecessary burdens, in the way that I can control my emotions better.
+
+### **The Personal MBA**
+
+Rating: (reading, but potential 4*)
+<br/>
+[*Link to Goodreads*](https://www.goodreads.com/book/show/9512985-the-personal-mba)
+
+TODO
+
+### **Atomic Habits**
+
+Rating: (reading, but potential 4-5*)
+<br/>
+[*Link to Goodreads*](https://www.goodreads.com/book/show/40121378-atomic-habits)
 
 TODO
