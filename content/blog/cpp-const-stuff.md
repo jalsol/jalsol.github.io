@@ -23,14 +23,32 @@ I have yet to come up with a good use for `constinit` (even [cppreference](https
 has no examples). That is why we are not discussing it right now. Probably I
 will have a part 2, or even update this very own blog as well for it.
 
+## Forewords about immutability
+
+*You might skip this section for the technical part. I'm putting it up here so
+people notice my opinion on the subject matter.*
+
+Immutability should be the default for variables in every programming language.
+It offers better safety/correctness and enables better optimizations. Variables
+in Functional Programming languages (Haskell, ML family, Lisp family, etc.) and
+those who are influenced by them (Rust, Kotlin, etc.) either are immutable by
+default, or allow an easy way to declare something as immutable. Even Cpp2 by
+Herb Sutter has default immutability.
+
+The only space I can think of right now that requires a lot of mutability is
+emulators. Otherwise, I see no reason why default mutability is a good thing.
+That is why I dislike Python and Go - you can totally accidentally modify a
+variable, and thus spend a bunch of hours debugging that should have been spent
+for meaningful development.
+
 ## Immutable vs. Immediate
 
 Before any further explanation, I want to define some terminologies first.
 
-> **Immutable**: after creation, value cannot be changed during and after
-running.
+> **Immutable**: value **cannot** be changed **once created**.
 
-> **Immediate**: **immutable**, but value is also known before running.
+> **Immediate**: value **cannot** be changed **once created**, and value is
+**known before execution**.
 
 From the above definition, we can also see that:
 
@@ -39,8 +57,10 @@ time.
 
 > An **immediate** variable can **only** be initialized during compile time.
 
-It can be seen that **immediate** variables have stricter conditions than
-**immutable** ones. Thus, it allows greater (compile-time) optimizations.
+
+**Immutable** variables do allow some safety and optimizations (since the compiler
+knows these values won't be changed). **Immediate** variables, with the extra
+compile-time condition, allows greater optimizations.
 
 ## `const` vs. `constexpr` variable
 
@@ -63,15 +83,9 @@ void valid() {
 }
 ```
 
-Let's do a checklist:
+The value of `b` **cannot** be changed after its creation. Thus, it satisfies
+the definition of an **immutable** variable.
 
-- Can the value of `b` be changed after its creation? **No**
-- Does the program know the value of `b` before running? **No**
-
-The first condition satisfies the definition of an **immutable** variable.
-
-The second condition doesn't affect its immutability at all. However, it will be
-important in the next part.
 
 ### `constexpr`
 
@@ -88,15 +102,10 @@ void valid() {
 }
 ```
 
-- Can the value of `b` be changed after its creation? **No**
-- Does the program know the value of `b` before running? **Yes**
+- The value of `b` **cannot** be changed after its creation.
+- The value of `b` is **known before execution**.
 
-The first condition satisfies the definition of an **immediate** (which is also
-immutable) variable.
-
-The second condition satisfies the definition of an **immediate**. The program
-knows the value `a` and `b` before running, and they won't change during and
-after running.
+Thus, `b` satisfies the definition of an **immediate** variable.
 
 And an **invalid** example:
 
@@ -109,7 +118,7 @@ void invalid() {
 }
 ```
 
-- Does the program know the value of `b` before running? **No**
+`b` is **not known before execution**: it depends on what the input for `a` is.
 
 Thus, it fails to become a `constexpr` variable.
 
@@ -123,15 +132,12 @@ int main() {
 }
 ```
 
-- Can the value of `b` be changed after its creation? **No**
-- Does the program know the value of `b` before running? **Yes**
-
-`b` now satisfies both conditions of an **immediate** variable, but it is
-declared as `const`. It is actually okay. A good compiler may be able to detect
-this is effectively the same as a `constexpr` variable and optimize it.
+`b` now satisfies the condition of an **immediate** variable, but it is declared
+as `const`. It is actually okay. A good compiler may be able to detect this is
+effectively the same as a `constexpr` variable and optimize it.
 
 However, you are still *betting* on the compiler to do the magic work for you. If
-you want to be certain, just use `constexpr`.
+you want to be certain, use `constexpr`.
 
 ## What can `constexpr` variables do?
 
