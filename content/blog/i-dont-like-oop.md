@@ -23,7 +23,7 @@ Key takeaways from the video:
 - Alan Kay's definition of OOP is about object communication. Class and inheritance are not the core of OOP.
 - Software design is about cracking complexity. OOP **does not** reduce global complexity, it just packages complexity into isolated, smaller boxes.
 - 5 aspects of complexity: Shared mutable state, Side effects, Dependencies, Control flow, and Code size.
-- Adaptation of "Functional Shell, Imperative Core" at Holistics.
+- Adaptation of "Functional Core, Imperative Shell" at Holistics.
 
 {{hr()}}
 
