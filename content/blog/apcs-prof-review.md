@@ -22,7 +22,7 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 
 - Đinh Bá Tiến: GOAT. Cũng là một nhân tài xuất chúng của Việt Nam. Thầy dạy hay, dễ hiểu, dễ nghe, rất kiên nhẫn giải thích cho sinh viên. Thầy cũng có góc nhìn rất hay về thị trường phần mềm và quy trình phát triển phần mềm. Nhớ học hành cho đàng hoàng, sôi nổi chút, đừng quá thụ động và đừng để thầy cáu vì thái độ học tập (lúc này thầy sẽ nói tiếng Việt - đừng để thầy nói tiếng Việt).
 - Lê Khánh Duy (CS202): Dạy chán. Hình như thầy chỉ dạy để đỡ workload cho thầy Tiến thì phải? Thầy không chuyên C++ lắm, dạy OOP cũng chả có gì nổi bật. Giá mà thầy dạy OOP cũng hay như thầy dạy môn chuyên ngành của mình...
-- Dàn TA: Cơ bản là chill, dù lâu lâu hơi bựa chút. Các bạn mình ở APCS khá thích thầy Hồ Tuấn Thanh, còn ở CLC/TCTA thì thích Nguyễn Lê Hoàng Dũng hơn. Hai thầy còn lại thì mình không ấn tượng gì mấy, ngoại trừ việc họ đều chill (đôi khi là chill quá mức).
+- Dàn TA: Cơ bản là chill, dù lâu lâu hơi bựa chút (có thể sẽ soi hơi gắt lúc vấn đáp đồ án). Các bạn mình ở APCS khá thích thầy Hồ Tuấn Thanh, còn ở CLC/TCTA thì thích Nguyễn Lê Hoàng Dũng hơn. Hai thầy còn lại thì mình không ấn tượng gì mấy, ngoại trừ việc họ đều chill (đôi khi là chill quá mức). Nhóm có các bạn nữ là lợi thế (lớn) khi vấn đáp với các thầy.
 
 ### CS201 + ECE343 - Computer Systems + Computer Hardware
 
@@ -74,6 +74,21 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 - Lê Thị Nhàn: Tệ. Rất tệ. Lười dạy nên tái chế video từ thời COVID, cho sinh viên xem ở nhà rồi lên lớp chỉ hỏi. Thế nhưng những câu hỏi của mình thì cô lại không hiểu vấn đề, trả lời không đúng trọng tâm. Từ đó mình không còn tha thiết việc lên lớp, ở nhà đọc sách còn hay hơn (nên đọc sách). Bài thi có những thứ trong homework không hề có. Cô thì ỷ lại việc không ai khác muốn dạy môn này ở APCS nên hống hách. Những năm gần đây có đứa trầm cảm, bị VNUHCM dí nên có vẻ đỡ hơn.
 - Nguyễn Ngọc Minh Châu + Nguyễn Ngọc Toàn: Có vẻ chill hơn các trợ giảng của mọi năm (cô dễ thương hehehehe). Thầy dấu hiệu nghiện Dota 2 (dự đoán từ đề midterm lab).
 - Phan Thị Phương Uyên: Không ấn tượng gì (tuy nhiên nghe từ khóa trước thì có một vài quy chuẩn chấm cứng hơn cô Nhàn).
+
+### CS419 - Introduction to Information Retrieval
+
+- Nguyễn Vinh Tiệp: Thầy giỏi nghiên cứu, cũng dạy được vài thứ thú vị nhưng nhìn chung thì hơi chán và ngẫu hứng, không hệ thống lắm (dạy không bám slide và syllabus), và thầy vibe code khá nhiều để demo.
+- Lê Trung Nghĩa: Mình toàn sủi học giờ của thầy để đi làm, nên không đánh giá được gì về việc dạy :> Trong buổi thuyết trình thì thầy đi vào giấc ngủ, bắt lớp ở lại đến 6h, ban đầu cho mỗi nhóm 15p trình bày thì sau rút còn 10p (thậm chí 5p với những nhóm sau cùng khi bị cháy timeline).
+
+### CS300 - Elements of Software Engineering
+
+- Nguyễn Thị Minh Tuyền: Cô hẳn là người giỏi, nhưng kiến thức của môn rất enterprise (mình từng làm ở một startup khá và 1 quant firm, không có nơi nào có quy trình rườm rà như được dạy). Nội dung dày đặc đến mức cô nhờ AI tóm tắt lại, cũng có một số yêu cầu rất ?? khi chấm điểm (vd: khi làm quiz thì phải ước lượng được số giờ hoàn thành, trong khi quy mô còn chưa cụ thể). Đề của cô (và thầy Nguyễn Văn Vũ) rất dài. Có thông tin bên lề là một số nhóm làm thesis với cô đã bỏ chạy sang giáo khác. Mình cũng từng nghe các bạn nói cô có làm "quant", nhưng có vẻ thứ "quant" mà mình làm (kiếm lời cho bản thân công ty từ các strategy HFT/MFT) khác với "quant" của cô (bán công cụ, nền tảng cho các nhà đầu tư khác tự xử) nên là mình thất vọng.
+- Hồ Tuấn Thanh: Giống [các môn cơ sở](#cs160-cs161-cs162-cs163-cs202-intro-to-cs-dsa-programming-systems).
+
+
+### CS420 - Artificial Intelligence
+
+- Nguyễn Ngọc Thảo: Cô rất giỏi (cô hướng dẫn thesis của tụi mình hehe), nhưng cách dạy của cô rất dễ đưa mình vào giấc ngủ (thế nên là mình cũng sủi và chỉ xuất hiện khi có quiz hay khi cần báo cáo thesis sớm). Cô rất có tâm khi thông báo trước về thời gian và kiến thức của quiz. Kiến thức cô dạy khá nhiều nên nếu review không nổi thì các bạn nên tìm đề các năm trước rồi tập trung luyện. Môn cũng khá khó nên cô cho scale điểm 11 thay vì 10.
 
 ### MTH251 - Calculus I
 
@@ -128,7 +143,7 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 
 - Hoàng Thanh Tú: Cô từng là trợ lý APCS (thời APCS còn ở riêng ra khỏi khoa CNTT). Cô dạy cũng được, có thể sẽ hơi cứng rắn tùy thời điểm, có nhiều trò làm bài tập nhóm cũng vui vẻ. Mỗi tội điểm không cao như kì vọng dù đề open-book và đã chép đúng như những gì trên mạng bảo.
 
-### BAA00102 + BAA00103 - Kinh tế Marx-Lenin + CNXH Khoa học
+### BAA00102 + BAA00103 + BAA00003 - Kinh tế Marx-Lenin + CNXH Khoa học + Tư tưởng Hồ Chí Minh
 
 - Ngô Tuấn Phương: Dạy cũng không có vị gì. Lên đọc bài giảng, mở video, cho cả lớp tranh luận. Có điểm danh và có điểm cộng.
 
