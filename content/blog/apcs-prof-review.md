@@ -63,7 +63,7 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 ### CS333 - Introduction to Operating Systems
 
 - Trần Trung Dũng: Thầy dễ tính, dạy kiến thức ở mức khá, nhưng giao tiếp thì cực kì tệ. Có bằng PhD ở UT Dallas nhưng khả năng giảng bài bằng tiếng Anh rất kém (vì thầy ở lab người Việt bên đó)? Có người nài nỉ thầy giảng bằng tiếng Việt, thầy không nghe. 
-- Các TA: lớp mình chỉ gặp thầy Nguyễn Trung Quân vào buổi đầu (vì thầy Dũng bận) và cô Chung Thùy Linh ở buổi vấn đáp.
+- Các TA: lớp mình chỉ gặp thầy Nguyễn Thanh Quân vào buổi đầu (vì thầy Dũng bận) và cô Chung Thùy Linh ở buổi vấn đáp.
 
 ### CS494 - Internetworking Protocols
 
@@ -71,18 +71,18 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 
 ### CS486 - Introduction to Database Systems
 
-- Lê Thị Nhàn: Tệ. Rất tệ. Lười dạy nên tái chế video từ thời COVID, cho sinh viên xem ở nhà rồi lên lớp chỉ hỏi. Thế nhưng những câu hỏi của mình thì cô lại không hiểu vấn đề, trả lời không đúng trọng tâm. Từ đó mình không còn tha thiết việc lên lớp, ở nhà đọc sách còn hay hơn (nên đọc sách). Bài thi có những thứ trong homework không hề có. Cô thì ỷ lại việc không ai khác muốn dạy môn này ở APCS nên hống hách. Những năm gần đây có đứa trầm cảm, bị VNUHCM dí nên có vẻ đỡ hơn.
-- Nguyễn Ngọc Minh Châu + Nguyễn Ngọc Toàn: Có vẻ chill hơn các trợ giảng của mọi năm (cô dễ thương hehehehe). Thầy dấu hiệu nghiện Dota 2 (dự đoán từ đề midterm lab).
+- Lê Thị Nhàn: Tệ. Rất tệ. Lười dạy nên tái chế video từ thời COVID, cho sinh viên xem ở nhà rồi lên lớp chỉ hỏi. Thế nhưng những câu hỏi của mình thì cô lại không hiểu vấn đề, trả lời không đúng trọng tâm. Từ đó mình không còn tha thiết việc lên lớp, ở nhà đọc sách còn hay hơn (nên đọc sách). Bài thi có những thứ trong homework không hề có. Cô thì ỷ lại việc không ai khác muốn dạy môn này ở APCS nên hống hách. Những năm gần đây có đứa trầm cảm, bị VNUHCM dí nên cô có vẻ đỡ hơn.
+- Nguyễn Ngọc Minh Châu + Nguyễn Ngọc Toàn: Có vẻ chill hơn các trợ giảng của mọi năm (cô dễ thương hehehehe). Thầy có dấu hiệu nghiện Dota 2 (dự đoán từ đề midterm lab khóa mình).
 - Phan Thị Phương Uyên: Không ấn tượng gì (tuy nhiên nghe từ khóa trước thì có một vài quy chuẩn chấm cứng hơn cô Nhàn).
 
 ### CS419 - Introduction to Information Retrieval
 
-- Nguyễn Vinh Tiệp: Thầy giỏi nghiên cứu, cũng dạy được vài thứ thú vị nhưng nhìn chung thì hơi chán và ngẫu hứng, không hệ thống lắm (dạy không bám slide và syllabus), và thầy vibe code khá nhiều để demo.
-- Lê Trung Nghĩa: Mình toàn sủi học giờ của thầy để đi làm, nên không đánh giá được gì về việc dạy :> Trong buổi thuyết trình thì thầy đi vào giấc ngủ, bắt lớp ở lại đến 6h, ban đầu cho mỗi nhóm 15p trình bày thì sau rút còn 10p (thậm chí 5p với những nhóm sau cùng khi bị cháy timeline).
+- Nguyễn Vinh Tiệp: Thầy giỏi nghiên cứu, cũng dạy được vài thứ thú vị nhưng nhìn chung thì hơi chán và ngẫu hứng, không hệ thống lắm (dạy không bám slide và syllabus), và thầy vibe code khá nhiều để demo. Có mấy đứa nói thầy dạy sẽ hay nếu lớp chịu engage.
+- Lê Trung Nghĩa: Mình toàn sủi học giờ của thầy để đi làm, nên không đánh giá được gì về việc dạy :> Trong buổi thuyết trình thì thầy đi vào giấc ngủ, bắt lớp ở lại đến 6h, ban đầu cho mỗi nhóm 15p trình bày thì sau rút còn 10p (thậm chí 5p với những nhóm sau cùng khi bị cháy timeline). Có vẻ như lúc thầy dạy cũng dễ ngủ như vậy.
 
 ### CS300 - Elements of Software Engineering
 
-- Nguyễn Thị Minh Tuyền: Cô hẳn là người giỏi, nhưng kiến thức của môn rất enterprise (mình từng làm ở một startup khá và 1 quant firm, không có nơi nào có quy trình rườm rà như được dạy). Nội dung dày đặc đến mức cô nhờ AI tóm tắt lại, cũng có một số yêu cầu rất ?? khi chấm điểm (vd: khi làm quiz thì phải ước lượng được số giờ hoàn thành, trong khi quy mô còn chưa cụ thể). Đề của cô (và thầy Nguyễn Văn Vũ) rất dài. Có thông tin bên lề là một số nhóm làm thesis với cô đã bỏ chạy sang giáo khác. Mình cũng từng nghe các bạn nói cô có làm "quant", nhưng có vẻ thứ "quant" mà mình làm (kiếm lời cho bản thân công ty từ các strategy HFT/MFT) khác với "quant" của cô (bán công cụ, nền tảng cho các nhà đầu tư khác tự xử) nên là mình thất vọng.
+- Nguyễn Thị Minh Tuyền: Cô hẳn là người giỏi, nhưng kiến thức của môn rất "enterprise" (mình từng làm ở 1 startup 10 năm tuổi và 1 quant firm, không có nơi nào có quy trình rườm rà như được dạy). Nội dung dày đặc đến mức cô nhờ AI tóm tắt lại thành mindmap, cũng có một số yêu cầu rất ?? khi chấm điểm (vd: khi làm quiz thì phải ước lượng được số giờ hoàn thành, trong khi quy mô còn chưa cụ thể). Đề của cô (và thầy Nguyễn Văn Vũ) rất dài. Có thông tin bên lề là một số nhóm làm thesis với cô đã bỏ chạy sang giáo khác. Mình cũng từng nghe các bạn nói cô có làm "quant", nhưng có vẻ thứ "quant" mà mình làm (kiếm lời cho bản thân firm và institutional investor) khác với "quant" của cô (bán công cụ, nền tảng cho retail investor) nên là mình thất vọng.
 - Hồ Tuấn Thanh: Giống [các môn cơ sở](#cs160-cs161-cs162-cs163-cs202-intro-to-cs-dsa-programming-systems).
 
 
@@ -117,7 +117,7 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 
 ### STAT452 - Applied Stats II
 
-- Nguyễn Thị Mộng Ngọc: Chad. Cô bước vào lớp, giảng bằng tiếng Việt và cơ bản là giảng lại kiến thức ở môn trước (kèm minh họa bằng code R). Đề dễ, coi thi dễ, nhưng vẫn có bài tập trên lớp (nhờ nộp hộ được).
+- Nguyễn Thị Mộng Ngọc: Chad. Nghe danh thì là top tier data analyst ở VN. Cô bước vào lớp, giảng bằng tiếng Việt và cơ bản là giảng lại kiến thức ở môn trước (kèm minh họa bằng code R). Đề dễ, coi thi dễ, nhưng vẫn có bài tập trên lớp (nhờ nộp hộ được).
 - Nguyễn Hữu Toàn: Không có ấn tượng gì đặc biệt, ngoài việc vẫn là giải bài tập và coi thi khó hơn.
 
 ### PH211 - Physics I
