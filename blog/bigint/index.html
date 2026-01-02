@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <title>I wrote the FASTEST* C++ Big Integer (well, sort of...)</title>
+        
+        <meta name="title" content="I wrote the FASTEST* C++ Big Integer (well, sort of...)">
+        
+        <meta name="description" content="A well-known problem once again appeared as a take-home assignment for an intern position. And I went hard with it.">
+        <meta name="generator" content="Zola v0.16.1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jalsol.github.io/blog/bigint/">
+        <meta property="og:site_name" content="">
+        <meta property="og:title" content="I wrote the FASTEST* C++ Big Integer (well, sort of...)">
+        <meta property="og:description" content="A well-known problem once again appeared as a take-home assignment for an intern position. And I went hard with it.">
+        <meta property="og:image" content="https:&#x2F;&#x2F;jalsol.github.io&#x2F;images&#x2F;hanabi_pfp.jpg">
+
+        
+        
+        
+        <link rel="canonical" href="https://jalsol.github.io/blog/bigint/">
+        <link rel="shortcut icon" type="image/x-icon" href="https://jalsol.github.io/images/hanabi_pfp.jpg">
+        <script type="application/ld+json">
+            {
+                "description":"A well-known problem once again appeared as a take-home assignment for an intern position. And I went hard with it.",
+                "url":"https://jalsol.github.io/blog/bigint/",
+                "@type":"WebSite",
+                "headline":"I wrote the FASTEST* C++ Big Integer (well, sort of...)",
+                "name":"I wrote the FASTEST* C++ Big Integer (well, sort of...)",
+                
+                "@context":"https://schema.org"
+            }
+        </script>
+        
+        
+        
+        <link rel="stylesheet" href="https://jalsol.github.io/style.css"/>
+        
+    </head>
+    <body theme="auto">
+        <div class="w">
+            <header>
+                
+                <nav>
+                    
+                    <a href="/" >~home</a>
+                    
+                    <a href="/blog" >*blogs</a>
+                    
+                    <a href="/tags" >#tags</a>
+                    
+                </nav>
+                
+                
+<p class="post-meta"><time datetime="2024-07-27">2024-07-27</time></p>
+<h1>I wrote the FASTEST* C++ Big Integer (well, sort of...)</h1>
+
+            </header>
+            <main class="page-content" aria-label="Content">
+                
+
+
+Table of contents
+<ul>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/bigint/#algorithm">Algorithm</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/bigint/#internal-storage">Internal storage</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/bigint/#digits">Digits</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/bigint/#basic-string-and-small-string-optimization-sso">basic_string and Small String Optimization (SSO)</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/bigint/#other-implementation-details">Other implementation details</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/bigint/#long-long">long long</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/bigint/#constexpr">constexpr</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/bigint/#actual-result">Actual result</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/bigint/#addition-subtraction">Addition &amp; Subtraction</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/bigint/#multiplication">Multiplication</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/bigint/#did-i-actually-get-the-internship">Did I actually get the internship?</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+</ul>
+
+
+<p><em>*Under a few conditions. But I have proof, trust me.</em></p>
+<p>I was interviewing for a Software Engineering Intern position at a decent-sized company in Vietnam. Having passed the in-person interview with flying colors, I was ready to tackle the final take-home assignment.</p>
+<p>And surprisingly enough, it was to implement a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic">Big Integer</a> expression calculator that:</p>
+<ul>
+<li>Supports additions, subtractions, multiplications and parentheses;</li>
+<li>Supports modulo (bonus feature, so I skipped that);</li>
+<li>Minimizes memory footprint.</li>
+</ul>
+<p>The simplest implementation for Competitive Programming (in most cases) is from <a rel="noopener" target="_blank" href="https://sites.google.com/site/kc97ble/2-ki%E1%BB%83u-d%E1%BB%AF-li%E1%BB%87u/bignum-v%E1%BB%9Bi-c%C3%A1c-ph%C3%A9p-to%C3%A1n">kc97ble</a>. However, it doesn't deal with negative numbers. Another powerful and versatile snippet I have used in the past is from <a rel="noopener" target="_blank" href="https://github.com/ngthanhtrung23/ACM_Notebook_new/blob/master/Math/bigint.h">I_love_Hoang_Yen</a>, which ended up being the inspiration for my implementation.</p>
+<p>In this blog, I will be writing about Big Integer itself. For more details on expression parsing, please see the <code>README</code> of the repository.</p>
+<p><a rel="noopener" target="_blank" href="https://github.com/jalsol/bigint">Here is the repository of my code.</a></p>
+<h2 id="algorithm">Algorithm</h2>
+<p>The algorithm is in fact the easiest part. If you have ever gone through elementary school, you should already know how to add, subtract, and multiply two numbers digit-by-digit. Yes, that's our algorithm.</p>
+<p>Since our number is so big, we obviously cannot store them in an <code>int</code> or <code>long long</code>. We will read our input as strings first, then convert the strings into <code>BigInt</code>s later.</p>
+<p>To prepare for our algorithm, you may want to store all digits into an array for convenience. For now, I am using <code>std::vector</code> as array (but will replace it with something else later).</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>std</span><span style="color:#179299;">::</span><span>vector</span><span style="color:#7c7f93;">&lt;</span><span style="color:#8839ef;">int</span><span style="color:#7c7f93;">&gt; </span><span style="font-style:italic;color:#1e66f5;">get_digits</span><span style="color:#7c7f93;">(</span><span style="font-style:italic;color:#e64553;">std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#e64553;">string_view number</span><span style="color:#7c7f93;">) {
+</span><span>    std</span><span style="color:#179299;">::</span><span>vector</span><span style="color:#7c7f93;">&lt;</span><span style="color:#8839ef;">int</span><span style="color:#7c7f93;">&gt; </span><span style="font-style:italic;color:#1e66f5;">buffer</span><span style="color:#7c7f93;">(</span><span>number</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">());
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> i </span><span style="color:#179299;">= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">;</span><span> i </span><span style="color:#179299;">&lt;</span><span> number</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">(); </span><span style="color:#179299;">++</span><span>i</span><span style="color:#7c7f93;">) {
+</span><span>        buffer</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">=</span><span> number</span><span style="color:#7c7f93;">[</span><span>number</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">() </span><span style="color:#179299;">-</span><span> i </span><span style="color:#179299;">- </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">- </span><span style="color:#40a02b;">&#39;0&#39;</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">return</span><span> buffer</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span><span>
+</span><span style="color:#8839ef;">const auto</span><span> a </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">get_digits</span><span style="color:#7c7f93;">(</span><span style="color:#40a02b;">&quot;69420&quot;</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// {0, 2, 4, 9, 6}
+</span></code></pre>
+<p>The digits are actually reversed, but that's OK. That's my intention. It will make calculation easier and more efficient:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">auto</span><span> a </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">get_digits</span><span style="color:#7c7f93;">(</span><span style="color:#40a02b;">&quot;69420&quot;</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// {0, 2, 4, 9, 6}
+</span><span style="color:#8839ef;">auto</span><span> b </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">get_digits</span><span style="color:#7c7f93;">(</span><span style="color:#40a02b;">&quot;1269420&quot;</span><span style="color:#7c7f93;">); </span><span style="font-style:italic;color:#9ca0b0;">// {0, 2, 4, 9, 6, 2, 1}
+</span><span>
+</span><span style="font-style:italic;color:#9ca0b0;">// now b has more digits than a
+</span><span style="font-style:italic;color:#9ca0b0;">// for example, to add each digit one by one,
+</span><span style="font-style:italic;color:#9ca0b0;">// let&#39;s make both of them have the same
+</span><span>
+</span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> i </span><span style="color:#179299;">= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">;</span><span> i </span><span style="color:#179299;">&lt; </span><span style="color:#7c7f93;">(</span><span>b</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">() </span><span style="color:#179299;">-</span><span> a</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">()); </span><span style="color:#179299;">++</span><span>i</span><span style="color:#7c7f93;">) {
+</span><span>    a</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">push_back</span><span style="color:#7c7f93;">(</span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">);
+</span><span style="color:#7c7f93;">}
+</span><span>
+</span><span style="font-style:italic;color:#9ca0b0;">// a = {0, 2, 4, 9, 6, 0, 0}
+</span><span style="font-style:italic;color:#9ca0b0;">// b = {0, 2, 4, 9, 6, 2, 1}
+</span><span style="font-style:italic;color:#9ca0b0;">// same length
+</span></code></pre>
+<p>Because we are using <code>std::vector</code>, pushing to the back is much faster than pushing to the front. Other data structures will have some trade-offs that aren't worth it.</p>
+<p>Adding (without carry) will be a simple:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>std</span><span style="color:#179299;">::</span><span>vector</span><span style="color:#7c7f93;">&lt;</span><span style="color:#8839ef;">int</span><span style="color:#7c7f93;">&gt; </span><span style="font-style:italic;color:#1e66f5;">result</span><span style="color:#7c7f93;">(</span><span style="font-style:italic;color:#e64553;">b</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">());
+</span><span>
+</span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> i </span><span style="color:#179299;">= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">;</span><span> i </span><span style="color:#179299;">&lt;</span><span> b</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">();</span><span> i</span><span style="color:#179299;">++</span><span style="color:#7c7f93;">) {
+</span><span>    result</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">=</span><span> a</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">+</span><span> b</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">];
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>Support for carrying should be trivial. You can come up with a solution or read my code.</p>
+<h2 id="internal-storage">Internal storage</h2>
+<p>This is where things get a bit more interesting.</p>
+<h3 id="digits">Digits</h3>
+<p>In the algorithm, we do calculation in base 10, which means a calculation involves two one-digit numbers at a time. That's pretty wasteful - computers can do more than that. We can do calculation in base 10^9. This means that for each calculation, we are calculating two nine-digit numbers at a time.</p>
+<p>In the original <code>get_digits</code>, we only extract one digit at a time. Let's do 9.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>std</span><span style="color:#179299;">::</span><span>vector</span><span style="color:#7c7f93;">&lt;</span><span style="color:#8839ef;">int</span><span style="color:#7c7f93;">&gt; </span><span style="font-style:italic;color:#1e66f5;">get_digits</span><span style="color:#7c7f93;">(</span><span style="font-style:italic;color:#e64553;">std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#e64553;">string_view number</span><span style="color:#7c7f93;">) {
+</span><span>    std</span><span style="color:#179299;">::</span><span>vector</span><span style="color:#7c7f93;">&lt;</span><span style="color:#8839ef;">int</span><span style="color:#7c7f93;">&gt;</span><span> result</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// reserve int(ceil(number.size() / 9))
+</span><span>    result</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">reserve</span><span style="color:#7c7f93;">((</span><span>number</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">() </span><span style="color:#179299;">+ </span><span style="color:#fe640b;">9 </span><span style="color:#179299;">- </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">) </span><span style="color:#179299;">/ </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">);
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">auto</span><span> convert_range_to_num </span><span style="color:#179299;">= </span><span style="color:#7c7f93;">[</span><span style="color:#179299;">&amp;</span><span style="color:#7c7f93;">](</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> head</span><span style="color:#7c7f93;">,</span><span> std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> tail</span><span style="color:#7c7f93;">) {
+</span><span>        </span><span style="color:#8839ef;">long long</span><span> num </span><span style="color:#179299;">= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">;
+</span><span>        </span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">auto</span><span> i </span><span style="color:#179299;">=</span><span> head</span><span style="color:#7c7f93;">;</span><span> i </span><span style="color:#179299;">&lt;</span><span> tail</span><span style="color:#7c7f93;">; </span><span style="color:#179299;">++</span><span>i</span><span style="color:#7c7f93;">) {
+</span><span>            num </span><span style="color:#179299;">= </span><span style="color:#fe640b;">10 </span><span style="color:#179299;">*</span><span> num </span><span style="color:#179299;">+ </span><span style="color:#7c7f93;">(</span><span>number</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">- </span><span style="color:#40a02b;">&#39;0&#39;</span><span style="color:#7c7f93;">);
+</span><span>        </span><span style="color:#7c7f93;">}
+</span><span>        </span><span style="color:#8839ef;">return</span><span> num</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#7c7f93;">};
+</span><span>
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">auto</span><span> tail </span><span style="color:#179299;">=</span><span> number</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">();
+</span><span>    </span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(;</span><span> tail </span><span style="color:#179299;">&gt;= </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">;</span><span> tail </span><span style="color:#179299;">-= </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">) {
+</span><span>        </span><span style="color:#8839ef;">const auto</span><span> head </span><span style="color:#179299;">=</span><span> tail </span><span style="color:#179299;">- </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">;
+</span><span>        result</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">push_back</span><span style="color:#7c7f93;">(</span><span style="font-style:italic;color:#1e66f5;">convert_range_to_num</span><span style="color:#7c7f93;">(</span><span>head</span><span style="color:#7c7f93;">,</span><span> tail</span><span style="color:#7c7f93;">));
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">if </span><span style="color:#7c7f93;">(</span><span>tail </span><span style="color:#179299;">!= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">) {
+</span><span>        result</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">push_back</span><span style="color:#7c7f93;">(</span><span style="font-style:italic;color:#1e66f5;">convert_range_to_num</span><span style="color:#7c7f93;">(</span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">,</span><span> tail</span><span style="color:#7c7f93;">));
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">return</span><span> result</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>If you can't understand the code right now, it's fine. Basically, here's its usage:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">const auto</span><span> a </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">get_digits</span><span style="color:#7c7f93;">(</span><span style="color:#40a02b;">&quot;834752895720389374092984457&quot;</span><span style="color:#7c7f93;">);
+</span><span style="font-style:italic;color:#9ca0b0;">// a = {92984457, 720389374, 834752895}
+</span></code></pre>
+<p>From right to left, it collects every 9 characters and makes that a number.</p>
+<p>Why 9 characters? 10^9 fits an <code>int</code> and (10^9) * (10^9) fits a <code>long long</code>. We can't use more than 9 characters due to the risk of overflowing/underflowing. We can use less, but it's neither safer nor faster. This is why 10^9 and 10^18 can often be seen in Competitive Programming and/or interview problems.</p>
+<h3 id="basic-string-and-small-string-optimization-sso"><code>basic_string</code> and Small String Optimization (SSO)</h3>
+<p>This is another trick up in my sleeves.</p>
+<p>So far, I have been using <code>std::vector</code>. However, <code>std::string</code>s (or <code>std::basic_string</code>s to be precise) are implemented a bit differently.</p>
+<p>A dynamic array usually contains a pointer to the allocated data, a size and a capacity:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// Total: 24 (bytes)
+</span><span style="color:#8839ef;">struct </span><span style="font-style:italic;color:#df8e1d;">Vector </span><span style="color:#7c7f93;">{
+</span><span>    </span><span style="color:#8839ef;">long long</span><span style="color:#179299;">*</span><span> data</span><span style="color:#7c7f93;">;        </span><span style="font-style:italic;color:#9ca0b0;">// 8 bytes
+</span><span>    std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> capacity</span><span style="color:#7c7f93;">;   </span><span style="font-style:italic;color:#9ca0b0;">// 8 bytes
+</span><span>    std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> size</span><span style="color:#7c7f93;">;       </span><span style="font-style:italic;color:#9ca0b0;">// 8 bytes
+</span><span style="color:#7c7f93;">};
+</span></code></pre>
+<p>Let's say, my <code>Vector</code> only has 1 element:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// Total: 32 bytes
+</span><span style="color:#8839ef;">long long</span><span style="color:#179299;">*</span><span> ptr </span><span style="color:#179299;">= </span><span style="color:#8839ef;">new long long</span><span style="color:#7c7f93;">[</span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">];  </span><span style="font-style:italic;color:#9ca0b0;">// 8 bytes
+</span><span style="color:#8839ef;">auto</span><span> vec </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">Vector </span><span style="color:#7c7f93;">{</span><span> ptr</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">1 </span><span style="color:#7c7f93;">};    </span><span style="font-style:italic;color:#9ca0b0;">// 24 bytes
+</span></code></pre>
+<p>32 bytes to store 1 <code>long long</code>. That is also wasteful, and people have found a way to optimize it: Small String Optimization.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="font-style:italic;color:#9ca0b0;">// Total: 24 bytes
+</span><span style="color:#8839ef;">struct </span><span style="font-style:italic;color:#df8e1d;">Vector </span><span style="color:#7c7f93;">{
+</span><span>
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// Total: 24 bytes
+</span><span>    </span><span style="color:#8839ef;">struct </span><span style="font-style:italic;color:#df8e1d;">Large </span><span style="color:#7c7f93;">{
+</span><span>        </span><span style="color:#8839ef;">int</span><span style="color:#179299;">*</span><span> data</span><span style="color:#7c7f93;">;              </span><span style="font-style:italic;color:#9ca0b0;">// 8 bytes
+</span><span>        std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> capacity</span><span style="color:#7c7f93;">;   </span><span style="font-style:italic;color:#9ca0b0;">// 8 bytes
+</span><span>        std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> size</span><span style="color:#7c7f93;">;       </span><span style="font-style:italic;color:#9ca0b0;">// 8 bytes
+</span><span>    </span><span style="color:#7c7f93;">};
+</span><span>
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// Total: 24 bytes
+</span><span>    </span><span style="color:#8839ef;">struct </span><span style="font-style:italic;color:#df8e1d;">Small </span><span style="color:#7c7f93;">{
+</span><span>        </span><span style="color:#8839ef;">long long</span><span> buf</span><span style="color:#7c7f93;">[</span><span style="color:#8839ef;">sizeof</span><span style="color:#7c7f93;">(</span><span>Large</span><span style="color:#7c7f93;">) </span><span style="color:#179299;">/ </span><span style="color:#8839ef;">sizeof</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">long long</span><span style="color:#7c7f93;">) </span><span style="color:#179299;">- </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">];
+</span><span>        std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> size</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">union </span><span style="color:#7c7f93;">{
+</span><span>        Large large</span><span style="color:#7c7f93;">;
+</span><span>        Small small</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#7c7f93;">};
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>The trick lies in <code>union</code>. When the array is small, we use the memory that should have been for <code>data</code> and <code>capacity</code> for the array itself. We don't waste extra memory, and we don't create any dynamic allocation. SSO saves memory and saves time.</p>
+<p>In practice, most of the numbers we deal with are small. And because they are small, SSO really offers a great performance boost. SSO is implemented in <code>std::basic_string</code> by major compilers (GCC, Clang, MSVC). What's even better is that you can use it in-place of <code>std::vector</code>.</p>
+<h2 id="other-implementation-details">Other implementation details</h2>
+<h3 id="long-long"><code>long long</code></h3>
+<p>Each &quot;digit&quot; stores 9 characters at a time. <code>int</code> technically should be enough, but overflows do happen during calculation. That's why I chose <code>long long</code> as the element type for the internal storage.</p>
+<h3 id="constexpr"><code>constexpr</code></h3>
+<p>I also wanted to try making my <code>BigInt</code> class <code>constexpr</code>-friendly. Well yes it is, but for now, being <code>constexpr</code>-friendly doesn't mean being <code>constexpr</code> (you can only use it as an intermediate value for calculation, not as the actual returning value). I read somewhere that the C++ committee rejected the idea of turning heap allocation <code>constexpr</code>.</p>
+<h2 id="actual-result">Actual result</h2>
+<h3 id="addition-subtraction">Addition &amp; Subtraction</h3>
+<p><a rel="noopener" target="_blank" href="https://judge.yosupo.jp/submission/212814">This submission</a> on <a rel="noopener" target="_blank" href="https://judge.yosupo.jp/submissions/?problem=addition_of_big_integers&amp;order=%2Btime&amp;status=AC">yosupo's Library Checker</a> is currently the fastest implementation of big integers (as of July 27, 2024), outperforming other implementations without any complex optimizations (48ms vs. 57ms).</p>
+<p><img src="https://jalsol.github.io/blog/bigint/fast-af.png" alt="fast af" loading="lazy" decoding="async" /></p>
+<h3 id="multiplication">Multiplication</h3>
+<p>Well, I use the kid method, what do you expect? <a rel="noopener" target="_blank" href="https://judge.yosupo.jp/submission/212882">It got Time Limit Exceeded</a>. The solution is to use FFT and/or Karatsuba. I was too lazy, and the problem statement said nothing about execution speed, so I settled down with the simplest trick.</p>
+<h3 id="did-i-actually-get-the-internship">Did I actually get the internship?</h3>
+<p>No(t yet).</p>
+<p>I revealed that I would go to Singapore for an exchange semester in NUS. They were actually cool with that and told me I could go onboard after the semester ends.</p>
+<p>One remark they made about me was that I &quot;have good fundamentals, but lack in web development experience&quot;. I can't blame them. I can do webshit, I just chose to do other interesting projects.</p>
+
+
+            </main>
+            <footer>
+                
+<p class="taxonomies">
+
+
+<a href="/tags/english">#english</a>
+
+<a href="/tags/cpp">#cpp</a>
+
+
+
+
+</p>
+
+                
+            </footer>
+        </div>
+    </body>
+</html>
+        

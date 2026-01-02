@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <title>Deciphering the non-bomb parts of the CMU Bomb Lab</title>
+        
+        <meta name="title" content="Deciphering the non-bomb parts of the CMU Bomb Lab">
+        
+        <meta name="description" content="What are there beyond the usual CMU bomb defusion?">
+        <meta name="generator" content="Zola v0.16.1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jalsol.github.io/blog/cmu-bomb-decipher/">
+        <meta property="og:site_name" content="">
+        <meta property="og:title" content="Deciphering the non-bomb parts of the CMU Bomb Lab">
+        <meta property="og:description" content="What are there beyond the usual CMU bomb defusion?">
+        <meta property="og:image" content="https:&#x2F;&#x2F;jalsol.github.io&#x2F;images&#x2F;hanabi_pfp.jpg">
+
+        
+        
+        
+        <link rel="canonical" href="https://jalsol.github.io/blog/cmu-bomb-decipher/">
+        <link rel="shortcut icon" type="image/x-icon" href="https://jalsol.github.io/images/hanabi_pfp.jpg">
+        <script type="application/ld+json">
+            {
+                "description":"What are there beyond the usual CMU bomb defusion?",
+                "url":"https://jalsol.github.io/blog/cmu-bomb-decipher/",
+                "@type":"WebSite",
+                "headline":"Deciphering the non-bomb parts of the CMU Bomb Lab",
+                "name":"Deciphering the non-bomb parts of the CMU Bomb Lab",
+                
+                "@context":"https://schema.org"
+            }
+        </script>
+        
+        
+        
+        <link rel="stylesheet" href="https://jalsol.github.io/style.css"/>
+        
+    </head>
+    <body theme="auto">
+        <div class="w">
+            <header>
+                
+                <nav>
+                    
+                    <a href="/" >~home</a>
+                    
+                    <a href="/blog" >*blogs</a>
+                    
+                    <a href="/tags" >#tags</a>
+                    
+                </nav>
+                
+                
+<p class="post-meta"><time datetime="2023-11-30">2023-11-30</time></p>
+<h1>Deciphering the non-bomb parts of the CMU Bomb Lab</h1>
+
+            </header>
+            <main class="page-content" aria-label="Content">
+                
+
+
+Table of contents
+<ul>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#introduction">Introduction</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#the-normal-process-of-the-lab">The normal process of the lab</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#installation">Installation</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#what-to-tear-apart">What to tear apart?</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#running-the-executable-locally">Running the executable locally</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#networking">Networking</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#before-working">Before working</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#preparing-to-send">Preparing to send</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#not-really-sending-it-to-the-server">(Not really) Sending it to the server</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#actually-sending-it-to-the-server">(Actually) Sending it to the server</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cmu-bomb-decipher/#aftermath">Aftermath</a>
+        
+    </li>
+
+</ul>
+
+
+<h2 id="introduction">Introduction</h2>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/cover.png" alt="" loading="lazy" decoding="async" /></p>
+<p>CMU is known for having arguably the best Introduction to Computer Systems course in the world. Its course book (CS:APP) and its lab exercises are also brought into similar courses in universities around the world.</p>
+<h2 id="the-normal-process-of-the-lab">The normal process of the lab</h2>
+<p>This time, we did the bomb lab exercise, where we, as a team, had to reverse-engineer the executable and try to find out the correct inputs. If a wrong input is given, the program &quot;explodes&quot;.</p>
+<h3 id="installation">Installation</h3>
+<p>First, install the archive from the TA’s server.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/zip.png" alt="" loading="lazy" decoding="async" /></p>
+<blockquote>
+<p>(Please don’t mind the &quot;discordapp.com&quot;, I was stuck on the downloading step and had to ask my teammate to send it via Discord.)</p>
+</blockquote>
+<p>Remember the bomb ID (in this case, it’s <code>14</code>). We will address this later.</p>
+<p>The archive contains the following files:</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/zip_dir.png" alt="" loading="lazy" decoding="async" /></p>
+<p>We are mostly interested in the <code>bomb</code> executable.</p>
+<p>Each team is given an account on the TA’s server. The executable has to be executed on his server to start the lab, so a file transfer has to be done.</p>
+<p>Then, perform the usual reverse engineering of the lab (if you haven’t done this lab before, I highly recommend it).</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/start.png" alt="" loading="lazy" decoding="async" /></p>
+<h2 id="what-to-tear-apart">What to tear apart?</h2>
+<p>Our version of the bomb lab has some more quirks:</p>
+<ul>
+<li>The executable has to be run on the TA’s remote server (and cannot be run locally);</li>
+<li>Each explosion will be reported, and a deduction of 0.5 points is given.</li>
+</ul>
+<p>While everyone was working on the bomb itself, I gave myself a challenge to reverse engineer the above features.</p>
+<p><strong>Note:</strong> Although it is easy to hexedit the executable, it won’t be fun anymore. The purpose of this writeup is to show a way to bypass the program without the need to modify it. </p>
+<h2 id="running-the-executable-locally">Running the executable locally</h2>
+<p>After installing the executable, I tried executing right away to see what would happen.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/illegal_host.png" alt="" loading="lazy" decoding="async" /></p>
+<p>The error message is quite clear. At this point, we may have a decent idea of what the problem is.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/initialize_bomb_entry.png" alt="" loading="lazy" decoding="async" /></p>
+<p>From the <code>objdump</code> output, we can see that there is a function called <code>initialize_bomb</code> that is invoked before the phases are run.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/initialize_bomb.png" alt="" loading="lazy" decoding="async" /></p>
+<p>Inside <code>initialize_bomb</code>, there is a call to <code>gethostname</code>. This is a POSIX function to get the hostname of the local machine. The received hostname is pointed at by the address stored in <code>rsp</code> (which is moved to <code>rbp</code>, then to <code>rsi</code> to be the second argument for <code>strcasecmp</code>).</p>
+<p>Then, the program will loop through the <code>host_table</code>. This array contains strings that are the allowed hostnames.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/hostnames.png" alt="" loading="lazy" decoding="async" /></p>
+<p>The <code>strings</code> result will show the allowed hostnames. Each of these will be passed to <code>rdi</code> to be the first argument for <code>strcasecmp</code>.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/init_logic.png" alt="" loading="lazy" decoding="async" /></p>
+<p>If the machine’s hostname matches one of the allowed hostnames, we are allowed to continue with the lab. Otherwise, the program will send a message and exit with code 8. As seen in the above diagram, the message and the exit code are in line with the error message.</p>
+<p>To bypass this, simply change the hostname.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/init_bypassed.png" alt="" loading="lazy" decoding="async" /></p>
+<p>Our TA was surprised that I could bypass this with ease. He thought I had modified the executable. To be frank, I still don’t know whether he was surprised because a student did the reverse engineering, or because the bypass was so easy.</p>
+<h2 id="networking">Networking</h2>
+<p>We finally got the file running on our local machine and completely debunked our TA. That’s cool. However, that’s not the <em>really</em> important part.</p>
+<p>If the bomb is &quot;exploded&quot;, it will notify the TA’s server anyway (and deduct your points).</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/notified.png" alt="" loading="lazy" decoding="async" /></p>
+<h3 id="before-working">Before working</h3>
+<p>Our TA shut down his HTTP server. Also, I wanted to work without relying on his server anyway (or else a wrong answer would trigger the bomb and notify him).</p>
+<p>I edited <code>/etc/hosts</code> so that it resolves <code>cs201.***</code> to <code>127.0.0.1</code>. This means that I will have to write my own HTTP server. We will work through the executable to find more information to set up the server.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/etc-hosts.png" alt="" loading="lazy" decoding="async" /></p>
+<h3 id="preparing-to-send">Preparing to send</h3>
+<p>There are two functions to consider: <code>phase_defused</code> and <code>explode_bomb</code>, which will be invoked when a phase is defused or failed, respectively.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/phase_defused.png" alt="" loading="lazy" decoding="async" /></p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/send_msg.png" alt="" loading="lazy" decoding="async" /></p>
+<p>Each has a call to <code>send_msg</code>, albeit with a different argument (<code>edi</code> is <code>1</code> if defused, <code>0</code> otherwise).</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/send_msg_logic.png" alt="" loading="lazy" decoding="async" /></p>
+<p>I know this graph looks a bit fucked. Let me explain.</p>
+<p>Essentially, a string with the format <code>%d:%s:%d:%s</code> is created by <code>sprintf</code>.</p>
+<ul>
+<li><code>%d</code>: The bomb ID. Remember the number <code>14</code> from the installation step?</li>
+<li><code>%s</code>: Either <code>defused</code> or <code>exploded</code>. It depends on the value of <code>edi</code> that we passed in earlier.</li>
+<li><code>%d</code>: The phase ID. The phase ID is determined by how many lines you have entered (thus <code>num_input_strings</code>).</li>
+<li><code>%s</code>: The input that we enter for that phase.</li>
+</ul>
+<p>Then, the next function is <code>driver_post</code>.</p>
+<h3 id="not-really-sending-it-to-the-server">(Not really) Sending it to the server</h3>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/driver_post_logic.png" alt="" loading="lazy" decoding="async" /></p>
+<p>After a few tries, I kind of got the idea of what the arguments for <code>driver_post</code> are.</p>
+<ul>
+<li><code>userid</code>: It is the ID that we are provided with. This is hardcoded.</li>
+<li><code>userpwd</code>: This is hidden. It acts more like a token for authentication to prevent unauthorized requests to the HTTP server. The password is hardcoded into the program, and finding it is easy with some debugging.</li>
+<li><code>result</code>: The result string that we got from <code>sprintf</code> in <code>send_msg</code> right above.</li>
+<li><code>debug</code>: I don’t know the purpose of this argument. It enables the branch with the <code>&quot;AUTORESULT STRING: %s&quot;</code> so I assume it’s for debugging. However, it is not that important to what we are looking for anyway.</li>
+<li><code>args5</code>: I honestly don’t know what it does either, but it is also not important.</li>
+</ul>
+<p>We can also ignore branches with no <code>userid</code> (either a <code>nullptr</code> or an empty string).</p>
+<p>This is also just another preparation to call <code>submitr</code>, where the magic is about to happen.</p>
+<h3 id="actually-sending-it-to-the-server">(Actually) Sending it to the server</h3>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/submitr_logic.png" alt="" loading="lazy" decoding="async" /></p>
+<p>This function is just too long. Look at the list of variables. I will try my best to break things down.</p>
+<h4 id="connecting-to-the-http-server">Connecting to the HTTP server</h4>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/socket.png" alt="" loading="lazy" decoding="async" /></p>
+<p>The program creates a new socket that connects to the HTTP server (<code>socket(AF_INET, SOCK_STREAM, 0)</code>. The file descriptor is now <code>4</code> because there is another socket with descriptor <code>3</code> already in use in <code>init_driver</code>.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/connect.png" alt="" loading="lazy" decoding="async" /></p>
+<p>Then, it tries to perform the connection. Pretty straightforward if you know a bit about socket programming. The <code>sockaddr_in</code> input includes:</p>
+<ul>
+<li><code>sin_family</code>: <code>AF_INET</code>.</li>
+<li><code>sin_addr.s_addr</code>: equivalent to <code>127.0.0.1</code>.</li>
+<li><code>sin_port</code>: <code>htons(18889)</code>. When debugging, it showed that the value was <code>51529</code>. I set up a server to port <code>51529</code>, but it did not work. It took me a long while to realize that the actual port is <code>ntohs(51529)</code>, which is <code>18889</code>.</li>
+</ul>
+<h4 id="data-formatting">Data formatting</h4>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/submitr_data.png" alt="" loading="lazy" decoding="async" /></p>
+<p>This part checks if the data about to be sent to the HTTP server fits the buffer (size <code>SUBMITR_MAXBUF</code>).</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/format_check_1.png" alt="" loading="lazy" decoding="async" /></p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/format_check_2.png" alt="" loading="lazy" decoding="async" /></p>
+<p>Then, it’s the process of filtering out unprintable characters. At the same time, some other characters are reformatted to be able to be sent via HTTP (e.g. <code>' '</code> becomes <code>'+'</code>).</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/write.png" alt="" loading="lazy" decoding="async" /></p>
+<p>Now, we are ready to send the data.</p>
+<h4 id="server-endpoint-and-server-request">Server Endpoint and Server Request</h4>
+<p>It can be seen that the executable is trying to send a <code>GET</code> request (they probably don’t care about vulnerabilities with <code>GET</code>, just some quick setup to get things up and running).</p>
+<p>The endpoint has the format of <code>/%s/submitr.pl/</code> <code>?userid=%s&amp;userpwd=%s&amp;lab=%s&amp;result=%s&amp;submit=submit HTTP/1.0\r\n\r\n</code>.</p>
+<ul>
+<li><code>%s</code>: <code>&quot;csapp&quot;</code> (hardcoded).</li>
+<li><code>%s</code>: user ID (given to us).</li>
+<li><code>%s</code>: user password (hidden in the executable).</li>
+<li><code>%s</code>: <code>&quot;cs201&quot;</code> (hardcoded).</li>
+<li><code>%s</code>: the formatted string that we got from <code>send_msg</code>.</li>
+</ul>
+<p>Now we know where to send and what to send.</p>
+<h4 id="server-response">Server Response</h4>
+<p>This part has been a big trouble. After I told my TA about being able to run the executable on my local machine, he looked surprised. I did ask him to let the HTTP server stay on so we could &quot;solve the rest of the unsolved phases at home&quot;. He agreed at first, then decided it was kind of dangerous to let these kids play around like that.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/TA.png" alt="" loading="lazy" decoding="async" /></p>
+<blockquote>
+<p>Me: I would like to ask if you would like to reopen the group bomb lab exercise</p>
+<p>TA: Don’t bring the bomb home, that’s very dangerous 😄</p>
+</blockquote>
+<p>With the actual HTTP server turned off, it is not so easy to figure out what will keep the program running.</p>
+<p>On my own HTTP server, if I respond with a string (e.g. <code>&quot;lmao what&quot;</code>), then after solving the first phase, the program will print the response and halt the program.</p>
+<p>HTTP server response:</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/response_func.png" alt="" loading="lazy" decoding="async" /></p>
+<p>The program is halted:</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/response.png" alt="" loading="lazy" decoding="async" /></p>
+<p>Let’s go a few steps back to the <code>send_msg</code> function.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/driver_post_ret.png" alt="" loading="lazy" decoding="async" /></p>
+<p>If the value of <code>eax</code> is signed, then it will print a message, then exit 0. This message could very well be the server response. </p>
+<p><code>driver_post</code> does not set the <code>eax</code> register. Thus, it has to be inside this enormous <code>submitr</code> that halts the program.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/response_parse.png" alt="" loading="lazy" decoding="async" /></p>
+<p>All of these steps are just parsing the response. This checks whether the status is 200, then skips the header part.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/response_status.png" alt="" loading="lazy" decoding="async" /></p>
+<p>This is the last piece of the check. It appears to compare 2 strings. At first, I thought it was not that important. I could not seem to find anything related to the address <code>0x305b</code>. It took me hours of debugging just because of this false assumption (I am a noob please don’t @ me).</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/cover.png" alt="" loading="lazy" decoding="async" /></p>
+<p>However, it turns out, this is the address of the string <code>&quot;OK&quot;</code>. This means that I just need to respond with <code>&quot;OK&quot;</code> on my HTTP server to match with the check. It works.</p>
+<p><img src="https://jalsol.github.io/blog/cmu-bomb-decipher/final.png" alt="" loading="lazy" decoding="async" /></p>
+<h2 id="aftermath">Aftermath</h2>
+<p>There is a catch: even if we know the request and the response, we don’t know what the real HTTP server does. Since the <code>GET</code> request does include the result, the HTTP server can perform another check to verify if the answer is valid. There is also a lot of room to improve the security of the lab. With the real HTTP server turned off, I cannot experiment further.</p>
+<p>It is the first time I have ever done a &quot;proper&quot; reverse engineering. Although I gained almost nothing from this (I still need to defuse the bomb properly for the lab grades), it is still a fun experience.</p>
+<hr />
+<p><strong>UPDATE</strong>: We got a session to interact with the actual server and see its response. Every attempt I made resulted in some sorts of errors. I suppose the server had a mechanism to verify the validity of the data sent.</p>
+
+
+            </main>
+            <footer>
+                
+<p class="taxonomies">
+
+
+<a href="/tags/english">#english</a>
+
+<a href="/tags/coursework">#coursework</a>
+
+
+
+
+</p>
+
+                
+            </footer>
+        </div>
+    </body>
+</html>
+        

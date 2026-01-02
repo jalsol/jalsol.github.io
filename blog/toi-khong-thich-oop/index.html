@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <title>[vi] tôi không thích OOP và sự &quot;ảo&quot; OOP</title>
+        
+        <meta name="title" content="[vi] tôi không thích OOP và sự &quot;ảo&quot; OOP">
+        
+        <meta name="description" content="Tôi không thích OOP. Lạm dụng OOP có thể hại nhiều hơn lợi. Tôi ghét những kẻ sùng bái OOP và design pattern.">
+        <meta name="generator" content="Zola v0.16.1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jalsol.github.io/blog/toi-khong-thich-oop/">
+        <meta property="og:site_name" content="">
+        <meta property="og:title" content="[vi] tôi không thích OOP và sự &quot;ảo&quot; OOP">
+        <meta property="og:description" content="Tôi không thích OOP. Lạm dụng OOP có thể hại nhiều hơn lợi. Tôi ghét những kẻ sùng bái OOP và design pattern.">
+        <meta property="og:image" content="https:&#x2F;&#x2F;jalsol.github.io&#x2F;images&#x2F;hanabi_pfp.jpg">
+
+        
+        
+        
+        <link rel="canonical" href="https://jalsol.github.io/blog/toi-khong-thich-oop/">
+        <link rel="shortcut icon" type="image/x-icon" href="https://jalsol.github.io/images/hanabi_pfp.jpg">
+        <script type="application/ld+json">
+            {
+                "description":"Tôi không thích OOP. Lạm dụng OOP có thể hại nhiều hơn lợi. Tôi ghét những kẻ sùng bái OOP và design pattern.",
+                "url":"https://jalsol.github.io/blog/toi-khong-thich-oop/",
+                "@type":"WebSite",
+                "headline":"[vi] tôi không thích OOP và sự "ảo" OOP",
+                "name":"[vi] tôi không thích OOP và sự "ảo" OOP",
+                
+                "@context":"https://schema.org"
+            }
+        </script>
+        
+        
+        
+        <link rel="stylesheet" href="https://jalsol.github.io/style.css"/>
+        
+    </head>
+    <body theme="auto">
+        <div class="w">
+            <header>
+                
+                <nav>
+                    
+                    <a href="/" >~home</a>
+                    
+                    <a href="/blog" >*blogs</a>
+                    
+                    <a href="/tags" >#tags</a>
+                    
+                </nav>
+                
+                
+<p class="post-meta"><time datetime="2025-04-16">2025-04-16</time></p>
+<h1>[vi] tôi không thích OOP và sự &quot;ảo&quot; OOP</h1>
+
+            </header>
+            <main class="page-content" aria-label="Content">
+                
+
+
+
+<p><a href="/blog/i-dont-like-oop/">Read the English version here.</a></p>
+<p><strong>CẬP NHẬT:</strong> Uncle Bob (người đẻ ra SOLID, Agile Manifesto, TDD; tác giả của cuốn Clean Code, Clean Architecture...) <a rel="noopener" target="_blank" href="https://x.com/unclebobmartin/status/1918276572760486249">cũng vừa lên video về &quot;định nghĩa OOP chuẩn&quot;</a>.</p>
+<p>Hôm nay có dịp tôi đào lại một bài nói của anh Đinh Ngọc Thành - Chief Architect tại Holistics, công ty (cũ) của tôi. Vì là một bài tôi rất thích nên tôi chia sẻ ở đây, và góp thêm vài lời của bản thân.</p>
+<p><strong>TL;DR:</strong> Tôi không thích OOP. Lạm dụng OOP có thể hại nhiều hơn lợi. Tôi ghét những kẻ sùng bái OOP và design pattern. Anh Thành có phân tích một góc nhìn khác của OOP trong video. Tôi thích góc nhìn đấy và tôi nghĩ mọi người cũng nên như vậy.</p>
+<div style="display: flex;">
+  <iframe style="aspect-ratio: 16 / 9; width: 100% !important;" src="https://www.youtube.com/embed/7PGCvpJl_0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<hr data-content="" \>
+<p>OOP cực kì phổ biến. OOP được dạy ngay từ năm 1, năm 2 trên đại học. Các ngôn ngữ phổ biến, các framework thông dụng trong mấy chục năm đều có sự xuất hiện của OOP. Mọi người nói dùng OOP thì code gọn hơn, linh hoạt hơn, phát triển tốt hơn. Mọi người học OOP, học design pattern, thậm chí có người còn sùng bái cứng nhắc.</p>
+<p>Tôi không thích OOP (hoặc, ít nhất, là cái kiểu OOP mà mọi người đã quen). Tôi ghét việc có những người tranh cãi trên mạng (rất ngu, tôi biết) và thậm chí là các thầy coi OOP là nhất <strong>(tôi đã thất vọng về đào tạo CNTT ở VN)</strong>.</p>
+<hr data-content="" \>
+<p>Có một nghịch lý rằng: mặc dù OOP đã tồn tại rất, rất lâu cùng với sự phát triển của software engineering, nhưng OOP lại không có nền tảng lý thuyết vững chắc. Functional Programming (paradigm tôi thích nhất hiện tại) có nền từ lambda calculus, còn Imperative Programming thì có nền từ Turing machine. OOP thì ngược lại: người ta sinh ra OOP cả mấy chục năm, mà người ta mới chỉ chế <a rel="noopener" target="_blank" href="https://arxiv.org/abs/2111.13384">một cái lý thuyết cho nó cách đây vài năm</a>.</p>
+<p>Một vấn đề lớn trong OOP nói riêng và trong software engineering nói chung là quá nhiều abstraction. Môn CM101 dạy tôi rằng abstraction là một tính chất quan trọng. Tuy nhiên, quá nhiều abstraction lại tăng complexity của hệ thống: hiệu năng kém, phát triển khó, debug khó, control flow phức tạp... Đôi khi abstraction không giảm complexity xuống, mà chỉ chia nhỏ rồi rải ra hoặc ẩn đi. Trong khi, nếu bọc raw data bằng struct và xử lý trực tiếp thì mọi chuyện lại đơn giản hơn. Không phải ngẫu nhiên mà những ngôn ngữ hiện đại như Go và Rust không có class hay inheritance mà chỉ có struct.</p>
+<p>Có những design pattern trong OOP sinh ra chỉ vì người ta muốn &quot;lách&quot; những thứ mà đúng ra làm được rất dễ trong các paradigm khác, như Singleton hay Facade. Hoặc, việc bundle state và behavior với nhau thành một class sẽ gây khó khăn trong việc test các behavior (vì phải đạt đúng state, đúng dependency mới replicate được behavior).</p>
+<p>Tôi lại thích cách nhìn nhận rằng OOP chỉ là một phương thức để các object truyền dữ liệu cho nhau, thông qua một contract/interface. Góc nhìn này về OOP không bị ràng buộc về class và inheritance, thoáng hơn, trực diện hơn, và có nhiều phương án xử lý hay tích hợp các paradigm khác vào (như Functional Programming). Mọi người có thể xem video trên để hiểu thêm.</p>
+<hr data-content="" \>
+<p><img src="/images/wisdom.png" alt="wisdom" loading="lazy" decoding="async" /></p>
+
+
+            </main>
+            <footer>
+                
+<p class="taxonomies">
+
+
+<a href="/tags/vietnamese">#vietnamese</a>
+
+<a href="/tags/oop">#oop</a>
+
+<a href="/tags/programming">#programming</a>
+
+<a href="/tags/software-engineering">#software engineering</a>
+
+
+
+
+</p>
+
+                
+            </footer>
+        </div>
+    </body>
+</html>
+        

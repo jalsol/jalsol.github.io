@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <title>My Functional Programming languages journey</title>
+        
+        <meta name="title" content="My Functional Programming languages journey">
+        
+        <meta name="description" content="I have gotten into Functional Programming in the past year. Here are my thoughts about languages that I have tried.">
+        <meta name="generator" content="Zola v0.16.1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jalsol.github.io/blog/fp-lang-journey/">
+        <meta property="og:site_name" content="">
+        <meta property="og:title" content="My Functional Programming languages journey">
+        <meta property="og:description" content="I have gotten into Functional Programming in the past year. Here are my thoughts about languages that I have tried.">
+        <meta property="og:image" content="https:&#x2F;&#x2F;jalsol.github.io&#x2F;images&#x2F;hanabi_pfp.jpg">
+
+        
+        
+        
+        <link rel="canonical" href="https://jalsol.github.io/blog/fp-lang-journey/">
+        <link rel="shortcut icon" type="image/x-icon" href="https://jalsol.github.io/images/hanabi_pfp.jpg">
+        <script type="application/ld+json">
+            {
+                "description":"I have gotten into Functional Programming in the past year. Here are my thoughts about languages that I have tried.",
+                "url":"https://jalsol.github.io/blog/fp-lang-journey/",
+                "@type":"WebSite",
+                "headline":"My Functional Programming languages journey",
+                "name":"My Functional Programming languages journey",
+                
+                "@context":"https://schema.org"
+            }
+        </script>
+        
+        
+        
+        <link rel="stylesheet" href="https://jalsol.github.io/style.css"/>
+        
+    </head>
+    <body theme="auto">
+        <div class="w">
+            <header>
+                
+                <nav>
+                    
+                    <a href="/" >~home</a>
+                    
+                    <a href="/blog" >*blogs</a>
+                    
+                    <a href="/tags" >#tags</a>
+                    
+                </nav>
+                
+                
+<p class="post-meta"><time datetime="2025-06-30">2025-06-30</time></p>
+<h1>My Functional Programming languages journey</h1>
+
+            </header>
+            <main class="page-content" aria-label="Content">
+                
+
+
+Table of contents
+<ul>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/fp-lang-journey/#introduction">Introduction</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/fp-lang-journey/#haskell">Haskell</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/fp-lang-journey/#ocaml">OCaml</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/fp-lang-journey/#elixir">Elixir</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/fp-lang-journey/#scala">Scala</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/fp-lang-journey/#clojure-or-any-lisp-variant-really">Clojure (or any Lisp variant, really)</a>
+        
+    </li>
+
+</ul>
+
+
+<h2 id="introduction">Introduction</h2>
+<p>I first heard about Functional Programming (FP) in high school. I heard it was some cryptic, math-heavy
+stuff (that scared people, myself included, away). But I also heard that learning FP would
+open a new perspective of oneself on programming.</p>
+<p>Nowadays, plenty of features from FP have made it to mainstream general-purpose programming
+languages:</p>
+<ul>
+<li>Functions as values</li>
+<li>Higher-order functions</li>
+<li>Closures</li>
+<li>Partial function application</li>
+<li>Immutable data structures</li>
+<li>Pattern matching</li>
+<li>Algebraic data types</li>
+<li>Monads (yes, <a rel="noopener" target="_blank" href="https://x.com/search?q=effectts">people are starting to use monads in TypeScript</a>)</li>
+</ul>
+<p><img src="https://jalsol.github.io/blog/fp-lang-journey/what-is-a-monad.jpg" alt="what is a monad?" loading="lazy" decoding="async" /></p>
+<h2 id="haskell">Haskell</h2>
+<p>I finally made my first attempt picking up FP in my freshman year. Haskell has been the most
+widely known language in the paradigm, so it was natural that I started with it. I tried solving
+some Project Euler problems to get myself started.</p>
+<p>My problem with Haskell was that it could get a bit too cryptic, with too many features:
+too many keywords and too many symbols to remember. I had had a bit of experience with C++
+already, and I couldn't manage to fit another complex language in my brain.</p>
+<blockquote>
+<p>Although one can slightly understand the code below, there are too many things going on:
+<code>readMaybe</code>, <code>do</code>, <code>mapM</code>, <code>$</code>, <code>&lt;-</code>, <code>++</code>, etc.</p>
+</blockquote>
+<pre data-lang="haskell" style="background-color:#eff1f5;color:#4c4f69;" class="language-haskell "><code class="language-haskell" data-lang="haskell"><span style="color:#8839ef;">import </span><span>Text.Read (</span><span style="font-style:italic;color:#1e66f5;">readMaybe</span><span>)
+</span><span style="color:#8839ef;">import </span><span>System.Exit (</span><span style="font-style:italic;color:#1e66f5;">die</span><span>)
+</span><span>
+</span><span style="font-style:italic;color:#1e66f5;">parse </span><span style="color:#8839ef;">:: String -&gt; IO Int
+</span><span>parse s </span><span style="color:#179299;">= </span><span style="color:#8839ef;">case</span><span> readMaybe s </span><span style="color:#8839ef;">of
+</span><span>  Just n  </span><span style="color:#179299;">-&gt;</span><span> return n
+</span><span>  Nothing </span><span style="color:#179299;">-&gt;</span><span> die </span><span style="color:#179299;">$ </span><span style="color:#40a02b;">&quot;Invalid number: &quot; </span><span style="color:#179299;">++</span><span> s
+</span><span>
+</span><span style="font-style:italic;color:#1e66f5;">processNumbers </span><span style="color:#8839ef;">::</span><span> [</span><span style="color:#8839ef;">String</span><span>] </span><span style="color:#8839ef;">-&gt; IO </span><span>()
+</span><span>processNumbers strs </span><span style="color:#179299;">= </span><span style="color:#8839ef;">do
+</span><span>  nums </span><span style="color:#179299;">&lt;-</span><span> mapM parse strs
+</span><span>  </span><span style="color:#8839ef;">let</span><span> positives </span><span style="color:#179299;">=</span><span> filter (</span><span style="color:#179299;">&gt;</span><span style="color:#fe640b;">0</span><span>) nums
+</span><span>  </span><span style="color:#8839ef;">if</span><span> null positives </span><span style="color:#8839ef;">then
+</span><span>    putStrLn </span><span style="color:#40a02b;">&quot;No positive numbers!&quot;
+</span><span>  </span><span style="color:#8839ef;">else
+</span><span>    </span><span style="color:#8839ef;">let</span><span> s </span><span style="color:#179299;">=</span><span> sum positives </span><span style="color:#8839ef;">in
+</span><span>    </span><span style="color:#8839ef;">case</span><span> s </span><span style="color:#8839ef;">of
+</span><span>      </span><span style="color:#fe640b;">0 </span><span style="color:#179299;">-&gt;</span><span> putStrLn </span><span style="color:#40a02b;">&quot;Sum is zero.&quot;
+</span><span>      s&#39; </span><span style="color:#179299;">|</span><span> s&#39; </span><span style="color:#179299;">&gt; </span><span style="color:#fe640b;">100 </span><span style="color:#179299;">-&gt;</span><span> putStrLn </span><span style="color:#179299;">$ </span><span style="color:#40a02b;">&quot;Big sum: &quot; </span><span style="color:#179299;">++</span><span> show s&#39;
+</span><span>         </span><span style="color:#179299;">|</span><span> otherwise </span><span style="color:#179299;">-&gt;</span><span> putStrLn </span><span style="color:#179299;">$ </span><span style="color:#40a02b;">&quot;Sum: &quot; </span><span style="color:#179299;">++</span><span> show s&#39;
+</span><span>
+</span><span style="font-style:italic;color:#1e66f5;">main </span><span style="color:#8839ef;">:: IO </span><span>()
+</span><span>main </span><span style="color:#179299;">=</span><span> processNumbers [</span><span style="color:#40a02b;">&quot;42&quot;</span><span style="color:#7c7f93;">, </span><span style="color:#40a02b;">&quot;-5&quot;</span><span style="color:#7c7f93;">, </span><span style="color:#40a02b;">&quot;60&quot;</span><span style="color:#7c7f93;">, </span><span style="color:#40a02b;">&quot;0&quot;</span><span style="color:#7c7f93;">, </span><span style="color:#40a02b;">&quot;5&quot;</span><span>]
+</span></code></pre>
+<p>Haskell is pretty strict about being purely functional, so it can get irritating to implement
+stuff that would've been trivial and performant in the Imperative paradigm. Also, Haskell
+(and its users) tends to surround itself with a lot of mathy buzzwords, especially from category
+theory. This scares many people away, and I believe this does more harm than good to FP,
+especially when Haskell is often the recommended language for FP.</p>
+<h2 id="ocaml">OCaml</h2>
+<p>It is often brought up alongside Haskell. OCaml came from the ML family, thus has both classic/traditional
+and modern/pragmatic influences. It is much simpler than Haskell, doesn't tie itself to category
+theory that often, and you can get productive pretty quickly.</p>
+<blockquote>
+<p>This OCaml uses a lot less features: no monads, only pattern matching; the <code>map</code> and <code>filter</code>
+functions are accessed from the module <code>List</code>.</p>
+</blockquote>
+<pre data-lang="ocaml" style="background-color:#eff1f5;color:#4c4f69;" class="language-ocaml "><code class="language-ocaml" data-lang="ocaml"><span style="color:#8839ef;">open </span><span>Printf
+</span><span>
+</span><span style="color:#8839ef;">let </span><span style="font-style:italic;color:#1e66f5;">parse </span><span style="font-style:italic;color:#e64553;">s </span><span style="color:#179299;">=
+</span><span>  </span><span style="color:#8839ef;">match</span><span> int_of_string_opt s </span><span style="color:#8839ef;">with
+</span><span>  </span><span style="color:#8839ef;">| </span><span style="font-style:italic;color:#df8e1d;">Some </span><span style="font-style:italic;color:#e64553;">n </span><span style="color:#7c7f93;">-&gt;</span><span> n
+</span><span>  </span><span style="color:#8839ef;">| </span><span style="font-style:italic;color:#df8e1d;">None </span><span style="color:#7c7f93;">-&gt;</span><span> failwith (sprintf </span><span style="color:#40a02b;">&quot;Invalid number: %s\n&quot;</span><span> s)
+</span><span>
+</span><span style="color:#8839ef;">let </span><span style="font-style:italic;color:#1e66f5;">process_numbers </span><span style="font-style:italic;color:#e64553;">strs </span><span style="color:#179299;">=
+</span><span>  </span><span style="color:#8839ef;">let </span><span style="color:#fe640b;">nums </span><span style="color:#179299;">= </span><span>List.map parse strs </span><span style="color:#8839ef;">in
+</span><span>  </span><span style="color:#8839ef;">let </span><span style="color:#fe640b;">positives </span><span style="color:#179299;">= </span><span>List.filter ((</span><span style="color:#179299;">&lt;</span><span>) </span><span style="color:#fe640b;">0</span><span>) nums </span><span style="color:#8839ef;">in
+</span><span>  </span><span style="color:#8839ef;">match</span><span> positives </span><span style="color:#8839ef;">with
+</span><span>  </span><span style="color:#8839ef;">| </span><span style="color:#d20f39;">[] </span><span style="color:#7c7f93;">-&gt;
+</span><span>    print_endline </span><span style="color:#40a02b;">&quot;No positive numbers!&quot;
+</span><span>  </span><span style="color:#8839ef;">| </span><span style="color:#d20f39;">_ </span><span style="color:#7c7f93;">-&gt;
+</span><span>    </span><span style="color:#8839ef;">let </span><span style="color:#fe640b;">s </span><span style="color:#179299;">= </span><span>List.fold_left (</span><span style="color:#179299;">+</span><span>) </span><span style="color:#fe640b;">0</span><span> positives </span><span style="color:#8839ef;">in
+</span><span>    </span><span style="color:#8839ef;">match</span><span> s </span><span style="color:#8839ef;">with
+</span><span>    </span><span style="color:#8839ef;">| </span><span style="color:#fe640b;">0 </span><span style="color:#7c7f93;">-&gt;</span><span> print_endline </span><span style="color:#40a02b;">&quot;Sum is zero.&quot;
+</span><span>    </span><span style="color:#8839ef;">| </span><span style="font-style:italic;color:#e64553;">s </span><span style="color:#8839ef;">when</span><span> s </span><span style="color:#179299;">&gt; </span><span style="color:#fe640b;">100 </span><span style="color:#7c7f93;">-&gt;</span><span> printf </span><span style="color:#40a02b;">&quot;Big sum: %d\n&quot;</span><span> s
+</span><span>    </span><span style="color:#8839ef;">| </span><span style="font-style:italic;color:#e64553;">s </span><span style="color:#7c7f93;">-&gt;</span><span> printf </span><span style="color:#40a02b;">&quot;Sum: %d\n&quot;</span><span> s
+</span><span>
+</span><span style="color:#8839ef;">let </span><span style="color:#d20f39;">() </span><span style="color:#179299;">=</span><span> process_numbers </span><span style="color:#7c7f93;">[</span><span style="color:#40a02b;">&quot;42&quot;</span><span style="color:#7c7f93;">; </span><span style="color:#40a02b;">&quot;-5&quot;</span><span style="color:#7c7f93;">; </span><span style="color:#40a02b;">&quot;60&quot;</span><span style="color:#7c7f93;">; </span><span style="color:#40a02b;">&quot;0&quot;</span><span style="color:#7c7f93;">; </span><span style="color:#40a02b;">&quot;5&quot;</span><span style="color:#7c7f93;">]
+</span></code></pre>
+<p>It's also multiparadigm: you can write imperative, you can write OOP. You can have mutability
+with ease (although immutability is the default).</p>
+<p>I started with OCaml by writing an <a rel="noopener" target="_blank" href="https://github.com/jalsol/jalmas">MIPS assembler</a>. I
+used it in competitive programming (mostly on AtCoder) and <a rel="noopener" target="_blank" href="https://github.com/jalsol/aoc2024">Advent of Code 2024</a>.
+I wrote a <a rel="noopener" target="_blank" href="https://github.com/jalsol/minichat">minimal chat application</a> and a <a rel="noopener" target="_blank" href="https://github.com/jalsol/jaldis">redis clone</a>
+in OCaml. I even convinced my Principles of Programming Languages teammates (who had no clue
+about FP in the first place) to try OCaml,
+<a rel="noopener" target="_blank" href="https://docs.google.com/presentation/d/17BAgwsFivyZM_eT36Qh0WWqoYazT51iNYBTiD59cDBA/edit?usp=sharing">do a presentation about OCaml</a>,
+and even <a rel="noopener" target="_blank" href="https://github.com/smol-lang/smol">implement a small OCaml interpreter</a> for the
+course.</p>
+<p><img src="https://jalsol.github.io/blog/fp-lang-journey/github-linguist-stats.png" alt="github linguist stats" loading="lazy" decoding="async" /></p>
+<p>1 year with OCaml has quickly overtaken my 5 years of C++ development. <a rel="noopener" target="_blank" href="https://github.com/jalsol?tab=repositories">All of my new projects
+since June 2024 are in OCaml</a>.
+The overall feedback from myself and my peers was positive.</p>
+<p>OCaml is now my favorite language. </p>
+<p><em>(jane street pls hire me)</em></p>
+<h2 id="elixir">Elixir</h2>
+<p>Around the same time that I discovered OCaml, I also considered Elixir and had a short stint
+with it. Elixir also had a lot of hype, due to being a Ruby-like FP language that runs on
+the BEAM VM, thus it's fault-tolerant and super scalable.</p>
+<p>However, the major drawbacks for me are:</p>
+<ul>
+<li>It does not have a strong and static type system (it has a dynamic type system);</li>
+<li>It does not support imperative programming (can be critical for performance);</li>
+<li>It's not as versatile as OCaml or Haskell</li>
+</ul>
+<p>I really wanted to love Elixir. Maybe at some point in the future.</p>
+<h2 id="scala">Scala</h2>
+<p>A FP big boy in the industry. I personally have heard of some local/regional businesses
+that use Scala (like Grab an Anduin Transactions). Lichess is also a very astonishing one
+for using Scala. It runs on the JVM, thus it can benefit from the very huge ecosystem and
+interoperability with libraries and frameworks in Java, which makes it very appealing.</p>
+<p>Some of my problem with Scala are:</p>
+<ul>
+<li>Very slow compile time;</li>
+<li>No Hindley-Milner type inference;</li>
+<li>Some features can get very ugly and unergonomic (e.g. currying, piping);</li>
+<li>The JVM creeping into &quot;features&quot; (why is there function vs. method).</li>
+</ul>
+<h2 id="clojure-or-any-lisp-variant-really">Clojure (or any Lisp variant, really)</h2>
+<p>The Lisp family is pretty much the original big gun in the FP world. There are many variants,
+but the one that I tried to learn was Clojure (yet again, it running on the JVM is very appealing).</p>
+<p>My biggest turn-off with Lisp is the S-expression itself. I tried to love it. I really did.
+I understand its appeal. But it never clicked for me. The ordering and the excessive use
+of parentheses just killed it. There's also the issue with the dynamic type system as well.</p>
+
+
+            </main>
+            <footer>
+                
+<p class="taxonomies">
+
+
+<a href="/tags/english">#english</a>
+
+<a href="/tags/functional-programming">#functional programming</a>
+
+<a href="/tags/haskell">#haskell</a>
+
+<a href="/tags/ocaml">#ocaml</a>
+
+<a href="/tags/scala">#scala</a>
+
+<a href="/tags/lisp">#lisp</a>
+
+<a href="/tags/clojure">#clojure</a>
+
+<a href="/tags/elixir">#elixir</a>
+
+
+
+
+</p>
+
+                
+            </footer>
+        </div>
+    </body>
+</html>
+        

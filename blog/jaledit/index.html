@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <title>jaledit - just a little editor</title>
+        
+        <meta name="title" content="jaledit - just a little editor">
+        
+        <meta name="description" content="Vim-like text editor that outperforms other existing editors">
+        <meta name="generator" content="Zola v0.16.1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jalsol.github.io/blog/jaledit/">
+        <meta property="og:site_name" content="">
+        <meta property="og:title" content="jaledit - just a little editor">
+        <meta property="og:description" content="Vim-like text editor that outperforms other existing editors">
+        <meta property="og:image" content="https:&#x2F;&#x2F;jalsol.github.io&#x2F;images&#x2F;hanabi_pfp.jpg">
+
+        
+        
+        
+        <link rel="canonical" href="https://jalsol.github.io/blog/jaledit/">
+        <link rel="shortcut icon" type="image/x-icon" href="https://jalsol.github.io/images/hanabi_pfp.jpg">
+        <script type="application/ld+json">
+            {
+                "description":"Vim-like text editor that outperforms other existing editors",
+                "url":"https://jalsol.github.io/blog/jaledit/",
+                "@type":"WebSite",
+                "headline":"jaledit - just a little editor",
+                "name":"jaledit - just a little editor",
+                
+                "@context":"https://schema.org"
+            }
+        </script>
+        
+        
+        
+        <link rel="stylesheet" href="https://jalsol.github.io/style.css"/>
+        
+    </head>
+    <body theme="auto">
+        <div class="w">
+            <header>
+                
+                <nav>
+                    
+                    <a href="/" >~home</a>
+                    
+                    <a href="/blog" >*blogs</a>
+                    
+                    <a href="/tags" >#tags</a>
+                    
+                </nav>
+                
+                
+<p class="post-meta"><time datetime="2023-08-16">2023-08-16</time></p>
+<h1>jaledit - just a little editor</h1>
+
+            </header>
+            <main class="page-content" aria-label="Content">
+                
+
+
+Table of contents
+<ul>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/jaledit/#introduction">Introduction</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/jaledit/#features">Features</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/jaledit/#demonstration">Demonstration</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/jaledit/#repository">Repository</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/jaledit/#usage">Usage</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#editor">Editor</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#buffer-manager">Buffer Manager</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#keybinding">Keybinding</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/jaledit/#internal-implementation">Internal Implementation</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#rope">Rope</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#keybindings">Keybindings</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#autocompletion">Autocompletion</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#syntax-highlight">Syntax highlight</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#finder-1">Finder</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/jaledit/#rejected-experiments">Rejected Experiments</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#c">C</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/jaledit/#piece-table-piece-tree">Piece Table&#x2F;Piece Tree</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+</ul>
+
+
+<p><strong>NOTE</strong>: This blog does not support TeX, so the TeX inline commands are all over the place. To see the submitted version, <a href="https://jalsol.github.io/blog/jaledit/jaledit_report.pdf">click here</a>.</p>
+<h1 id="introduction">Introduction</h1>
+<p>This is a source code text editor that focuses on performance. With the help of different data structures and algorithms, this editor offers <strong>superior performance</strong> over popular existing editors (Vim, Nano, Visual Studio Code, Sublime Text, …), as it enables efficient editing operations and manages huge files (that would otherwise crash or stall other editors).</p>
+<h1 id="features">Features</h1>
+<ul>
+<li>Fast editing operations (insertion and deletion, copy and paste, find and replace…);</li>
+<li>Autocompletion;</li>
+<li>Extensible syntax highlight;</li>
+<li>Vim-like navigation;</li>
+<li>Buffer management.</li>
+</ul>
+<h1 id="demonstration">Demonstration</h1>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=DOiqO8f-9TY">using jaledit to solve programming problems</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=o27J9EdEBYo">jaledit loads faster than other editors</a></li>
+</ul>
+<h1 id="repository">Repository</h1>
+<p><a rel="noopener" target="_blank" href="https://github.com/jalsol/jaledit">Here is the repository of the project on GitHub</a>.</p>
+<h1 id="usage">Usage</h1>
+<p>jaledit is greatly inspired by Vim, one of my favorite text editors. Most features in jaledit are copied from Vim, including the keybindings and the functionalities, but with my own twists.</p>
+<h2 id="editor">Editor</h2>
+<p><img src="https://jalsol.github.io/blog/jaledit/preview.png" alt="" loading="lazy" decoding="async" /></p>
+<p>This is the default view of jaledit.</p>
+<p>At the top is the status bar.</p>
+<ul>
+<li>On the left of the status bar is the mode indicator (as jaledit, just like Vim, is a modal editor).</li>
+<li>On the right is the name of the file (or <code>&quot;new file&quot;</code> if it’s a new buffer). There is an asterisk next to the filename if there are unsaved changes.</li>
+</ul>
+<p>On the left of the editor is the line number column.</p>
+<p>The color scheme chosen for jaledit is <a rel="noopener" target="_blank" href="https://github.com/catppuccin/catppuccin">Catppuccin Latte</a>. At the moment, jaledit does not support choosing another color scheme.</p>
+<h2 id="buffer-manager">Buffer Manager</h2>
+<p><img src="https://jalsol.github.io/blog/jaledit/bufman.png" alt="" loading="lazy" decoding="async" /></p>
+<p>This is the Buffer Manager.</p>
+<p>Each line corresponds to a buffer entry. This allows switching between multiple buffers and lets you work on multiple files inside jaledit.</p>
+<h2 id="keybinding">Keybinding</h2>
+<h3 id="normal-mode">Normal mode</h3>
+<table><thead><tr><th>Keybinding</th><th>Usage</th></tr></thead><tbody>
+<tr><td>h</td><td>Move the cursor to the left</td></tr>
+<tr><td>j</td><td>Move the cursor down</td></tr>
+<tr><td>k</td><td>Move the cursor up</td></tr>
+<tr><td>l</td><td>Move the cursor to the right</td></tr>
+<tr><td>gg</td><td>Move the cursor to the first line</td></tr>
+<tr><td>G</td><td>Move the cursor to the last line</td></tr>
+<tr><td>0</td><td>Move the cursor to the first column</td></tr>
+<tr><td>$</td><td>Move the cursor to the last column</td></tr>
+<tr><td>w</td><td>Move the cursor to the next word</td></tr>
+<tr><td>b</td><td>Move the cursor to the previous word</td></tr>
+<tr><td>i</td><td>Enter Insert mode</td></tr>
+<tr><td>v</td><td>Enter Visual mode</td></tr>
+<tr><td>o</td><td>Move the cursor down, insert a new line, and enter Insert mode</td></tr>
+<tr><td>O</td><td>Move the cursor up, insert a new line, and enter Insert mode</td></tr>
+<tr><td>a</td><td>Move to the next column and enter Insert mode</td></tr>
+<tr><td>A</td><td>Move past the last column and enter Insert mode</td></tr>
+<tr><td>u</td><td>Undo</td></tr>
+<tr><td>r</td><td>Redo</td></tr>
+<tr><td>x</td><td>Cut the current character on the cursor</td></tr>
+<tr><td>p</td><td>Paste</td></tr>
+<tr><td>dd</td><td>Cut the current line</td></tr>
+<tr><td>yy</td><td>Copy the current line</td></tr>
+<tr><td>dw</td><td>Delete the current word on the cursor</td></tr>
+<tr><td>cw</td><td>Delete the current word on the cursor and enter Insert mode</td></tr>
+<tr><td>s</td><td>Save</td></tr>
+<tr><td>S</td><td>Save as</td></tr>
+<tr><td>f</td><td>Enter the Buffer Manager</td></tr>
+<tr><td>F</td><td>Open a file</td></tr>
+<tr><td>/</td><td>Find</td></tr>
+<tr><td>?</td><td>Replace</td></tr>
+<tr><td>n</td><td>Move the cursor to the next occurrence found</td></tr>
+<tr><td>N</td><td>Move the cursor to the previous occurrence found</td></tr>
+</tbody></table>
+<h3 id="insert-mode">Insert mode</h3>
+<table><thead><tr><th>Keybinding</th><th>Usage</th></tr></thead><tbody>
+<tr><td>Esc</td><td>Return to Normal mode</td></tr>
+<tr><td>Ctrl-n</td><td>Open the autocomplete box and choose the next suggestion</td></tr>
+<tr><td>Ctrl-p</td><td>Open the autocomplete box and choose the previous suggestion</td></tr>
+</tbody></table>
+<h3 id="visual-mode">Visual mode</h3>
+<table><thead><tr><th>Keybinding</th><th>Usage</th></tr></thead><tbody>
+<tr><td>Esc</td><td>Return to Normal mode</td></tr>
+<tr><td>d</td><td>Cut the current selection</td></tr>
+<tr><td>y</td><td>Copy the current selection</td></tr>
+</tbody></table>
+<h3 id="buffer-manager-1">Buffer Manager</h3>
+<table><thead><tr><th>Keybinding</th><th>Usage</th></tr></thead><tbody>
+<tr><td>Esc</td><td>Return to Normal mode</td></tr>
+<tr><td>f</td><td>Return to Normal mode</td></tr>
+<tr><td>d</td><td>Close the current buffer (if not dirty)</td></tr>
+<tr><td>D</td><td>Force close the current buffer</td></tr>
+<tr><td>n</td><td>Create a new buffer</td></tr>
+</tbody></table>
+<h3 id="finder">Finder</h3>
+<table><thead><tr><th>Keybinding</th><th>Usage</th></tr></thead><tbody>
+<tr><td>Esc</td><td>Return to Normal mode</td></tr>
+<tr><td>Tab</td><td>Switch between &quot;Find&quot; input and &quot;Replace&quot; input</td></tr>
+<tr><td>Enter</td><td>Find/Replace</td></tr>
+</tbody></table>
+<h1 id="internal-implementation">Internal Implementation</h1>
+<p>There are 5 important modules implemented in the project:</p>
+<ul>
+<li>Rope</li>
+<li>Keybindings</li>
+<li>Autocompletion</li>
+<li>Syntax Highlight</li>
+<li>Finder</li>
+</ul>
+<h2 id="rope">Rope</h2>
+<h3 id="introduction-1">Introduction</h3>
+<p>Unsurprisingly, the most essential functionality of a text editor is the ability to edit text efficiently. The operations commonly used in a text editor usually include (but are not limited to):</p>
+<ul>
+<li>Insertion, deletion;</li>
+<li>Concatenation, split;</li>
+<li>Undo, redo.</li>
+</ul>
+<p>Although these operations appear fairly simple and are often taken for granted in every text editing application, internal implementation to make them efficient is often less mentioned.</p>
+<h3 id="keep-it-simple-stupid">&quot;Keep It Simple, Stupid?&quot;</h3>
+<p>For files that are about a few MBs, the best way to manage them is the simplest way (applying the KISS principle): treating the entire content of a file as a simple string. To insert a piece of text into the middle of the file:</p>
+<ul>
+<li>Split the string (which is the content of the file) into two parts;</li>
+<li>Move the latter part further back to create a gap for the inserted text (may require reallocation to extend memory);</li>
+<li>Insert the text into the gap.</li>
+</ul>
+<p>The size of the L3 Cache on modern PC CPUs usually varies from 1 MB to 64MB (up to 256MB for server computers). This means that if the file is small enough to fit inside the L3 Cache, we can benefit from the very fast <code>memmove()</code> call, despite the $O(n)$ time complexity and $O(n)$ space complexity.</p>
+<p><em>This procedure is, in fact, a subroutine for Insertion Sort, which is known to have good performance on small arrays by utilizing the CPU Cache.</em></p>
+<h3 id="handling-larger-files-with-rope">Handling larger files with Rope</h3>
+<p>To handle larger files that cannot fit inside a CPU Cache (for example, files that have hundreds of MBs or even some GBs), data structures are required. There are some options used by popular editors:</p>
+<ul>
+<li>Array of Lines: used by <a rel="noopener" target="_blank" href="https://github.com/vim/vim/blob/master/src/fileio.c#L1232-L1292">Vim</a>;</li>
+<li><a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Gap_buffer">Gap Buffer</a>: used by <a rel="noopener" target="_blank" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Buffer-Gap.html">Emacs</a>;</li>
+<li><a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Piece_table">Piece Table</a>: used by <a rel="noopener" target="_blank" href="https://code.visualstudio.com/blogs/2018/03/23/text-buffer-reimplementation">Visual Studio Code</a>, <a rel="noopener" target="_blank" href="https://web.archive.org/web/20160308183811/http://1017.songtrellisopml.com/whatsbeenwroughtusingpiecetables">Microsoft Word</a>.</li>
+</ul>
+<p>Each of these data structures has its pros and cons. However, I was fascinated by <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Rope_(data_structure)">Rope</a>, a data structure that treats a large string as a concatenation of smaller substrings, connected by a tree structure. Rope is <a rel="noopener" target="_blank" href="https://iq.opengenus.org/rope-data-structure/">claimed to be used by Sublime Text and Gmail</a> (however, I didn’t find any other reliable sources to back up this claim).</p>
+<p>Rope had been used in the past, but <a rel="noopener" target="_blank" href="https://citeseer.ist.psu.edu/viewdoc/download?doi=10.1.1.14.9450&amp;rep=rep1&amp;type=pdf">the most well-known paper on the rope</a> was published in December 1995, by Hans-J. Boehm, Russ Atkinson, and Michael Plass from Xerox.</p>
+<h3 id="underlying-structure-of-rope">Underlying Structure of Rope</h3>
+<p>Rope is a balanced tree, where each leaf contains an immutable substring. The internal nodes are used to represent the concatenation of the substrings and may contain some special values for convenience.</p>
+<p><img src="https://lh6.googleusercontent.com/bKJ3xR4fQvRJGnrMRyIamixCJh4InYafafvj99NlWkEzvysG7akC-jHVOmZ9arlGMxO-IHRkYqHI4oPxqlFM4ZAgX1M_2EGszDIr_vo0PK379y7mvTTvUbUiADvD-p-_ctofxOElmGc05G1L2JB66Ds" alt="" loading="lazy" decoding="async" /></p>
+<p>A rope that represents the string <code>&quot;Hello my name is Simon&quot;</code>. Courtesy: <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Rope_(data_structure)#/media/File:Vector_Rope_example.svg">Wikipedia</a>.</p>
+<p>Many different balanced trees can be used as the backbone of rope. Some examples like B-Tree or AVL Tree are mentioned in the paper. However, the paper also proposes another balancing condition as well, which will be used for implementation later.</p>
+<h3 id="rope-concatenation">Rope Concatenation</h3>
+<p>Since the rope is a tree, the concatenation of two ropes is trivial:</p>
+<ul>
+<li>Create a new root node;</li>
+<li>Assign the left and right rope to the left and right child of that root node, respectively.</li>
+</ul>
+<p><img src="https://lh4.googleusercontent.com/9IOF5QgqeG-CX9EarPWNkWoGg9OU_aKoQlLAf-Ed-wk3NouC8GGS1GbL3SKbAon33C8RzLatYecPBlwhBZm9ixO6NcNFeSnyeiQ_rEDov0fXsBiRH09WmddSPy6q6mxD2bX-D_oJukpbYKwhwh453po" alt="" loading="lazy" decoding="async" /></p>
+<p>Concatenating <code>&quot;Hello my &quot;</code> and <code>&quot;name i&quot;</code>. Courtesy: <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Rope_(data_structure)#/media/File:Vector_Rope_concat.svg">Wikipedia</a>.</p>
+<p>The time complexity of concatenation is $O(1)$ since the number of steps to concatenate is constant.</p>
+<p>Concatenation also requires only one new node to connect the left and the right subtree. Thus, the space complexity is $O(1)$.</p>
+<h3 id="rope-split">Rope Split</h3>
+<p>There are 2 cases:</p>
+<ul>
+<li>The split point is at the end of the substring of a leaf;</li>
+<li>The split point is in the middle of the substring of a leaf.</li>
+</ul>
+<p>The first case can be solved by the following procedure recursively:</p>
+<ul>
+<li>If the split point belongs to the left subtree, split the left subtree into two smaller subtrees at the split point;</li>
+<li>Denote the left and the right subtree of the left subtree as the &quot;left-left&quot; and the &quot;left-right&quot; subtrees, respectively;</li>
+<li>We know that:
+<ul>
+<li>The &quot;left-left&quot; subtree represents the first part of the rope;</li>
+<li>The &quot;left-right&quot; subtree and the right subtree represent the second part of the rope;</li>
+</ul>
+</li>
+<li>Thus, return the &quot;left-left&quot; subtree, and the concatenation of the &quot;left-right&quot; and the right subtree as a pair;</li>
+<li>If the split point belongs to the right subtree, we apply almost the same logic but on the other side.</li>
+</ul>
+<p>The second case can be solved just like the first case, the only difference being that the split point is in the middle of the substring of the leaf node. In such a case: replace the leaf node with two new leaf nodes, each containing its respective half of the substring.</p>
+<p>The time complexity of splitting the rope is $O(\log n)$. The traversal goes as far as the depth of the tree.</p>
+<p>The space complexity is $O(\log n)$ since concatenation may happen at each level of the tree.</p>
+<p>If leaf splitting is performed, the extra time complexity for creating new leaves may be added (although in practice this can be very fast because the substring is small enough). Some implementations may even try to share resources, eliminating the cost of creating any new strings at all.</p>
+<p><img src="https://lh4.googleusercontent.com/doCqzxBCcBDUpkBRB1dcxUxR8rXlgQgx2NZDFW-IP_7e-7aaBO6qY_4u5pQoapz3WU7BJp34qBsnmJEwHNa_8n1HKT2SDS6I-3qCSj3kYt1-2HyFRU2vMUKPfvhtAPEZtFsRlboLeNA8RSSkWoh6s80" alt="" loading="lazy" decoding="async" /></p>
+<p>Splitting <code>&quot;Hello my name is Simon&quot;</code> into <code>&quot;Hello my na&quot;</code> and <code>&quot;me is Simon&quot;</code>. Courtesy: <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Rope_(data_structure)#/media/File:Vector_Rope_split.svg">Wikipedia</a>.</p>
+<h3 id="rope-insertion">Rope Insertion</h3>
+<p>Insertion can be implemented using Concatenation and Split.</p>
+<p>To insert a string into the rope at position $i$:</p>
+<ul>
+<li>Convert the input string into the input rope;</li>
+<li>Split the original rope at position $i$;</li>
+<li>Concatenate the first part of the split, the input rope, and the second part of the split together.</li>
+</ul>
+<p>The complexity of Insertion is the total complexity of one Split and two Concatenations, which is $O(\log n)$ time and $O(\log n)$ space.</p>
+<h3 id="rope-deletion">Rope Deletion</h3>
+<p>Just like Insertion, Deletion can also be implemented using Concatenation and Split.</p>
+<p>To delete the characters with the indices in the range $[a;b]$:</p>
+<ul>
+<li>Split the original rope at position $a$ to get the left and the right subtree;</li>
+<li>Split the right subtree at position $b$ to get the &quot;right-left&quot; and &quot;right-right&quot; subtrees;</li>
+<li>Concatenate the left subtree and the &quot;right-right&quot; subtree.</li>
+</ul>
+<p>The complexity of Deletion is the total complexity of two Splits and one Concatenation, which is $O(\log n)$ time and $O(\log n)$ space.</p>
+<h3 id="rope-rebalancing">Rope Rebalancing</h3>
+<p>Rope is a tree. Like any other search tree, the rope has to be balanced to achieve efficiency for all operations.</p>
+<p>A rope may be implemented using any existing balanced trees, such as the B-tree and the AVL tree as mentioned in the paper. There’s another simpler method used for rebalancing the rope that is featured in the paper.</p>
+<p>We define the depth of a tree as the maximum depth of the left and the right subtree plus one. The depth of a leaf node is $0$.</p>
+<p>Let $F(n)$ be the $n$-th Fibonacci number. The rope of depth $n$ is considered balanced if the length of the string it represents is at least $F(n+2)$. <em>Please note that a balanced rope may contain unbalanced sub ropes.</em></p>
+<p>The procedure to rebalance the rope is to simply rebuild the rope in a specific way. Since it is not easy to summarize the steps, I advise reading the paper itself to learn more.</p>
+<p>Because the time complexity for rebuilding the rope is $O(n)$, it is suggested that the rebalancing only occurs selectively, or when a threshold is reached that violates the balanced condition.</p>
+<h3 id="notable-implementation-details">Notable Implementation Details</h3>
+<p>Rope was part of the <a rel="noopener" target="_blank" href="https://web.archive.org/web/20070628221742/http://www.sgi.com/tech/stl/ropeimpl.html">SGI STL</a>. Nowadays, it is still included as part of the <a rel="noopener" target="_blank" href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/ext_sgi.html">Extension headers of the GNU C++ Library</a> (although it’s abandoned) and was never standardized as part of the C++ Standard Library. My <a rel="noopener" target="_blank" href="https://github.com/jalsol/jaledit/tree/cpp-reimpl/src/rope">implementation of the rope</a> features some notable additional implementation details that differ from that of the SGI STL.</p>
+<p>There are different ways to implement the Undo/Redo operations. The easiest is to create a carbon copy of the current string to a stack before it is mutated. However, this requires a lot of memory, and since the target is to load a file that’s a few hundred MBs large, this is inherently insufficient.</p>
+<p>Another method is to only store the parts that are about to be changed in the stack, and not the entire string. I find this difficult to implement well.</p>
+<p>One idea that I found is Immutable Data Structures. I am greatly inspired by <a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=sPhpelUfu8Q">JuanPe’s talk at CppCon 2017</a>, where he talked about using a Relaxed Radix Balanced Tree to create a &quot;flex vector&quot;, an immutable data structure. Immutable Data Structures are very important in the Functional Programming paradigm, where objects are immutable to not cause any side effects. They save memory by sharing common resources between their different versions</p>
+<p>The property of immutability already exists in some parts of the rope, namely the substrings that the leaves hold. I simply apply the same idea for the internal nodes, using <code>std::shared_ptr</code> in C++, which is a built-in smart pointer type with a reference counter. <code>std::shared_ptr</code> keeps track of how many references to the address there are, and it will free the memory if and only if the reference counter drops to $0$.</p>
+<p>Most of the resources are shared between different versions, and only a few nodes from the root to the updated leaves are updated. This makes implementing the Undo/Redo operations incredibly easy: our stack now contains actual Rope objects and neither carbon copies nor detached pieces of information.</p>
+<p><img src="https://jalsol.github.io/blog/jaledit/rope_impl.png" alt="" loading="lazy" decoding="async" /></p>
+<p>These functions return new Ropes that should not be discarded. The source code is viewed inside jaledit.</p>
+<h2 id="keybindings">Keybindings</h2>
+<h3 id="introduction-2">Introduction</h3>
+<p>Each sequence of keys is mapped to a function. Hence, to quickly match the input command to the desired function, a Trie is used.</p>
+<p><img src="https://jalsol.github.io/blog/jaledit/trie.png" alt="" loading="lazy" decoding="async" /></p>
+<p>An example of a Trie with the commands <code>di{</code>, <code>di(</code>, <code>dd</code>, and <code>dw</code>. Each leaf (which represents a complete string) will be mapped to a function.</p>
+<h3 id="implementation">Implementation</h3>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">class </span><span style="font-style:italic;color:#df8e1d;">Keybind </span><span style="color:#7c7f93;">{
+</span><span style="color:#8839ef;">public</span><span style="color:#7c7f93;">:
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">Keybind</span><span style="color:#7c7f93;">();
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">~Keybind</span><span style="color:#7c7f93;">();
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">template</span><span style="color:#7c7f93;">&lt;</span><span>std</span><span style="color:#179299;">::</span><span>invocable Func</span><span style="color:#7c7f93;">&gt;
+</span><span>    </span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">insert</span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span>string_view </span><span style="font-style:italic;color:#e64553;">keyseq</span><span style="color:#7c7f93;">,
+</span><span>                Func </span><span style="font-style:italic;color:#e64553;">func</span><span style="color:#7c7f93;">,
+</span><span>                </span><span style="color:#8839ef;">bool </span><span style="font-style:italic;color:#e64553;">editable</span><span style="color:#7c7f93;">);
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">step</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">char </span><span style="font-style:italic;color:#e64553;">c</span><span style="color:#7c7f93;">, </span><span style="color:#8839ef;">bool </span><span style="font-style:italic;color:#e64553;">editable</span><span style="color:#7c7f93;">);
+</span><span>    </span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">reset_step</span><span style="color:#7c7f93;">();
+</span><span>
+</span><span style="color:#8839ef;">private</span><span style="color:#7c7f93;">:
+</span><span>    </span><span style="color:#8839ef;">using </span><span style="font-style:italic;color:#df8e1d;">Node </span><span style="color:#179299;">=</span><span> keybind</span><span style="color:#179299;">::</span><span>Node</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>    Node</span><span style="color:#179299;">* </span><span>m_root</span><span style="color:#7c7f93;">{</span><span style="color:#8839ef;">new</span><span> Node</span><span style="color:#7c7f93;">};
+</span><span>    Node</span><span style="color:#179299;">* </span><span>m_current</span><span style="color:#7c7f93;">{};
+</span><span style="color:#7c7f93;">};
+</span></code></pre>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">namespace </span><span style="color:#df8e1d;">keybind </span><span style="color:#7c7f93;">{
+</span><span>
+</span><span style="color:#8839ef;">class </span><span style="font-style:italic;color:#df8e1d;">Node </span><span style="color:#7c7f93;">{
+</span><span style="color:#8839ef;">public</span><span style="color:#7c7f93;">:
+</span><span>    </span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">set_parent</span><span style="color:#7c7f93;">(</span><span>Node</span><span style="color:#179299;">* </span><span style="font-style:italic;color:#e64553;">parent</span><span style="color:#7c7f93;">);
+</span><span>    Node</span><span style="color:#179299;">*&amp; </span><span style="font-style:italic;color:#1e66f5;">parent</span><span style="color:#7c7f93;">();
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">using </span><span style="font-style:italic;color:#df8e1d;">ChildArr </span><span style="color:#179299;">=
+</span><span>        std</span><span style="color:#179299;">::</span><span>array</span><span style="color:#7c7f93;">&lt;</span><span>Node</span><span style="color:#179299;">*</span><span style="color:#7c7f93;">,</span><span> constants</span><span style="color:#179299;">::</span><span>char_limit</span><span style="color:#7c7f93;">&gt;;
+</span><span>
+</span><span>    ChildArr</span><span style="color:#179299;">&amp; </span><span style="font-style:italic;color:#1e66f5;">children</span><span style="color:#7c7f93;">();
+</span><span>    </span><span style="color:#8839ef;">const</span><span> ChildArr</span><span style="color:#179299;">&amp; </span><span style="font-style:italic;color:#1e66f5;">children</span><span style="color:#7c7f93;">() </span><span style="color:#8839ef;">const</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>    Node</span><span style="color:#179299;">*&amp; </span><span style="font-style:italic;color:#1e66f5;">child</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">char </span><span style="font-style:italic;color:#e64553;">c</span><span style="color:#7c7f93;">);
+</span><span>    </span><span style="color:#8839ef;">virtual void </span><span style="font-style:italic;color:#1e66f5;">call</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">bool </span><span style="font-style:italic;color:#e64553;">_</span><span style="color:#7c7f93;">) { (</span><span style="color:#8839ef;">void</span><span style="color:#7c7f93;">)</span><span>_</span><span style="color:#7c7f93;">; };
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">virtual bool </span><span style="font-style:italic;color:#1e66f5;">is_func</span><span style="color:#7c7f93;">() { </span><span style="color:#8839ef;">return </span><span style="color:#d20f39;">false</span><span style="color:#7c7f93;">; };
+</span><span>    </span><span style="color:#8839ef;">virtual </span><span style="font-style:italic;color:#1e66f5;">~Node</span><span style="color:#7c7f93;">();
+</span><span>
+</span><span style="color:#8839ef;">protected</span><span style="color:#7c7f93;">:
+</span><span>    Node</span><span style="color:#179299;">* </span><span>m_parent</span><span style="color:#7c7f93;">{};
+</span><span>    ChildArr m_children</span><span style="color:#7c7f93;">{};
+</span><span style="color:#7c7f93;">};
+</span><span>
+</span><span style="color:#8839ef;">template</span><span style="color:#7c7f93;">&lt;</span><span>std</span><span style="color:#179299;">::</span><span>invocable Func</span><span style="color:#7c7f93;">&gt;
+</span><span style="color:#8839ef;">class </span><span style="font-style:italic;color:#df8e1d;">FuncNode </span><span style="color:#7c7f93;">: </span><span style="color:#8839ef;">public </span><span style="font-style:italic;color:#df8e1d;">Node </span><span style="color:#7c7f93;">{
+</span><span style="color:#8839ef;">public</span><span style="color:#7c7f93;">:
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">FuncNode</span><span style="color:#7c7f93;">(</span><span>Func </span><span style="font-style:italic;color:#e64553;">func</span><span style="color:#7c7f93;">, </span><span style="color:#8839ef;">bool </span><span style="font-style:italic;color:#e64553;">editable</span><span style="color:#7c7f93;">);
+</span><span>    </span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">call</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">bool </span><span style="font-style:italic;color:#e64553;">editable</span><span style="color:#7c7f93;">) </span><span style="color:#8839ef;">override</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">bool </span><span style="font-style:italic;color:#1e66f5;">is_func</span><span style="color:#7c7f93;">() </span><span style="color:#8839ef;">override </span><span style="color:#7c7f93;">{ </span><span style="color:#8839ef;">return </span><span style="color:#d20f39;">true</span><span style="color:#7c7f93;">; }
+</span><span>
+</span><span style="color:#8839ef;">private</span><span style="color:#7c7f93;">:
+</span><span>    Func m_func</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">bool </span><span>m_editable</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">};
+</span><span>
+</span><span style="color:#7c7f93;">} </span><span style="font-style:italic;color:#9ca0b0;">// namespace keybind
+</span></code></pre>
+<h2 id="autocompletion">Autocompletion</h2>
+<h3 id="introduction-3">Introduction</h3>
+<p>Initially, when coming up with ideas for this project, I intended to also use the Trie for prefix matching. However, an observable property of modern editors is that they do not perform strict prefix matching. You can make a typo, and the autocomplete engine will still suggest the most suitable keywords.</p>
+<p>This requires an <strong>Approximate String Matching algorithm</strong>. This has been a popular topic, as it is required to solve many problems from different fields, including (but not limited to):</p>
+<ul>
+<li>Matching of nucleotide sequences from DNA data;</li>
+<li>Spam filtering;</li>
+<li>Plagiarism and copyright infringement detection.</li>
+</ul>
+<h3 id="the-smith-waterman-algorithm">The Smith-Waterman Algorithm</h3>
+<p>There are many CLI tools for filtering (GNU grep, Fuzzy Finder, Ugrep, Ripgrep, The Silver Searcher…) as well. The algorithm that I choose for autocompletion is the <strong>Smith-Waterman algorithm</strong>, inspired by Fuzzy Finder, one of my favorite tools.</p>
+<p>The Smith-Waterman algorithm performs local sequence alignment to match as many local sequences as possible. This allows more flexibility and fewer penalties for typos, using custom scoring criteria.</p>
+<p>The algorithm to match 2 strings $a$ and $b$ consists of these steps:</p>
+<ol>
+<li>
+<p>Set the scoring:</p>
+<ol>
+<li>
+<p>$s(c_1,c_2)$  is the similarity score.</p>
+<p>For jaledit, $s(c_1,c_2)=\begin{cases}
+16\text{ (if }c_1=c_2)\
+-128\text{ (otherwise})
+\end{cases}$</p>
+</li>
+<li>
+<p>$W_k$ is the score if the length of the ignored gap is $k$. For jaledit, $W_1=64$.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Initialize a matrix $H$ of size $(|a|+1)\times(|b|+1)$, filled with 0.</p>
+</li>
+<li>
+<p>Fill the matrix with the following formula:</p>
+<p>$H_{ij}=\max\begin{cases}
+H_{i-1,j-1}+s(a_i,b_j)\
+H_{i-k,j}-W_k\
+H_{i,j-l}-W_l\
+0
+\end{cases}$</p>
+</li>
+<li>
+<p>The final score is $\max H_{ij}$.</p>
+</li>
+</ol>
+<p>Keywords with the highest scores will be presented to the user.</p>
+<p>Both the time and space complexity of this algorithm is $O(nm)$. However, the length of the input pattern is usually small, so this algorithm is acceptable.</p>
+<h3 id="implementation-1">Implementation</h3>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int </span><span>Suggester</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#1e66f5;">calc_score</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">const</span><span style="font-style:italic;color:#e64553;"> std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#e64553;">string</span><span style="color:#179299;">&amp; </span><span style="font-style:italic;color:#e64553;">keyword</span><span style="color:#7c7f93;">,
+</span><span style="font-style:italic;color:#e64553;">                          </span><span style="color:#8839ef;">const</span><span style="font-style:italic;color:#e64553;"> std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#e64553;">string</span><span style="color:#179299;">&amp; </span><span style="font-style:italic;color:#e64553;">pattern</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// Smith-Waterman algorithm
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> match </span><span style="color:#179299;">= </span><span style="color:#fe640b;">16</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> mismatch </span><span style="color:#179299;">= -</span><span style="color:#fe640b;">128</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> gap </span><span style="color:#179299;">= -</span><span style="color:#fe640b;">64</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">int</span><span> max_score </span><span style="color:#179299;">= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>    std</span><span style="color:#179299;">::</span><span>vector </span><span style="font-style:italic;color:#1e66f5;">matrix</span><span style="color:#7c7f93;">(</span><span>pattern</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">() </span><span style="color:#179299;">+ </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">,
+</span><span>                       std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#1e66f5;">vector</span><span style="color:#7c7f93;">(</span><span>keyword</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">() </span><span style="color:#179299;">+ </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">));
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> i </span><span style="color:#179299;">= </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">;</span><span> i </span><span style="color:#179299;">&lt;=</span><span> pattern</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">(); </span><span style="color:#179299;">++</span><span>i</span><span style="color:#7c7f93;">) {
+</span><span>        </span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> j </span><span style="color:#179299;">= </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">;</span><span> j </span><span style="color:#179299;">&lt;=</span><span> keyword</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">(); </span><span style="color:#179299;">++</span><span>j</span><span style="color:#7c7f93;">) {
+</span><span>            </span><span style="color:#8839ef;">int</span><span> match_score
+</span><span>                </span><span style="color:#179299;">=</span><span> pattern</span><span style="color:#7c7f93;">[</span><span>i </span><span style="color:#179299;">- </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">==</span><span> keyword</span><span style="color:#7c7f93;">[</span><span>j </span><span style="color:#179299;">- </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">]
+</span><span>                </span><span style="color:#179299;">?</span><span> match
+</span><span>                </span><span style="color:#179299;">:</span><span> mismatch</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>            matrix</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">][</span><span>j</span><span style="color:#7c7f93;">]
+</span><span>                </span><span style="color:#179299;">= </span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#1e66f5;">max</span><span style="color:#7c7f93;">({
+</span><span>                    matrix</span><span style="color:#7c7f93;">[</span><span>i </span><span style="color:#179299;">- </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">][</span><span>j </span><span style="color:#179299;">- </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">+</span><span> match_score</span><span style="color:#7c7f93;">,
+</span><span>                    matrix</span><span style="color:#7c7f93;">[</span><span>i </span><span style="color:#179299;">- </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">][</span><span>j</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">+</span><span> gap</span><span style="color:#7c7f93;">,
+</span><span>                    matrix</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">][</span><span>j </span><span style="color:#179299;">- </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">+</span><span> gap</span><span style="color:#7c7f93;">,
+</span><span>                    </span><span style="color:#fe640b;">0
+</span><span>                </span><span style="color:#7c7f93;">});
+</span><span>
+</span><span>            max_score </span><span style="color:#179299;">= </span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#1e66f5;">max</span><span style="color:#7c7f93;">(</span><span>max_score</span><span style="color:#7c7f93;">,</span><span> matrix</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">][</span><span>j</span><span style="color:#7c7f93;">]);
+</span><span>        </span><span style="color:#7c7f93;">}
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">return</span><span> max_score</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<h2 id="syntax-highlight">Syntax highlight</h2>
+<h3 id="introduction-4">Introduction</h3>
+<p>The most common way to perform syntax highlighting is by performing a <strong>lexical analysis</strong>. This means that we are converting the source code into categories of meaningful lexical tokens. For programming languages, the categories include identifiers, operators, grouping symbols, and data types.</p>
+<p>Lexical analysis is also the first step of compiling a source code into an executable. The program used to perform the lexical analysis is called a &quot;Lexer&quot;. There are many lexer generators used by huge projects, but for practice purposes, I decided to implement my own lexer manually.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">enum class </span><span style="font-style:italic;color:#df8e1d;">TokenKind </span><span style="color:#7c7f93;">: </span><span style="font-style:italic;color:#df8e1d;">std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t </span><span style="color:#7c7f93;">{
+</span><span>    End</span><span style="color:#7c7f93;">,
+</span><span>    Invalid</span><span style="color:#7c7f93;">,
+</span><span>    Preproc</span><span style="color:#7c7f93;">,
+</span><span>    Symbol</span><span style="color:#7c7f93;">,
+</span><span>    OpenParen</span><span style="color:#7c7f93;">,
+</span><span>    CloseParen</span><span style="color:#7c7f93;">,
+</span><span>    OpenCurly</span><span style="color:#7c7f93;">,
+</span><span>    CloseCurly</span><span style="color:#7c7f93;">,
+</span><span>    OpenSquare</span><span style="color:#7c7f93;">,
+</span><span>    CloseSquare</span><span style="color:#7c7f93;">,
+</span><span>    OpenAttr</span><span style="color:#7c7f93;">,
+</span><span>    CloseAttr</span><span style="color:#7c7f93;">,
+</span><span>    Semicolon</span><span style="color:#7c7f93;">,
+</span><span>    Keyword</span><span style="color:#7c7f93;">,
+</span><span>    Comment</span><span style="color:#7c7f93;">,
+</span><span>    String</span><span style="color:#7c7f93;">,
+</span><span>    Char</span><span style="color:#7c7f93;">,
+</span><span>    Type</span><span style="color:#7c7f93;">,
+</span><span>    Number</span><span style="color:#7c7f93;">,
+</span><span>    Function</span><span style="color:#7c7f93;">,
+</span><span>    Operator</span><span style="color:#7c7f93;">,
+</span><span style="color:#7c7f93;">};
+</span></code></pre>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">class </span><span style="font-style:italic;color:#df8e1d;">Lexer </span><span style="color:#7c7f93;">{
+</span><span style="color:#8839ef;">public</span><span style="color:#7c7f93;">:
+</span><span>    </span><span style="font-style:italic;color:#1e66f5;">Lexer</span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span>string_view </span><span style="font-style:italic;color:#e64553;">text</span><span style="color:#7c7f93;">);
+</span><span>    Token </span><span style="font-style:italic;color:#1e66f5;">next</span><span style="color:#7c7f93;">();
+</span><span>
+</span><span style="color:#8839ef;">private</span><span style="color:#7c7f93;">:
+</span><span>    std</span><span style="color:#179299;">::</span><span>string_view m_text</span><span style="color:#7c7f93;">;
+</span><span>    std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t </span><span>m_pos</span><span style="color:#7c7f93;">{};
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">bool </span><span style="font-style:italic;color:#1e66f5;">starts_with</span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span>string_view </span><span style="font-style:italic;color:#e64553;">prefix</span><span style="color:#7c7f93;">) </span><span style="color:#8839ef;">const</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">skip</span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t </span><span style="font-style:italic;color:#e64553;">n</span><span style="color:#7c7f93;">);
+</span><span>    </span><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">trim_left</span><span style="color:#7c7f93;">();
+</span><span style="color:#7c7f93;">};
+</span></code></pre>
+<h3 id="parsing">Parsing?</h3>
+<p>For better analysis of the grammar structure of a language, parsing is often done to convert the lexed tokens into a tree structure. However, the targeted language for syntax highlight demonstration, C++, is an extremely tricky language to perform parsing, as its grammar is highly contextual and requires a lot of look-ahead. In the end, I chose not to do the parsing.</p>
+<h3 id="coloring">Coloring</h3>
+<p>A benefit of not performing parsing is that there is no need to analyze the whole file. Lexical analysis can be done on each line, so only visible lines are analyzed and colored.</p>
+<p>Each type of token is assigned to a color. jaledit currently supports 41 literal tokens, 14 data type tokens, and 84 C++ keywords.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">constexpr
+</span><span>std</span><span style="color:#179299;">::</span><span>array</span><span style="color:#7c7f93;">&lt;</span><span>Color</span><span style="color:#7c7f93;">,</span><span> constants</span><span style="color:#179299;">::</span><span>token_count</span><span style="color:#7c7f93;">&gt;</span><span> kind_colors </span><span style="color:#179299;">= </span><span style="color:#7c7f93;">{{
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">},        </span><span style="font-style:italic;color:#9ca0b0;">// End
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">76</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">79</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">105</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">},  </span><span style="font-style:italic;color:#9ca0b0;">// Invalid
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">23</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">146</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">153</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// Preproc
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">76</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">79</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">105</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">},  </span><span style="font-style:italic;color:#9ca0b0;">// Symbol
+</span><span>
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">223</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">142</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">29</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// OpenParen
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">223</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">142</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">29</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// CloseParen
+</span><span>
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">223</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">142</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">29</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// OpenCurly
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">223</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">142</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">29</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// CloseCurly
+</span><span>
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">223</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">142</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">29</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// OpenSquare
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">223</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">142</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">29</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// CloseSquare
+</span><span>
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">223</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">142</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">29</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// OpenAttr
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">223</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">142</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">29</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// CloseAttr
+</span><span>
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">23</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">146</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">153</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// Semicolon
+</span><span>
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">230</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">69</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">83</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">},   </span><span style="font-style:italic;color:#9ca0b0;">// Keyword
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">188</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">192</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">204</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// Comment
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">64</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">160</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">43</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">},   </span><span style="font-style:italic;color:#9ca0b0;">// String
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">64</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">160</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">43</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">},   </span><span style="font-style:italic;color:#9ca0b0;">// Char
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">254</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">100</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">11</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">},  </span><span style="font-style:italic;color:#9ca0b0;">// Type
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">254</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">100</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">11</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">},  </span><span style="font-style:italic;color:#9ca0b0;">// Number
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">114</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">135</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">253</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">}, </span><span style="font-style:italic;color:#9ca0b0;">// Function
+</span><span>    </span><span style="color:#7c7f93;">{</span><span style="color:#fe640b;">4</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">165</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">229</span><span style="color:#7c7f93;">, </span><span style="color:#fe640b;">255</span><span style="color:#7c7f93;">},   </span><span style="font-style:italic;color:#9ca0b0;">// Operator
+</span><span style="color:#7c7f93;">}};
+</span></code></pre>
+<h2 id="finder-1">Finder</h2>
+<p>There are many algorithms to find all occurrences of a substring in a large string. I personally use the Z algorithm, since it is easier to understand and easier to implement.</p>
+<h3 id="introduction-5">Introduction</h3>
+<p>We have a string $s=s_0..s_{n-1}$. We define $z[i]$ as the longest common prefix of $s$ and $s_i..s_{n-1}$ (which is the suffix of $s$ starting from index $i$).</p>
+<p>$s_0$ is not well-defined by the algorithm. We can let:</p>
+<p>$s_0=\begin{cases}
+n\text{ (if comparing } s \text{ with itself is allowed)}\
+0\text{ (otherwise)}
+\end{cases}$</p>
+<p>The implementation of jaledit defines $s_0=0$.</p>
+<p>For example, considering <code>&quot;aaabaab&quot;</code>:</p>
+<ul>
+<li>$z_0 = 0$</li>
+<li>$z_1 = 2$ (longest common prefix of <code>&quot;aaabaab&quot;</code> and <code>&quot;aabaab&quot;</code> is <code>&quot;aa&quot;</code>)</li>
+<li>$z_2 = 1$ (longest common prefix of <code>&quot;aaabaab&quot;</code> and <code>&quot;abaab&quot;</code> is <code>&quot;a&quot;</code>)</li>
+<li>$z_3 = 0$ (longest common prefix of <code>&quot;aaabaab&quot;</code> and <code>&quot;baab&quot;</code> is <code>&quot;&quot;</code>)</li>
+<li>$z_4 = 2$ (longest common prefix of <code>&quot;aaabaab&quot;</code> and <code>&quot;aab&quot;</code> is <code>&quot;aa&quot;</code>)</li>
+<li>$z_5 = 1$ (longest common prefix of <code>&quot;aaabaab&quot;</code> and <code>&quot;ab&quot;</code> is <code>&quot;a&quot;</code>)</li>
+<li>$z_5 = 0$ (longest common prefix of <code>&quot;aaabaab&quot;</code> and <code>&quot;b&quot;</code> is <code>&quot;&quot;</code>)</li>
+</ul>
+<p>Hence, $z=[0,2,1,0,2,1,0]$.</p>
+<h3 id="implementation-2">Implementation</h3>
+<p>This is the trivial $O(n^2)$ implementation:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int</span><span> n </span><span style="color:#179299;">=</span><span> s</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">size</span><span style="color:#7c7f93;">();
+</span><span>std</span><span style="color:#179299;">::</span><span>vector</span><span style="color:#7c7f93;">&lt;</span><span style="color:#8839ef;">int</span><span style="color:#7c7f93;">&gt; </span><span style="font-style:italic;color:#1e66f5;">z</span><span style="color:#7c7f93;">(</span><span style="font-style:italic;color:#e64553;">n</span><span style="color:#7c7f93;">);
+</span><span>
+</span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">int</span><span> i </span><span style="color:#179299;">= </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">;</span><span> i </span><span style="color:#179299;">&lt;</span><span> n</span><span style="color:#7c7f93;">;</span><span> i</span><span style="color:#179299;">++</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="color:#8839ef;">while </span><span style="color:#7c7f93;">(</span><span>i </span><span style="color:#179299;">+</span><span> z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">&lt;</span><span> n </span><span style="color:#179299;">&amp;&amp;</span><span> s</span><span style="color:#7c7f93;">[</span><span>z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">]] </span><span style="color:#179299;">==</span><span> s</span><span style="color:#7c7f93;">[</span><span>i </span><span style="color:#179299;">+</span><span> z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">]]) {
+</span><span>            </span><span style="color:#179299;">++</span><span>z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">];
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>It can be seen from the above example that there are some repeating longest common prefixes, as we consider matching each suffix of $s$ in each step.</p>
+<p>We define a <strong>segment match</strong> as any substring that is equal to any prefix of $s$. We also keep track of the <strong>rightmost segment match</strong> by keeping track of the range $[l, r)$ corresponding to it.</p>
+<p>When calculating $z[i]$, there are some scenarios:</p>
+<ul>
+<li>
+<p>$i \geq r$ (the index is outside the segment match): proceed with the trivial implementation method, update $r$ if needed;</p>
+</li>
+<li>
+<p>$i&lt;r$ (the index is inside the segment match): it can be figured out that $s_l..s_{r-1}$ and $s_0..s_{r-l-1}$ are already matching, we can assign</p>
+<p>$z_i=\min\begin{cases}
+z_{i-l}\
+r-i \text{ (in case }i+z_{i-l}\geq n\text{)}
+\end{cases}$</p>
+<p>then proceeds with the trivial algorithm and updates $r$ if needed.</p>
+</li>
+</ul>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> z_length </span><span style="color:#179299;">=</span><span> z_text</span><span style="color:#179299;">.</span><span style="font-style:italic;color:#1e66f5;">length</span><span style="color:#7c7f93;">();
+</span><span>std</span><span style="color:#179299;">::</span><span>vector</span><span style="color:#7c7f93;">&lt;</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span style="color:#7c7f93;">&gt; </span><span style="font-style:italic;color:#1e66f5;">z</span><span style="color:#7c7f93;">(</span><span style="font-style:italic;color:#e64553;">z_length</span><span style="color:#7c7f93;">, </span><span style="font-style:italic;color:#fe640b;">0</span><span style="color:#7c7f93;">);
+</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> l </span><span style="color:#179299;">= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">,</span><span> r </span><span style="color:#179299;">= </span><span style="color:#fe640b;">0</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span style="color:#8839ef;">for </span><span style="color:#7c7f93;">(</span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#df8e1d;">size_t</span><span> i </span><span style="color:#179299;">= </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">;</span><span> i </span><span style="color:#179299;">&lt;</span><span> z_length</span><span style="color:#7c7f93;">;</span><span> i</span><span style="color:#179299;">++</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="color:#8839ef;">if </span><span style="color:#7c7f93;">(</span><span>i </span><span style="color:#179299;">&lt;</span><span> r</span><span style="color:#7c7f93;">) {
+</span><span>        z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">= </span><span>std</span><span style="color:#179299;">::</span><span style="font-style:italic;color:#1e66f5;">min</span><span style="color:#7c7f93;">(</span><span>r </span><span style="color:#179299;">-</span><span> i</span><span style="color:#7c7f93;">,</span><span> z</span><span style="color:#7c7f93;">[</span><span>i </span><span style="color:#179299;">-</span><span> l</span><span style="color:#7c7f93;">]);
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span>    </span><span style="color:#8839ef;">while </span><span style="color:#7c7f93;">(</span><span>i </span><span style="color:#179299;">+</span><span> z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">&lt;</span><span> z_length </span><span style="color:#179299;">&amp;&amp;</span><span> z_text</span><span style="color:#7c7f93;">[</span><span>z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">]] </span><span style="color:#179299;">==</span><span> z_text</span><span style="color:#7c7f93;">[</span><span>i </span><span style="color:#179299;">+</span><span> z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">]]) {
+</span><span>        </span><span style="color:#179299;">++</span><span>z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">];
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span>    </span><span style="color:#8839ef;">if </span><span style="color:#7c7f93;">(</span><span>i </span><span style="color:#179299;">+</span><span> z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">] </span><span style="color:#179299;">&gt;</span><span> r</span><span style="color:#7c7f93;">) {
+</span><span>        l </span><span style="color:#179299;">=</span><span> i</span><span style="color:#7c7f93;">;
+</span><span>        r </span><span style="color:#179299;">=</span><span> i </span><span style="color:#179299;">+</span><span> z</span><span style="color:#7c7f93;">[</span><span>i</span><span style="color:#7c7f93;">];
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>It can be proved that the time complexity for this algorithm is $O(n)$.</p>
+<h3 id="finding-a-string-in-the-file">Finding a string in the file</h3>
+<p>Let $z_text=pattern+\diamond+content$. $\diamond$ can be any character that is guaranteed to not appear in both the pattern and the content, as it acts as a separator. Then, perform the Z algorithm on $z_text$.</p>
+<p>For each index $i$ from $|pattern|+1$ (we are skipping the pattern and the separator in $z_text$), if $z_i=|pattern|$, then $content_{i-(|pattern|+1)}$ is the beginning of a match.</p>
+<h1 id="rejected-experiments">Rejected Experiments</h1>
+<p>These are the earlier experiments of the project that did not make it to the final submission. The implementation for these experiments can be found in the <code>devel-piece-table</code> branch of the repository.</p>
+<h2 id="c">C</h2>
+<p>In the early stages, the project was written in C to push the boundaries of performance and increase the difficulty of implementation. C was a good language, and this project might have ended up becoming a C project.</p>
+<p>However, as the project got more complex, it became tricky to continue the development with C. Due to the lack of modern features and the lack of time, the project had to switch back to C++.</p>
+<h2 id="piece-table-piece-tree">Piece Table/Piece Tree</h2>
+<p>Many articles suggested that the Piece Table (or its upgrade, Piece Tree) is the absolute best data structure for text editors.</p>
+<p>However, one big problem with the Piece Table is the $O(n)$ time complexity to access at an arbitrary position in the file, due to the use of a Linked List to link the pieces of text. The Piece Tree fixes this problem by leveraging the tree model, allowing $O(\log n)$ access, but implementing efficient Undo/Redo becomes a problem that even Visual Studio Code used to have. The perfect &quot;Piece Tree&quot; is too complicated to implement, given the short development time of the project.</p>
+<p>I tried the Piece Table. To most people, the cursor movement speed may be negligible for small files. But for a long-time Vim user, the delay was immediately noticeable. After switching to another data structure, the cursor movement speed of jaledit became much faster, even beating Visual Studio Code.</p>
+
+
+            </main>
+            <footer>
+                
+<p class="taxonomies">
+
+
+<a href="/tags/english">#english</a>
+
+<a href="/tags/cpp">#cpp</a>
+
+<a href="/tags/project">#project</a>
+
+<a href="/tags/coursework">#coursework</a>
+
+
+
+
+</p>
+
+                
+            </footer>
+        </div>
+    </body>
+</html>
+        
