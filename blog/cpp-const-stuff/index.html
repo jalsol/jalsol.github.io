@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <title>C++&#x27;s const, constexpr, consteval</title>
+        
+        <meta name="title" content="C++&#x27;s const, constexpr, consteval">
+        
+        <meta name="description" content="Achieve better performance with C++&#x27;s const keywords.">
+        <meta name="generator" content="Zola v0.16.1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jalsol.github.io/blog/cpp-const-stuff/">
+        <meta property="og:site_name" content="">
+        <meta property="og:title" content="C++&#x27;s const, constexpr, consteval">
+        <meta property="og:description" content="Achieve better performance with C++&#x27;s const keywords.">
+        <meta property="og:image" content="https:&#x2F;&#x2F;jalsol.github.io&#x2F;images&#x2F;hanabi_pfp.jpg">
+
+        
+        
+        
+        <link rel="canonical" href="https://jalsol.github.io/blog/cpp-const-stuff/">
+        <link rel="shortcut icon" type="image/x-icon" href="https://jalsol.github.io/images/hanabi_pfp.jpg">
+        <script type="application/ld+json">
+            {
+                "description":"Achieve better performance with C++'s const keywords.",
+                "url":"https://jalsol.github.io/blog/cpp-const-stuff/",
+                "@type":"WebSite",
+                "headline":"C++'s const, constexpr, consteval",
+                "name":"C++'s const, constexpr, consteval",
+                
+                "@context":"https://schema.org"
+            }
+        </script>
+        
+        
+        
+        <link rel="stylesheet" href="https://jalsol.github.io/style.css"/>
+        
+    </head>
+    <body theme="auto">
+        <div class="w">
+            <header>
+                
+                <nav>
+                    
+                    <a href="/" >~home</a>
+                    
+                    <a href="/blog" >*blogs</a>
+                    
+                    <a href="/tags" >#tags</a>
+                    
+                </nav>
+                
+                
+<p class="post-meta"><time datetime="2024-04-27">2024-04-27</time></p>
+<h1>C++&#x27;s const, constexpr, consteval</h1>
+
+            </header>
+            <main class="page-content" aria-label="Content">
+                
+
+
+Table of contents
+<ul>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#the-const-keywords-in-c">The const keywords in C++</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#forewords-about-immutability">Forewords about immutability</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#immutable-vs-immediate">Immutable vs. Immediate</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#const-vs-constexpr-variable">const vs. constexpr variable</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#const">const</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#constexpr">constexpr</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#const-number-constexpr">const number == constexpr?</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#what-can-constexpr-variables-do">What can constexpr variables do?</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#no-constexpr">No constexpr</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#constexpr-dividend">constexpr dividend</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#constexpr-divisor">constexpr divisor</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#both-constexpr">Both constexpr</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#constexpr-function">constexpr function</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#consteval-function">consteval function</a>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#if-constexpr">if constexpr</a>
+        
+            <ul>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#branching-approach">Branching approach</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#template-specialization-approach">Template specialization approach</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#if-constexpr-approach">if constexpr approach</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#any-other-examples">Any other examples?</a>
+                    </li>
+                
+            </ul>
+        
+    </li>
+
+    <li>
+        <a href="https://jalsol.github.io/blog/cpp-const-stuff/#if-consteval">if consteval</a>
+        
+    </li>
+
+</ul>
+
+
+<h2 id="the-const-keywords-in-c">The <code>const</code> keywords in C++</h2>
+<p>C++ is highly regarded for its control over performance. The <code>const</code> keywords
+are undoubtedly important in achieving optimized applications. These keywords
+are some of the fundamentals every C++ developer has to know.</p>
+<p>In this blog, we are we considering these keywords:</p>
+<ul>
+<li><code>const</code>;</li>
+<li><code>constexpr</code>;</li>
+<li><code>consteval</code>.</li>
+</ul>
+<p>I have yet to come up with a good use for <code>constinit</code> (even <a rel="noopener" target="_blank" href="https://en.cppreference.com/w/cpp/language/constinit">cppreference</a>
+has no examples). That is why we are not discussing it right now. Probably I
+will have a part 2, or even update this very own blog as well for it.</p>
+<h2 id="forewords-about-immutability">Forewords about immutability</h2>
+<p><em>You might skip this section for the technical part. I'm putting it up here so
+people notice my opinion on the subject matter.</em></p>
+<p>Immutability should be the default for variables in every programming language.
+It offers better safety/correctness and enables better optimizations. Variables
+in Functional Programming languages (Haskell, ML family, Lisp family, etc.) and
+those who are influenced by them (Rust, Kotlin, etc.) either are immutable by
+default, or allow an easy way to declare something as immutable. Even Cpp2 by
+Herb Sutter has default immutability.</p>
+<p>The only space I can think of right now that requires a lot of mutability is
+emulators. Otherwise, I see no reason why default mutability is a good thing.
+That is why I dislike Python and Go - you can totally accidentally modify a
+variable, and thus spend a bunch of hours debugging that should have been spent
+for meaningful development.</p>
+<h2 id="immutable-vs-immediate">Immutable vs. Immediate</h2>
+<p>Before any further explanation, I want to define some terminologies first.</p>
+<blockquote>
+<p><strong>Immutable</strong>: value <strong>cannot</strong> be changed <strong>once created</strong>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Immediate</strong>: value <strong>cannot</strong> be changed <strong>once created</strong>, and value is
+<strong>known before execution</strong>.</p>
+</blockquote>
+<p>From the above definition, we can also see that:</p>
+<blockquote>
+<p>An <strong>immutable</strong> variable can be initialized during either compile time or run
+time.</p>
+</blockquote>
+<blockquote>
+<p>An <strong>immediate</strong> variable can <strong>only</strong> be initialized during compile time.</p>
+</blockquote>
+<p><strong>Immutable</strong> variables do allow some safety and optimizations (since the compiler
+knows these values won't be changed). <strong>Immediate</strong> variables, with the extra
+compile-time condition, allows greater optimizations.</p>
+<h2 id="const-vs-constexpr-variable"><code>const</code> vs. <code>constexpr</code> variable</h2>
+<p>Okay, I hope we are settled on the definitions. Now to the actual C++ part.</p>
+<h3 id="const"><code>const</code></h3>
+<blockquote>
+<p>A <code>const</code> variable is <strong>immutable</strong>.</p>
+</blockquote>
+<p>What this means is that this code is <strong>valid</strong>:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">valid</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">int</span><span> a</span><span style="color:#7c7f93;">;
+</span><span>    std</span><span style="color:#179299;">::</span><span>cin </span><span style="color:#179299;">&gt;&gt;</span><span> a</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">const int</span><span> b </span><span style="color:#179299;">=</span><span> a </span><span style="color:#179299;">+ </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// OK
+</span><span>
+</span><span>    b </span><span style="color:#179299;">= </span><span style="color:#fe640b;">69</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// not OK, b is immutable
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>The value of <code>b</code> <strong>cannot</strong> be changed after its creation. Thus, it satisfies
+the definition of an <strong>immutable</strong> variable.</p>
+<h3 id="constexpr"><code>constexpr</code></h3>
+<blockquote>
+<p>A <code>constexpr</code> variable is <strong>immediate</strong>.</p>
+</blockquote>
+<p>A <strong>valid</strong> example:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">valid</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> a </span><span style="color:#179299;">= </span><span style="color:#fe640b;">6</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// OK, a = 6
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> b </span><span style="color:#179299;">=</span><span> a </span><span style="color:#179299;">+ </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// OK, b = 15
+</span><span>
+</span><span>    b </span><span style="color:#179299;">= </span><span style="color:#fe640b;">7</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// not OK, b is immediate/immutable
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<ul>
+<li>The value of <code>b</code> <strong>cannot</strong> be changed after its creation.</li>
+<li>The value of <code>b</code> is <strong>known before execution</strong>.</li>
+</ul>
+<p>Thus, <code>b</code> satisfies the definition of an <strong>immediate</strong> variable.</p>
+<p>And an <strong>invalid</strong> example:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">void </span><span style="font-style:italic;color:#1e66f5;">invalid</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">int</span><span> a</span><span style="color:#7c7f93;">;
+</span><span>    std</span><span style="color:#179299;">::</span><span>cin </span><span style="color:#179299;">&gt;&gt;</span><span> a</span><span style="color:#7c7f93;">;
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> b </span><span style="color:#179299;">=</span><span> a </span><span style="color:#179299;">+ </span><span style="color:#fe640b;">1</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// not OK, b is not known before running
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p><code>b</code> is <strong>not known before execution</strong>: it depends on what the input for <code>a</code> is.</p>
+<p>Thus, it fails to become a <code>constexpr</code> variable.</p>
+<h3 id="const-number-constexpr"><code>const</code> number == <code>constexpr</code>?</h3>
+<p>But, what about this example:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">const int</span><span> b </span><span style="color:#179299;">= </span><span style="color:#fe640b;">10</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p><code>b</code> now satisfies the condition of an <strong>immediate</strong> variable, but it is declared
+as <code>const</code>. It is actually okay. A good compiler may be able to detect this is
+effectively the same as a <code>constexpr</code> variable and optimize it.</p>
+<p>However, you are still <em>betting</em> on the compiler to do the magic work for you. If
+you want to be certain, use <code>constexpr</code>.</p>
+<h2 id="what-can-constexpr-variables-do">What can <code>constexpr</code> variables do?</h2>
+<p>I'm <a rel="noopener" target="_blank" href="https://godbolt.org/z/hMa8b9b9P">running the examples in Compiler Explorer</a>
+for the assembly.</p>
+<p>To avoid other sorts of optimizations from the compiler, I'm not using any
+optimization flags for these examples.</p>
+<h3 id="no-constexpr">No <code>constexpr</code></h3>
+<p>Let's consider an example with <strong>no <code>constexpr</code></strong>:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">func1</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">int</span><span> a </span><span style="color:#179299;">= </span><span style="color:#fe640b;">17</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">int</span><span> b </span><span style="color:#179299;">= </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">return</span><span> a </span><span style="color:#179299;">/</span><span> b</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>A simple function. Let's look at the assembly:</p>
+<pre data-lang="asm" style="background-color:#eff1f5;color:#4c4f69;" class="language-asm "><code class="language-asm" data-lang="asm"><span style="font-style:italic;color:#1e66f5;">func1():
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">push    </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">rbp</span><span>, </span><span style="font-style:italic;color:#e64553;">rsp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4], 17
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-8], 9
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4] </span><span style="font-style:italic;color:#1e66f5;"># load dividend
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">cdq
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">idiv    </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-8]      </span><span style="font-style:italic;color:#1e66f5;"># load divisor </span><span>-</span><span style="font-style:italic;color:#1e66f5;">&gt; divide
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">pop     </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">ret
+</span></code></pre>
+<p>Both the values of <code>a</code> and <code>b</code> are loaded to the memory at <code>[rbp-4]</code> and
+<code>[rbp-8]</code>, respectively.</p>
+<blockquote>
+<p>Note: Due to keeping the stack as is (because no optimization flags are
+enabled), these two <code>mov</code> instructions are kept throughout all examples. They
+are not really relevant to our investigation.</p>
+</blockquote>
+<p>For this example:</p>
+<ul>
+<li><code>eax</code> (the dividend) is loaded from the <em>memory</em> (slow);</li>
+<li><code>idiv</code> is used (slow);</li>
+<li>The argument of <code>idiv</code> (the divisor) is loaded from the <em>memory</em> (slow).</li>
+</ul>
+<p>Full of slow stuff. We can do better.</p>
+<h3 id="constexpr-dividend"><code>constexpr</code> dividend</h3>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">func2</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> a </span><span style="color:#179299;">= </span><span style="color:#fe640b;">17</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">int</span><span> b </span><span style="color:#179299;">= </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">return</span><span> a </span><span style="color:#179299;">/</span><span> b</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<pre data-lang="asm" style="background-color:#eff1f5;color:#4c4f69;" class="language-asm "><code class="language-asm" data-lang="asm"><span style="font-style:italic;color:#1e66f5;">func2():
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">push    </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">rbp</span><span>, </span><span style="font-style:italic;color:#e64553;">rsp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4], 17
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-8], 9
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, 17 </span><span style="font-style:italic;color:#1e66f5;"># load dividend as </span><span>17,
+</span><span style="font-style:italic;color:#1e66f5;">                        # no memory access
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">cdq
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">idiv    </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-8] </span><span style="font-style:italic;color:#1e66f5;"># load divisor </span><span>-</span><span style="font-style:italic;color:#1e66f5;">&gt; divide
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">pop     </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">ret
+</span></code></pre>
+<p>Mostly the same as the previous example. However, there is a difference: <code>eax</code>
+is now loaded with an <em>immediate</em> value of <code>17</code>, instead of loading from the
+memory.</p>
+<p>The equivalent C++ code will be:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">func2p</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">int</span><span> b </span><span style="color:#179299;">= </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">return </span><span style="color:#fe640b;">17 </span><span style="color:#179299;">/</span><span> b</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>Notice how <code>a</code> is gone. Using <code>constexpr</code> like in <code>func2()</code>, we can have the
+code with the same performance as <code>func2p()</code> without replacing the variable
+with its value by hand.</p>
+<h3 id="constexpr-divisor"><code>constexpr</code> divisor</h3>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">func3</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">int</span><span> a </span><span style="color:#179299;">= </span><span style="color:#fe640b;">17</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> b </span><span style="color:#179299;">= </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">return</span><span> a </span><span style="color:#179299;">/</span><span> b</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<pre data-lang="asm" style="background-color:#eff1f5;color:#4c4f69;" class="language-asm "><code class="language-asm" data-lang="asm"><span style="font-style:italic;color:#1e66f5;">func3():
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">push    </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">rbp</span><span>, </span><span style="font-style:italic;color:#e64553;">rsp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4], 17
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-8], 9
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4] </span><span style="font-style:italic;color:#1e66f5;"># load dividend
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">movsx   </span><span style="font-style:italic;color:#e64553;">rdx</span><span>, </span><span style="font-style:italic;color:#e64553;">eax
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">imul    </span><span style="font-style:italic;color:#e64553;">rdx</span><span>, </span><span style="font-style:italic;color:#e64553;">rdx</span><span>, 954437177    </span><span style="font-style:italic;color:#1e66f5;"># multiply the dividend
+</span><span style="font-style:italic;color:#1e66f5;">                                       # with (</span><span>1</span><span style="font-style:italic;color:#1e66f5;">/</span><span>9 </span><span style="font-style:italic;color:#1e66f5;">mod </span><span>2</span><span style="font-style:italic;color:#1e66f5;">^</span><span>32</span><span style="font-style:italic;color:#1e66f5;">)
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">shr     </span><span style="font-style:italic;color:#e64553;">rdx</span><span>, 32     </span><span style="font-style:italic;color:#1e66f5;"># these lines of code are
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">sar     </span><span style="font-style:italic;color:#e64553;">edx         </span><span style="font-style:italic;color:#1e66f5;"># normalizing the result
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">sar     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, 31     </span><span style="font-style:italic;color:#1e66f5;"># of the division
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">sub     </span><span style="font-style:italic;color:#e64553;">edx</span><span>, </span><span style="font-style:italic;color:#e64553;">eax    </span><span style="font-style:italic;color:#1e66f5;"># to account for inaccuracy
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, </span><span style="font-style:italic;color:#e64553;">edx
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">pop     </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">ret
+</span></code></pre>
+<p>Notice we are not using <code>idiv</code> anymore. We are using another trick instead.</p>
+<p>This seemingly &quot;magic&quot; value of <code>954437177</code> is actually (1/9 mod 2^32). Instead
+of doing <code>17/9</code>, we are doing <code>17 * 1/9</code> with the faster <code>imul</code> instruction. The
+compiler calculates 1/9 beforehand.</p>
+<p>This technique is called &quot;Division by Invariant Multiplication&quot;. A bunch of
+arithmetic instructions in the second half of the function are normalizing the
+result to compensate for the inaccuracy that may happen.</p>
+<p>The equivalent C++ code will be:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">func3p</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">int</span><span> a </span><span style="color:#179299;">= </span><span style="color:#fe640b;">17</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">return</span><span> a </span><span style="color:#179299;">/ </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<h3 id="both-constexpr">Both <code>constexpr</code></h3>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">func4</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> a </span><span style="color:#179299;">= </span><span style="color:#fe640b;">17</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> b </span><span style="color:#179299;">= </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">return</span><span> a </span><span style="color:#179299;">/</span><span> b</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<pre data-lang="asm" style="background-color:#eff1f5;color:#4c4f69;" class="language-asm "><code class="language-asm" data-lang="asm"><span style="font-style:italic;color:#1e66f5;">func4():
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">push    </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">rbp</span><span>, </span><span style="font-style:italic;color:#e64553;">rsp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4], 17
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-8], 9
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, 1    </span><span style="font-style:italic;color:#1e66f5;"># return </span><span>1
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">pop     </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">ret
+</span></code></pre>
+<p>With both sides being <code>constexpr</code>, the compiler just calculates <code>17/9 == 1</code>, and
+return <code>1</code>. That's it.</p>
+<p>The equivalent C++ code will be:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">func4p</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">return </span><span style="color:#fe640b;">17 </span><span style="color:#179299;">/ </span><span style="color:#fe640b;">9</span><span style="color:#7c7f93;">; </span><span style="font-style:italic;color:#9ca0b0;">// or: return 1;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<h2 id="constexpr-function"><code>constexpr</code> function</h2>
+<p>You have seen what magic those C++ compilers can do with <code>constexpr</code> variables.
+Let's make a step further and apply <code>constexpr</code> to functions.</p>
+<p>However, there is a rather &quot;weird&quot; trait:</p>
+<blockquote>
+<p>A <code>constexpr</code> function can evaluate either during compile time or run time.</p>
+</blockquote>
+<p>The next example can be viewed on Compiler Explorer <a rel="noopener" target="_blank" href="https://godbolt.org/z/dcK653q3T">here</a>.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">constexpr int </span><span style="font-style:italic;color:#1e66f5;">add_five</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#e64553;">n</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="color:#8839ef;">return</span><span> n </span><span style="color:#179299;">+ </span><span style="color:#fe640b;">5</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">int</span><span> n </span><span style="color:#179299;">= </span><span style="color:#fe640b;">5</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#8839ef;">const int</span><span> a </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">add_five</span><span style="color:#7c7f93;">(</span><span>n</span><span style="color:#7c7f93;">);
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> b </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">add_five</span><span style="color:#7c7f93;">(</span><span style="color:#fe640b;">10</span><span style="color:#7c7f93;">);
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<pre data-lang="asm" style="background-color:#eff1f5;color:#4c4f69;" class="language-asm "><code class="language-asm" data-lang="asm"><span style="font-style:italic;color:#1e66f5;">add_five(</span><span style="color:#8839ef;">int</span><span style="font-style:italic;color:#1e66f5;">):
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">push    </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">rbp</span><span>, </span><span style="font-style:italic;color:#e64553;">rsp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4], </span><span style="font-style:italic;color:#e64553;">edi
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4]
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">add     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, 5
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">pop     </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">ret
+</span><span style="font-style:italic;color:#1e66f5;">main:
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">push    </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">rbp</span><span>, </span><span style="font-style:italic;color:#e64553;">rsp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">sub     </span><span style="font-style:italic;color:#e64553;">rsp</span><span>, 16
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4], 5    </span><span style="font-style:italic;color:#1e66f5;"># n := </span><span>5
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4]  </span><span style="font-style:italic;color:#1e66f5;"># </span><span style="font-style:italic;color:#e64553;">eax </span><span style="font-style:italic;color:#1e66f5;">:= n
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">edi</span><span>, </span><span style="font-style:italic;color:#e64553;">eax                </span><span style="font-style:italic;color:#1e66f5;"># </span><span style="font-style:italic;color:#e64553;">edi </span><span style="font-style:italic;color:#1e66f5;">:= </span><span style="font-style:italic;color:#e64553;">eax
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">call    </span><span style="font-style:italic;color:#1e66f5;">add_five(</span><span style="color:#8839ef;">int</span><span style="font-style:italic;color:#1e66f5;">)           # </span><span style="font-style:italic;color:#e64553;">eax </span><span style="font-style:italic;color:#1e66f5;">:= add_five(</span><span style="font-style:italic;color:#e64553;">edi</span><span style="font-style:italic;color:#1e66f5;">)
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-8], </span><span style="font-style:italic;color:#e64553;">eax  </span><span style="font-style:italic;color:#1e66f5;"># a := </span><span style="font-style:italic;color:#e64553;">eax
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-12], 15  </span><span style="font-style:italic;color:#1e66f5;"># b := </span><span>15
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, 0
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">leave
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">ret
+</span></code></pre>
+<p><code>add_five</code> is a <code>constexpr</code> function. It is kept in the assembly, because later
+on, it will be used in run time.</p>
+<p>It can be seen that <code>a</code> is an <strong>immutable</strong> variable as its value will be
+determined during run time. There is indeed a call to <code>add_five</code>, with <code>n</code> as
+the argument.</p>
+<p>However, <code>b</code> is an <strong>immediate</strong> variable, as it is <code>constexpr</code>.
+<code>add_five(10) == 15</code>, and <code>b</code> is assigned with the value <code>15</code> without any call
+to the function.</p>
+<p>We can see that for this <code>constexpr</code> function, if it can evaluate during compile
+time, it will. Otherwise, it will evaluate during run time for other cases.</p>
+<h2 id="consteval-function"><code>consteval</code> function</h2>
+<p>C++20 introduces a new keyword: <code>consteval</code>. It is a keyword used with functions
+(and not with variables). It aims to provide another tool for compile-time
+control.</p>
+<blockquote>
+<p>A <code>consteval</code> function can <strong>only</strong> evaluate during compile time. Otherwise,
+the program fails to compile.</p>
+</blockquote>
+<p>We have a similar <a rel="noopener" target="_blank" href="https://godbolt.org/z/P3K591zxa">example</a>, but this time
+using <code>consteval</code>:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>consteval </span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">add_five</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#e64553;">n</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="color:#8839ef;">return</span><span> n </span><span style="color:#179299;">+ </span><span style="color:#fe640b;">5</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// the following 2 lines lead to compilation errors:
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// int n = 5;
+</span><span>    </span><span style="font-style:italic;color:#9ca0b0;">// const int a = add_five(n);
+</span><span>
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> b </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">add_five</span><span style="color:#7c7f93;">(</span><span style="color:#fe640b;">10</span><span style="color:#7c7f93;">);
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<pre data-lang="asm" style="background-color:#eff1f5;color:#4c4f69;" class="language-asm "><code class="language-asm" data-lang="asm"><span style="font-style:italic;color:#1e66f5;">main:
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">push    </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">rbp</span><span>, </span><span style="font-style:italic;color:#e64553;">rsp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#1e66f5;">DWORD PTR </span><span>[</span><span style="font-style:italic;color:#e64553;">rbp</span><span>-4], 15   </span><span style="font-style:italic;color:#1e66f5;"># b := </span><span>15
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">mov     </span><span style="font-style:italic;color:#e64553;">eax</span><span>, 0
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">pop     </span><span style="font-style:italic;color:#e64553;">rbp
+</span><span style="font-style:italic;color:#1e66f5;">        </span><span style="color:#8839ef;">ret
+</span></code></pre>
+<p>Pretty much the same effect. However, it will fail to compile if it can't
+evaluate during compile time.</p>
+<p>The function <code>add_five</code> is also gone in the assembly as well: it can only be
+executed in compile time, and it should not exist after compilation is done.</p>
+<h2 id="if-constexpr"><code>if constexpr</code></h2>
+<p>I was watching Carl Cook's talk at CppCon 2017. He showed an example of
+<a rel="noopener" target="_blank" href="https://youtu.be/NH1Tta7purM?t=1246">eliminating the branching away with template specialization</a>.</p>
+<p>Scrolling down the comments, there was one mentioning <code>if constexpr</code>. And I
+thought it was brilliant.</p>
+<h3 id="branching-approach">Branching approach</h3>
+<p>This is the &quot;branching approach&quot; in Cook's talk:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">enum class </span><span style="font-style:italic;color:#df8e1d;">Side </span><span style="color:#7c7f93;">{</span><span> Buy</span><span style="color:#7c7f93;">,</span><span> Sell </span><span style="color:#7c7f93;">};
+</span><span>
+</span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#1e66f5;">CalcPrice</span><span style="color:#7c7f93;">(</span><span style="font-style:italic;color:#e64553;">Side side</span><span style="color:#7c7f93;">, </span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">value</span><span style="color:#7c7f93;">, </span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">credit</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="color:#8839ef;">return</span><span> side </span><span style="color:#179299;">==</span><span> Side</span><span style="color:#179299;">::</span><span>Buy
+</span><span>         </span><span style="color:#179299;">?</span><span> value </span><span style="color:#179299;">-</span><span> credit
+</span><span>         </span><span style="color:#179299;">:</span><span> value </span><span style="color:#179299;">+</span><span> credit</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>It can be pretty fast, but we can go further.</p>
+<h3 id="template-specialization-approach">Template specialization approach</h3>
+<p>Cook's proposal was:</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">enum class </span><span style="font-style:italic;color:#df8e1d;">Side </span><span style="color:#7c7f93;">{</span><span> Buy</span><span style="color:#7c7f93;">,</span><span> Sell </span><span style="color:#7c7f93;">};
+</span><span>
+</span><span style="color:#8839ef;">template</span><span style="color:#7c7f93;">&lt;</span><span>Side side</span><span style="color:#7c7f93;">&gt;
+</span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#1e66f5;">CalcPrice</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">value</span><span style="color:#7c7f93;">, </span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">credit</span><span style="color:#7c7f93;">);
+</span><span>
+</span><span style="color:#8839ef;">template</span><span style="color:#7c7f93;">&lt;&gt;
+</span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#1e66f5;">CalcPrice</span><span style="color:#7c7f93;">&lt;</span><span>Side</span><span style="color:#179299;">::</span><span>Buy</span><span style="color:#7c7f93;">&gt;(</span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">value</span><span style="color:#7c7f93;">, </span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">credit</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="color:#8839ef;">return</span><span> value </span><span style="color:#179299;">-</span><span> credit</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span><span>
+</span><span style="color:#8839ef;">template</span><span style="color:#7c7f93;">&lt;&gt;
+</span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#1e66f5;">CalcPrice</span><span style="color:#7c7f93;">&lt;</span><span>Side</span><span style="color:#179299;">::</span><span>Sell</span><span style="color:#7c7f93;">&gt;(</span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">value</span><span style="color:#7c7f93;">, </span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">credit</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="color:#8839ef;">return</span><span> value </span><span style="color:#179299;">+</span><span> credit</span><span style="color:#7c7f93;">;
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>There is absolutely no branching. The code is deterministic. It's either on the
+buy side or the sell side. No other sides.</p>
+<p>Let's see what we can do with <code>if constexpr</code>.</p>
+<h3 id="if-constexpr-approach"><code>if constexpr</code> approach</h3>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">enum class </span><span style="font-style:italic;color:#df8e1d;">Side </span><span style="color:#7c7f93;">{</span><span> Buy</span><span style="color:#7c7f93;">,</span><span> Sell </span><span style="color:#7c7f93;">};
+</span><span>
+</span><span style="color:#8839ef;">template</span><span style="color:#7c7f93;">&lt;</span><span>Side side</span><span style="color:#7c7f93;">&gt;
+</span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#1e66f5;">CalcPrice</span><span style="color:#7c7f93;">(</span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">value</span><span style="color:#7c7f93;">, </span><span style="color:#8839ef;">float </span><span style="font-style:italic;color:#e64553;">credit</span><span style="color:#7c7f93;">) {
+</span><span>    </span><span style="color:#8839ef;">if constexpr </span><span style="color:#7c7f93;">(</span><span>side </span><span style="color:#179299;">==</span><span> Side</span><span style="color:#179299;">::</span><span>Buy</span><span style="color:#7c7f93;">) {
+</span><span>        </span><span style="color:#8839ef;">return</span><span> value </span><span style="color:#179299;">-</span><span> credit</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#7c7f93;">} </span><span style="color:#8839ef;">else </span><span style="color:#7c7f93;">{
+</span><span>        </span><span style="color:#8839ef;">return</span><span> value </span><span style="color:#179299;">+</span><span> credit</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+<p>It looks like there is branching with <code>if</code>. However, the branching is done in
+<em>compile time</em>. The generated assembly will either return <code>value - credit</code> or
+<code>value + credit</code>. There will be no branch at all. Effectively, we have achieved
+the same code as the template specialization method, with a centralized, more
+compact and readable code.</p>
+<h3 id="any-other-examples">Any other examples?</h3>
+<p><a rel="noopener" target="_blank" href="https://stackoverflow.com/a/43434771">This StackOverflow answer</a> demonstrates
+how <code>if constexpr</code> can be different from <code>if</code>. Their example is more on the
+<em>functionality</em> side, while Carl Cook's example is on the <em>performance</em> side.</p>
+<h2 id="if-consteval"><code>if consteval</code></h2>
+<p>Do you remember that a <code>constexpr</code> function may execute either during compile
+time or run time?</p>
+<p><code>if consteval</code> in C++23 will allow us to branch, depending on whether that
+<code>constexpr</code> function is evaluating during compile time or run time.</p>
+<pre data-lang="cpp" style="background-color:#eff1f5;color:#4c4f69;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#8839ef;">constexpr int </span><span style="font-style:italic;color:#1e66f5;">f</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">if </span><span style="font-style:italic;color:#1e66f5;">consteval </span><span style="color:#7c7f93;">{
+</span><span>        </span><span style="color:#8839ef;">return </span><span style="color:#fe640b;">69</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#7c7f93;">} </span><span style="color:#8839ef;">else </span><span style="color:#7c7f93;">{
+</span><span>        </span><span style="color:#8839ef;">return </span><span style="color:#fe640b;">420</span><span style="color:#7c7f93;">;
+</span><span>    </span><span style="color:#7c7f93;">}
+</span><span style="color:#7c7f93;">}
+</span><span>
+</span><span style="color:#8839ef;">int </span><span style="font-style:italic;color:#1e66f5;">main</span><span style="color:#7c7f93;">() {
+</span><span>    </span><span style="color:#8839ef;">int</span><span> a </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">f</span><span style="color:#7c7f93;">(); </span><span style="font-style:italic;color:#9ca0b0;">// a = 420
+</span><span>    </span><span style="color:#8839ef;">constexpr int</span><span> b </span><span style="color:#179299;">= </span><span style="font-style:italic;color:#1e66f5;">f</span><span style="color:#7c7f93;">(); </span><span style="font-style:italic;color:#9ca0b0;">// b = 69
+</span><span style="color:#7c7f93;">}
+</span></code></pre>
+
+
+            </main>
+            <footer>
+                
+<p class="taxonomies">
+
+
+<a href="/tags/english">#english</a>
+
+<a href="/tags/cpp">#cpp</a>
+
+
+
+
+</p>
+
+                
+            </footer>
+        </div>
+    </body>
+</html>
+        

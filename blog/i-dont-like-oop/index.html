@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <title>[en] I don&#x27;t like OOP and the OOP delusion</title>
+        
+        <meta name="title" content="[en] I don&#x27;t like OOP and the OOP delusion">
+        
+        <meta name="description" content="I don&#x27;t like OOP. The abuse of OOP can do more harm than good. I hate the OOP and design patterns cultists.">
+        <meta name="generator" content="Zola v0.16.1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jalsol.github.io/blog/i-dont-like-oop/">
+        <meta property="og:site_name" content="">
+        <meta property="og:title" content="[en] I don&#x27;t like OOP and the OOP delusion">
+        <meta property="og:description" content="I don&#x27;t like OOP. The abuse of OOP can do more harm than good. I hate the OOP and design patterns cultists.">
+        <meta property="og:image" content="https:&#x2F;&#x2F;jalsol.github.io&#x2F;images&#x2F;hanabi_pfp.jpg">
+
+        
+        
+        
+        <link rel="canonical" href="https://jalsol.github.io/blog/i-dont-like-oop/">
+        <link rel="shortcut icon" type="image/x-icon" href="https://jalsol.github.io/images/hanabi_pfp.jpg">
+        <script type="application/ld+json">
+            {
+                "description":"I don't like OOP. The abuse of OOP can do more harm than good. I hate the OOP and design patterns cultists.",
+                "url":"https://jalsol.github.io/blog/i-dont-like-oop/",
+                "@type":"WebSite",
+                "headline":"[en] I don't like OOP and the OOP delusion",
+                "name":"[en] I don't like OOP and the OOP delusion",
+                
+                "@context":"https://schema.org"
+            }
+        </script>
+        
+        
+        
+        <link rel="stylesheet" href="https://jalsol.github.io/style.css"/>
+        
+    </head>
+    <body theme="auto">
+        <div class="w">
+            <header>
+                
+                <nav>
+                    
+                    <a href="/" >~home</a>
+                    
+                    <a href="/blog" >*blogs</a>
+                    
+                    <a href="/tags" >#tags</a>
+                    
+                </nav>
+                
+                
+<p class="post-meta"><time datetime="2025-04-16">2025-04-16</time></p>
+<h1>[en] I don&#x27;t like OOP and the OOP delusion</h1>
+
+            </header>
+            <main class="page-content" aria-label="Content">
+                
+
+
+
+<p><a href="/blog/toi-khong-thich-oop/">Đọc bản tiếng Việt tại đây.</a></p>
+<p><strong>UPDATE:</strong> Uncle Bob (known for SOLID, Agile Manifesto, TDD; the books Clean Code, Clean Architecture...) <a rel="noopener" target="_blank" href="https://x.com/unclebobmartin/status/1918276572760486249">has also spoken about the &quot;true OOP definition&quot;</a>.</p>
+<p>Today I encountered a talk (in Vietnamese) by Dinh Ngoc Thanh - Chief Architect at Holistics, my (former) company. Since it's a talk I really like, I'm sharing it here and adding a few words of my own.</p>
+<p><strong>TL;DR:</strong> I don't like OOP. The abuse of OOP can do more harm than good. I hate the OOP and design patterns cultists. Anh Thanh has analyzed a different perspective on OOP in the video. I like this perspective and I think everyone should too.</p>
+<div style="display: flex;">
+  <iframe style="aspect-ratio: 16 / 9; width: 100% !important;" src="https://www.youtube.com/embed/7PGCvpJl_0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<p>Key takeaways from the video:</p>
+<ul>
+<li>Alan Kay's definition of OOP is about object communication. Class and inheritance are not the core of OOP.</li>
+<li>Software design is about cracking complexity. OOP <strong>does not</strong> reduce global complexity, it just packages complexity into isolated, smaller boxes.</li>
+<li>5 aspects of complexity: Shared mutable state, Side effects, Dependencies, Control flow, and Code size.</li>
+<li>Adaptation of &quot;Functional Core, Imperative Shell&quot; at Holistics.</li>
+</ul>
+<hr data-content="" \>
+<p>OOP is extremely popular. OOP is taught right during the first or second year of college. Popular languages and frameworks have featured OOP for decades. People say that using OOP makes code cleaner, more flexible, and easier to develop. People learn OOP, learn design patterns, and some even worship them mindlessly.</p>
+<p>I don't like OOP (or at least the kind of OOP people are used to). I hate the fact that there are people arguing on the internet (very dumb of me, I know) and even professors who consider OOP to be the best <strong>(I was disappointed with Computer Science education in Vietnam)</strong>.</p>
+<hr data-content="" \>
+<p>There is a paradox is that although OOP has existed for a very, very long time alongside the development of software engineering, it does not have a solid theoretical foundation. Functional Programming (the paradigm I currently like the most) is based on lambda calculus, while Imperative Programming is based on Turing machine. OOP is the opposite: people created OOP from decades ago, and only recently have they devised <a rel="noopener" target="_blank" href="https://arxiv.org/abs/2111.13384">a theory for it</a>.</p>
+<p>A huge problem in OOP and software engineering in general is too much abstraction. The CM101 course taught me that abstraction is important. However, too much abstraction increases the complexity of the system: poor performance, difficult development, difficult debugging, complex control flow... Sometimes abstraction does not reduce complexity, but only divides it into smaller parts or hides it. Meanwhile, if you wrap raw data with structs and process it directly, everything becomes simpler. It is no coincidence that modern languages like Go and Rust do not have classes or inheritance but only structs.</p>
+<p>There are design patterns in OOP created just because people wanted to &quot;bypass&quot; things that could be done very easily in other paradigms, such as Singleton or Facade. Bundling state and behavior together into a class makes it difficult to test behaviors (because you have to achieve the right state and the right dependency to replicate the behavior).</p>
+<p>I prefer to view OOP as a method for objects to communicate data with each other through a contract/interface. This perspective on OOP is not bound by classes and inheritance, is more flexible, more direct, and allows for better integration of other paradigms (like Functional Programming). You can watch the video to understand more.</p>
+<hr data-content="" \>
+<p><img src="/images/wisdom.png" alt="wisdom" loading="lazy" decoding="async" /></p>
+
+
+            </main>
+            <footer>
+                
+<p class="taxonomies">
+
+
+<a href="/tags/english">#english</a>
+
+<a href="/tags/oop">#oop</a>
+
+<a href="/tags/programming">#programming</a>
+
+<a href="/tags/software-engineering">#software engineering</a>
+
+
+
+
+</p>
+
+                
+            </footer>
+        </div>
+    </body>
+</html>
+        
