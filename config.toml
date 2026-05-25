@@ -11,11 +11,11 @@ taxonomies = [
 ]
 
 [markdown]
-highlight_code = true
-extra_syntaxes_and_themes = ["highlight_themes"]
-highlight_theme = "catppuccin-latte"
 external_links_target_blank = true
 lazy_async_image = true
+
+[markdown.highlighting]
+theme = "catppuccin-latte"
 
 [extra]
 logo = "images/hanabi_pfp.jpg"
