@@ -15,20 +15,20 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 ### CM101/CM102 - Communication Management/Critical Thinking
 
 - Dương Nguyên Vũ: GOAT. Người sáng lập ra APCS (và chương trình CS ở VinUni). Người rất tích cực, quy củ, có tầm nhìn xa, có suy nghĩ và tư duy đỉnh cao. Nếu các bạn có hứng thú với những thứ mang tính vĩ mô, triết lý thì sẽ thấy thầy hay và môn hay.
-- Dàn TA già: Chủ yếu là những khóa đầu của APCS (như anh Nguyễn An Dân). Họ cũng rất giỏi và có tầm nhìn đáng ngưỡng mộ. Tiếc là nhiều người trong số họ không còn dành được quỹ thời gian với môn.
+- Dàn TA già: Chủ yếu là những khóa đầu của APCS (như anh [Nguyễn An Dân, Võ Duy Anh...](#cs408-computational-finance)). Họ cũng rất giỏi và có tầm nhìn đáng ngưỡng mộ. Tiếc là nhiều người trong số họ không còn dành được quỹ thời gian với môn.
 - Dàn TA trẻ: Chán. Kể cả khi là những người có profile siêu khủng, là huyền thoại của cái trường này, của cái chương trình này thì khi nhìn vào đóng góp cụ thể của họ trong môn này, gần như họ không làm gì mấy. Cá biệt, khóa mình có các TA nữ ảo tưởng sức mạnh khi thầy Vũ không trực tiếp đứng lớp. Thứ duy nhất mình ấn tượng là khi anh/thầy Đỗ Trọng Lễ feedback, mình cảm nhận được sự khoa học trong việc xây dựng ý tưởng (nhưng đó là lần hiếm hoi mà ổng có tham gia hoạt động của nhóm).
 
 ### CS160/CS161/CS162 + CS163 + CS202 - Intro to CS + DSA + Programming Systems
 
-- Đinh Bá Tiến: GOAT. Cũng là một nhân tài xuất chúng của Việt Nam. Thầy dạy hay, dễ hiểu, dễ nghe, rất kiên nhẫn giải thích cho sinh viên. Thầy cũng có góc nhìn rất hay về thị trường phần mềm và quy trình phát triển phần mềm. Nhớ học hành cho đàng hoàng, sôi nổi chút, đừng quá thụ động và đừng để thầy cáu vì thái độ học tập (lúc này thầy sẽ nói tiếng Việt - đừng để thầy nói tiếng Việt).
-- Lê Khánh Duy (CS202): Dạy chán. Hình như thầy chỉ dạy để đỡ workload cho thầy Tiến thì phải? Thầy không chuyên C++ lắm, dạy OOP cũng chả có gì nổi bật. Giá mà thầy dạy OOP cũng hay như thầy dạy môn chuyên ngành của mình...
-- Dàn TA: Cơ bản là chill, dù lâu lâu hơi bựa chút (có thể sẽ soi hơi gắt lúc vấn đáp đồ án). Các bạn mình ở APCS khá thích thầy Hồ Tuấn Thanh, còn ở CLC/TCTA thì thích Nguyễn Lê Hoàng Dũng hơn. Hai thầy còn lại thì mình không ấn tượng gì mấy, ngoại trừ việc họ đều chill (đôi khi là chill quá mức). Nhóm có các bạn nữ là lợi thế (lớn) khi vấn đáp với các thầy.
+- Đinh Bá Tiến: GOAT. Cũng là một nhân tài xuất chúng của Việt Nam. Thầy dạy hay, dễ hiểu, dễ nghe, rất kiên nhẫn giải thích cho sinh viên. Thầy cũng có góc nhìn rất hay về thị trường phần mềm và quy trình phát triển phần mềm. Nhớ học hành cho đàng hoàng, sôi nổi chút, đừng quá thụ động và đừng để thầy cáu vì thái độ học tập (lúc này thầy sẽ nói tiếng Việt -- đừng để thầy nói tiếng Việt trong lớp).
+- Lê Khánh Duy (CS202): Dạy chán. Hình như thầy chỉ dạy để đỡ workload cho thầy Tiến thì phải? Thầy không chuyên C++ lắm, dạy OOP cũng chả có gì nổi bật. Giá mà thầy dạy OOP cũng ok như thầy dạy [môn chuyên ngành của mình...](#cs430-human-computer-interaction)
+- Dàn TA: Cơ bản là chill, dù lâu lâu hơi bựa chút (có thể sẽ soi hơi gắt lúc vấn đáp đồ án). Các bạn mình ở APCS khá thích thầy Hồ Tuấn Thanh (cũng là APCS Alum iirc?), còn ở CLC/TCTA thì thích Nguyễn Lê Hoàng Dũng hơn. Hai thầy còn lại thì mình không ấn tượng gì mấy, ngoại trừ việc họ đều chill (đôi khi là chill quá mức). Nhóm có các bạn nữ là lợi thế (lớn) khi vấn đáp với các thầy.
 
 ### CS201 + ECE343 - Computer Systems + Computer Hardware
 
 - Đinh Điền (phiên bản low-level): Có lẽ vì mình thật sự học được cái mới và là cái mình thích nên mình thích phiên bản này của Đinh Điền. Thầy có bằng kỹ sư EE ở BKHCM nên kiến thức low-level của thầy rất tốt, dạy hay và dễ hiểu. Thầy chỉ có sở thích đánh đố sinh viên (đôi khi là để câu giờ) khiến mình không thích.
 - Huỳnh Thanh Tú: Người có hiểu biết về low-level tốt và khá dễ tính. Cũng là một giáo mình khá thích.
-- Một TA random nào đó: thường sẽ là học viên thạc sĩ được hướng dẫn bởi Đinh Điền, chủ yếu là để phụ việc chấm điểm chứ không dạy gì, họ có bằng rồi thì sủi (nhưng mà cô dạy lớp ECE khóa mình dễ thương vl huhuhu).
+- Một TA random nào đó: thường sẽ là học viên thạc sĩ được hướng dẫn bởi Đinh Điền, chủ yếu là để phụ việc chấm điểm chứ không dạy gì, họ có bằng rồi thì sủi (nhưng mà [cô dạy lớp ECE khóa mình](https://www.linkedin.com/in/hoangthuytruc/) dễ thương vl huhuhu).
 
 ### CS250 - Discrete Structures
 
@@ -42,12 +42,12 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 
 ### SC203 + CS411 - Scientific Research + Computer Graphics
 
-- Trần Thái Sơn: Người giỏi, dễ tính nhưng siêu bận và dạy cũng không thú vị mấy, thành ra lớp toàn sủi học. Ít nhất thì với môn SC203, hướng tiếp cận môn học của thầy hợp lý và thực tế hơn Trần Minh Triết, nội dung nghiên cứu dễ tiếp cận hơn và thậm chí mình thấy thích hơn (các thuật toán sort, search và pattern matching vs Machine Learning).
+- Trần Thái Sơn: Người giỏi, dễ tính nhưng siêu bận và dạy cũng không thú vị mấy, thành ra lớp toàn sủi học. Ít nhất thì với môn SC203, hướng tiếp cận môn học của thầy hợp lý và thực tế hơn Trần Minh Triết, nội dung nghiên cứu dễ tiếp cận hơn và thậm chí mình thấy thích hơn (các thuật toán sort, search và pattern matching thay vì dí Machine Learning).
 - Võ Hoài Việt: Một trong những giảng viên có kiến thức, tư duy và tầm nhìn tệ nhất mình từng biết. Mình từng phản biện với thầy vấn đề sử dụng các paradigm khác nhau (ngoài OOP) để làm bài môn Graphics, nhưng lý lẽ của thầy không thuyết phục trong khi lại muốn bắt lỗi sinh viên theo kiểu ngớ ngẩn. Thưa mọi người, đây là người có bằng tiến sĩ CNTT ở HCMUS.
 
 ### WR227 + CS305 - Technical Writing + Social, Ethical, and Legal Issues
 
-- Nguyễn Văn Vũ: Người giỏi, có những góc nhìn hay nhưng nghiêm khắc và sẽ trừ điểm bạn từ từ nhưng rất rát. Bằng mọi giá phải chịu khó đi học đúng giờ, không được bỏ buổi nào để làm quiz đàng hoàng, đầy đủ.
+- Nguyễn Văn Vũ: Người giỏi, có những góc nhìn hay nhưng cứng nhắc. Sẽ trừ điểm bạn từ từ nhưng tính tổng thì rất rát. Bằng mọi giá phải chịu khó đi học đúng giờ, không được bỏ buổi nào để làm quiz đàng hoàng, đầy đủ.
 
 ### CS426 + CS427 - Mobile + Game
 
@@ -67,12 +67,12 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 
 ### CS494 - Internetworking Protocols
 
-- Nguyễn Tuấn Nam: GOAT. Thầy có bằng PhD ở UCLA, nghiên cứu tại LASR và từng làm việc với Kleinrock (search trên mạng để biết độ khủng). Kiến thức thầy dạy rất nền tảng, rất nhiều và rất hay. Thầy kì vọng ở sinh viên rất nhiều nên thầy sẽ đặt tiêu chuẩn cao, các bạn phải tự học hỏi nhiều, học khó, thi khó (nhưng điểm thì lại dễ). Nếu bạn nhịn được cái tôi cao của thầy thì bạn sẽ thấy thầy là người giỏi và tâm huyết.
+- Nguyễn Tuấn Nam: GOAT. Thầy có bằng PhD ở UCLA, nghiên cứu tại LASR và từng làm việc với Kleinrock (search trên mạng để biết độ khủng). Kiến thức thầy dạy rất nền tảng, rất nhiều và rất hay. Thầy kì vọng ở sinh viên rất nhiều nên thầy sẽ đặt tiêu chuẩn cao, các bạn phải tự học hỏi nhiều, học khó, thi khó (nhưng điểm thì lại dễ). Nếu bạn nhịn được cái tôi cao của thầy thì bạn sẽ thấy thầy là người giỏi và tâm huyết. Thầy cũng rất nhiệt tình hỗ trợ mình khi mình apply master ở NUS và khi mình đậu rồi thì dặn mình giữ connection. **UPDATE**: Có vẻ sau khóa mình thì thầy không còn dạy ở APCS nữa. [Trần Trung Dũng](#cs333-introduction-to-operating-systems) sẽ dạy môn này. Mình rất hiếm khi cho ai đó GOAT status, nên việc thầy nghỉ APCS là điều mình rất tiếc nuối.
 
 ### CS486 - Introduction to Database Systems
 
 - Lê Thị Nhàn: Tệ. Rất tệ. Lười dạy nên tái chế video từ thời COVID, cho sinh viên xem ở nhà rồi lên lớp chỉ hỏi. Thế nhưng những câu hỏi của mình thì cô lại không hiểu vấn đề, trả lời không đúng trọng tâm. Từ đó mình không còn tha thiết việc lên lớp, ở nhà đọc sách còn hay hơn (nên đọc sách). Bài thi có những thứ trong homework không hề có. Cô thì ỷ lại việc không ai khác muốn dạy môn này ở APCS nên hống hách. Những năm gần đây có đứa trầm cảm, bị VNUHCM dí nên cô có vẻ đỡ hơn.
-- Nguyễn Ngọc Minh Châu + Nguyễn Ngọc Toàn: Có vẻ chill hơn các trợ giảng của mọi năm (cô dễ thương hehehehe). Thầy có dấu hiệu nghiện Dota 2 (dự đoán từ đề midterm lab khóa mình).
+- Nguyễn Ngọc Minh Châu + Nguyễn Ngọc Toàn: Có vẻ chill hơn các trợ giảng của mọi năm (cô dễ thương hehehehe). Thầy là Alum APCS, có dấu hiệu nghiện Dota 2 (dự đoán từ đề midterm lab khóa mình).
 - Phan Thị Phương Uyên: Không ấn tượng gì (tuy nhiên nghe từ khóa trước thì có một vài quy chuẩn chấm cứng hơn cô Nhàn).
 
 ### CS419 - Introduction to Information Retrieval
@@ -82,13 +82,25 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 
 ### CS300 - Elements of Software Engineering
 
-- Nguyễn Thị Minh Tuyền: Cô hẳn là người giỏi, nhưng kiến thức của môn rất "enterprise" (mình từng làm ở 1 startup 10 năm tuổi và 1 quant firm, không có nơi nào có quy trình rườm rà như được dạy). Nội dung dày đặc đến mức cô nhờ AI tóm tắt lại thành mindmap, cũng có một số yêu cầu rất ?? khi chấm điểm (vd: khi làm quiz thì phải ước lượng được số giờ hoàn thành, trong khi quy mô còn chưa cụ thể). Đề của cô (và thầy Nguyễn Văn Vũ) rất dài. Có thông tin bên lề là một số nhóm làm thesis với cô đã bỏ chạy sang giáo khác. Mình cũng từng nghe các bạn nói cô có làm "quant", nhưng có vẻ thứ "quant" mà mình làm (kiếm lời cho bản thân firm và institutional investor) khác với "quant" của cô (bán công cụ, nền tảng cho retail investor) nên là mình thất vọng.
+- Nguyễn Thị Minh Tuyền: Cô hẳn là người giỏi, nhưng kiến thức của môn rất "enterprise" (mình từng làm ở 1 startup 10 năm tuổi và 1 quant firm, không có nơi nào có quy trình rườm rà như được dạy). Nội dung dày đặc đến mức cô nhờ AI tóm tắt lại thành mindmap, cũng có một số yêu cầu rất ?? khi chấm điểm (vd: khi làm quiz thì phải ước lượng được số giờ hoàn thành, trong khi quy mô còn chưa cụ thể). Đề của cô (và thầy Nguyễn Văn Vũ) rất dài. Có thông tin bên lề là một số nhóm làm thesis với cô đã bỏ chạy sang giáo khác. Mình cũng từng nghe các bạn nói cô có làm "quant", nhưng có vẻ thứ "quant" mà mình làm (institutional investor) khác với "quant" của cô (bán công cụ, nền tảng cho retail investor) nên là mình thất vọng.
 - Hồ Tuấn Thanh: Giống [các môn cơ sở](#cs160-cs161-cs162-cs163-cs202-intro-to-cs-dsa-programming-systems).
 
 
 ### CS420 - Artificial Intelligence
 
 - Nguyễn Ngọc Thảo: Cô rất giỏi (cô hướng dẫn thesis của tụi mình hehe), nhưng cách dạy của cô rất dễ đưa mình vào giấc ngủ (thế nên là mình cũng sủi và chỉ xuất hiện khi có quiz hay khi cần báo cáo thesis sớm). Cô rất có tâm khi thông báo trước về thời gian và kiến thức của quiz. Kiến thức cô dạy khá nhiều nên nếu review không nổi thì các bạn nên tìm đề các năm trước rồi tập trung luyện. Môn cũng khá khó nên cô cho scale điểm 11 thay vì 10.
+
+
+### CS430 - Human-Computer Interaction
+
+- Lê Khánh Duy: Trải nghiệm của mình là khá tốt, nhưng mình nghĩ là do môn học thú vị hơn là cách dạy của thầy. Tuy vậy, thầy cũng có những insight rất hay từ kinh nghiệm trong cả research và industry (thầy từng là advisor cho MoMo). Thầy khá dễ và các bạn có thể trao đổi thoải mái với thầy. Có lẽ khi được dạy thứ mình thích thì thầy có nhiều năng lượng hơn kha khá (so với [môn OOP](#cs160-cs161-cs162-cs163-cs202-intro-to-cs-dsa-programming-systems)). Các bạn sinh viên CLC/TCTA có thể tìm thầy ở môn UX dù thầy vẫn sẽ dạy HCI (chứ đừng học [cô Lê Thị Nhàn](#cs486-introduction-to-database-systems) dạy "HCI").
+
+### CS408 - Computational Finance
+
+- Nguyễn An Dân & Võ Duy Anh: Alum APCS (K07). Là co-founder của [Algotrade](https://algotrade.vn/), công ty duy nhất mình biết hiện đang algorithmic trade ở thị trường Việt Nam (các firm lớn như WorldQuant mình chưa thấy trade ở Việt Nam dù có office tại đây). Họ có nhiều kiến thức về algorithmic trading và về thị trường VN. Rất nhiệt tình và rất sẵn lòng giúp đỡ các bạn. Kiến thức mà họ dạy ở mức vừa phải, phù hợp với mục tiêu giới thiệu (còn có những thứ khác thì hoặc hơi cao siêu, hoặc không truyền đạt được trong môi trường giáo dục). Vì là đệ của [thầy Dương Nguyên Vũ](#cm101-cm102-communication-management-critical-thinking) nên môn cũng rất đậm chất APCS nguyên thủy (chứ không phải cái thứ gọi là "APCS" bây giờ).
+- Simon Smith (guest lecturer): Trader người Anh, sống ở Việt Nam, hiện đang quản lý [Delta One Derivatives](https://www.delta-one-derivatives.com/). Hợp tác với Algotrade để nghiên cứu thị trường Việt Nam sau khi được FTSE Russell nâng hạng. Với hơn 20 năm trong ngành, Smith chia sẻ về tâm lý khi trade (vốn là thứ rất rất rất quan trọng). Tuy nhiên, ông không hay đi diễn thuyết lắm nên nói cũng không quá hay và slide rất rất rất dài (nên đọc trước handout ở nhà)
+- Daniel Chen (guest lecturer): Trader người Đài. Chủ đề là về crypto trading (có những đặc điểm khác với stock, và cũng là 1 instrument ở vùng xám pháp lý). Vì là người trẻ và hay diễn thuyết nhiều nên nói hay hơn, slide hay hơn nhưng tiếng Anh hơi khó nghe hơn.
+- Đoàn Khắc Lâm (guest lecturer): Chuyên viên tại FPT Securities. Nội dung của anh sẽ hơi hướng fundamental analysis (phân tích sức khỏe thị trường) hơn là technical analysis (hầu hết là phân tích biểu đồ giá), cũng rất quan trọng nhưng sẽ hơi lạc quẻ nếu bạn chưa biết chút kiến thức tài chính.
 
 ### MTH251 - Calculus I
 
@@ -97,7 +109,7 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 
 ### MTH252 - Calculus II
 
-- Nguyễn Thị Thu Vân: Buổi đầu cô còn tưởng cô dạy Calculus III, nên bị hụt mất buổi đầu. Vì trong tuần, môn của cô ở sau tiết thực hành nên cô dạy chậm hơn thực hành. Hình như cũng có một số cái hay ho (mình không nghe). Hiện cô đang công tác tại UEH.
+- Nguyễn Thị Thu Vân: Buổi đầu cô còn tưởng cô dạy Calculus III như các khóa trước, nên khóa mình bị hụt mất buổi đầu. Vì trong tuần, môn của cô ở sau tiết thực hành nên cô dạy chậm hơn thực hành. Hình như cũng có một số cái hay ho (mình không nghe). Hiện cô đang công tác tại UEH.
 - Aki Lê (Lê Văn Chánh): Người gánh cả môn này (và các môn về sau). Dạy cũng khá ổn, có các mẹo hay, có danh sách bài tập (nhưng phải tự làm, chứ trên lớp là không đủ đâu). Phải đi học, làm bài tập để lấy điểm thực hành. Lấy điểm khá dễ, chỉ cần mạnh dạn, lên bảng auto có điểm không cần biết đúng sai, còn ngồi dưới nộp vở thì trao đổi với tra cứu thoải mái.
 
 ### MTH253 - Calculus III
@@ -118,6 +130,7 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 ### STAT452 - Applied Stats II
 
 - Nguyễn Thị Mộng Ngọc: Chad. Nghe danh thì là top tier data analyst ở VN. Cô bước vào lớp, giảng bằng tiếng Việt và cơ bản là giảng lại kiến thức ở môn trước (kèm minh họa bằng code R). Đề dễ, coi thi dễ, nhưng vẫn có bài tập trên lớp (nhờ nộp hộ được).
+- Đinh Ngọc Thanh: Thầy dạy thay cô Ngọc ở lớp mình 2 buổi đầu khi cô đi công tác. Giọng thầy rất hay và thầy giảng rất dễ hiểu. Đôi lúc mình cũng hơi ghen tị với lớp bên cạnh xíu :>
 - Nguyễn Hữu Toàn: Không có ấn tượng gì đặc biệt, ngoài việc vẫn là giải bài tập và coi thi khó hơn.
 
 ### PH211 - Physics I
