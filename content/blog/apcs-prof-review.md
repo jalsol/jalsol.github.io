@@ -67,7 +67,7 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 
 ### CS494 - Internetworking Protocols
 
-- Nguyễn Tuấn Nam: GOAT. Thầy có bằng PhD ở UCLA, nghiên cứu tại LASR và từng làm việc với Kleinrock (search trên mạng để biết độ khủng). Kiến thức thầy dạy rất nền tảng, rất nhiều và rất hay. Thầy kì vọng ở sinh viên rất nhiều nên thầy sẽ đặt tiêu chuẩn cao, các bạn phải tự học hỏi nhiều, học khó, thi khó (nhưng điểm thì lại dễ). Nếu bạn nhịn được cái tôi cao của thầy thì bạn sẽ thấy thầy là người giỏi và tâm huyết. Thầy cũng rất nhiệt tình hỗ trợ mình khi mình apply master ở NUS và khi mình đậu rồi thì dặn mình giữ connection. **UPDATE**: Có vẻ sau khóa mình thì thầy không còn dạy ở APCS nữa. [Trần Trung Dũng](#cs333-introduction-to-operating-systems) sẽ dạy môn này. Mình rất hiếm khi cho ai đó GOAT status, nên việc thầy nghỉ APCS là điều mình rất tiếc nuối.
+- Nguyễn Tuấn Nam: GOAT. Thầy có bằng PhD ở UCLA, nghiên cứu tại LASR và từng làm việc với Kleinrock (search trên mạng để biết độ khủng). Kiến thức thầy dạy rất nền tảng, rất nhiều và rất hay. Thầy kì vọng ở sinh viên rất nhiều nên thầy sẽ đặt tiêu chuẩn cao, các bạn phải tự học hỏi nhiều, học khó, thi khó (nhưng điểm thì lại dễ). Nếu bạn nhịn được cái tôi cao của thầy thì bạn sẽ thấy thầy là người giỏi và tâm huyết. Thầy cũng rất nhiệt tình hỗ trợ mình khi mình apply master ở NUS và khi mình đậu rồi thì dặn mình giữ connection. **UPDATE**: Có vẻ sau khóa mình thì thầy không còn dạy ở APCS nữa. [Trần Trung Dũng](#cs333-introduction-to-operating-systems) sẽ dạy môn này. Mình rất hiếm khi cho ai đó GOAT status, nên việc thầy nghỉ APCS là điều mình rất tiếc nuối. **UPDATE 2**: Thầy đã từ UIT quay về HCMUS. Mình khá phấn khích về nước đi này.
 
 ### CS486 - Introduction to Database Systems
 
@@ -85,11 +85,9 @@ Các bạn đấm nhau vỡ mồm và đóng tiền ngập mặt để vào cái
 - Nguyễn Thị Minh Tuyền: Cô hẳn là người giỏi, nhưng kiến thức của môn rất "enterprise" (mình từng làm ở 1 startup 10 năm tuổi và 1 quant firm, không có nơi nào có quy trình rườm rà như được dạy). Nội dung dày đặc đến mức cô nhờ AI tóm tắt lại thành mindmap, cũng có một số yêu cầu rất ?? khi chấm điểm (vd: khi làm quiz thì phải ước lượng được số giờ hoàn thành, trong khi quy mô còn chưa cụ thể). Đề của cô (và thầy Nguyễn Văn Vũ) rất dài. Có thông tin bên lề là một số nhóm làm thesis với cô đã bỏ chạy sang giáo khác. Mình cũng từng nghe các bạn nói cô có làm "quant", nhưng có vẻ thứ "quant" mà mình làm (institutional investor) khác với "quant" của cô (bán công cụ, nền tảng cho retail investor) nên là mình thất vọng.
 - Hồ Tuấn Thanh: Giống [các môn cơ sở](#cs160-cs161-cs162-cs163-cs202-intro-to-cs-dsa-programming-systems).
 
-
 ### CS420 - Artificial Intelligence
 
 - Nguyễn Ngọc Thảo: Cô rất giỏi (cô hướng dẫn thesis của tụi mình hehe), nhưng cách dạy của cô rất dễ đưa mình vào giấc ngủ (thế nên là mình cũng sủi và chỉ xuất hiện khi có quiz hay khi cần báo cáo thesis sớm). Cô rất có tâm khi thông báo trước về thời gian và kiến thức của quiz. Kiến thức cô dạy khá nhiều nên nếu review không nổi thì các bạn nên tìm đề các năm trước rồi tập trung luyện. Môn cũng khá khó nên cô cho scale điểm 11 thay vì 10.
-
 
 ### CS430 - Human-Computer Interaction
 
