@@ -30,7 +30,7 @@ giờ này chắc hơi trễ để làm vlog, nên thôi chuyển sang dạng ch
 - đánh liên minh/đọc truyện/đọc confession/đọc rejection letter/đọc visa requirement trong nước mắt
 - đánh răng, rửa mặt, đếm ngày bị trục xuất, đi ngủ
 
-{{hr()}}
+---
 
 khi về nước, tôi đã ôm theo bên mình 2 cái bánh xe bò to nhất cuộc đời đến giờ (đã được phỏng vấn onsite cho vị trí SWE intern @ [Jane Street](https://www.janestreet.com/) & [Citadel Securities](https://www.citadelsecurities.com/), đủ tất cả các phần có thể phỏng vấn được nhưng đều tạch).
 

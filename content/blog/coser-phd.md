@@ -30,6 +30,6 @@ Giả dụ, nếu công trình nghiên cứu của cô chất lượng cao thì 
 
 Chứ có là cô ta, anh ta, hắn ta... thì vấn đề cốt lõi (khối lượng, thời lượng, chất lượng nghiên cứu) vẫn cứ như vậy thôi. Giới tính không ảnh hưởng.
 
-{{hr()}}
+---
 
 Tôi gần như không tham gia nghiên cứu khoa học quá nhiều. Tuy nhiên, tôi từng có [một nghiên cứu nhỏ ở cấp 3](https://github.com/jalsol-ViSEF2022), cũng đã học các môn nghiên cứu khoa học trên đại học (sinh viên trường tôi đều học qua SC203 - Scientific Method, WR227 - Technical Writing, CS305 - Social, Ethical, and Legal Issues). Tôi cũng có bạn bè, người quen là những người làm nghiên cứu ở trong và ngoài nước. Vậy nên tôi nghĩ rằng tôi có biết chút ít về các vấn đề nghiên cứu khoa học.

@@ -12,7 +12,7 @@ taxonomies:
 
 ![Mấy thằng bạn bình luận:](comment.jpg)
 
-{{hr()}}
+---
 
 Năm nào cũng phải có vài cái ngày như này. Và gần đây thì năm nào tôi cũng dành ra một chút thời gian để ngồi suy tư vớ vẩn.
 

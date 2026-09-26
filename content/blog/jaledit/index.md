@@ -506,6 +506,7 @@ A benefit of not performing parsing is that there is no need to analyze the whol
 
 Each type of token is assigned to a color. jaledit currently supports 41 literal tokens, 14 data type tokens, and 84 C++ keywords.
 
+{% raw %}
 ```cpp
 constexpr
 std::array<Color, constants::token_count> kind_colors = {{
@@ -538,6 +539,7 @@ std::array<Color, constants::token_count> kind_colors = {{
     {4, 165, 229, 255},   // Operator
 }};
 ```
+{% endraw %}
 
 ## Finder
 

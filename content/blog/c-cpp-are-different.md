@@ -18,7 +18,7 @@ I really learned a lot from that. Developing a decent project in C made me appre
 
 At least I can say that I have fulfilled a goal I set for myself by working with C at the beginning of the project: to push my boundaries even further.
 
-{{hr()}}
+---
 
 Programming with C is tremendously difficult. It's an entirely different kind of beast. I usually tell people that C and C++ are completely different languages, and proficiency in one language doesn't necessarily translate well to the other.
 

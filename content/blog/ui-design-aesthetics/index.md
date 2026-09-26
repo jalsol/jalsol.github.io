@@ -22,7 +22,7 @@ One more thing: I dearly miss Windows 7 - the most beautiful and least intrusive
 
 ![Windows 7](win7.jpg)
 
-{{hr()}}
+---
 
 Windows XP was the first OS I've ever used, probably since 3-4 years old. My love for computers started with those RegEdit magic tricks on Windows XP from a book I found at a local bookstore.
 

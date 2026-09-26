@@ -29,7 +29,7 @@ Thời gian hợp lý (mà hầu hết các thí sinh đều lựa chọn) để
 
 Ngoài ra thì chứng chỉ cũng không chỉ có IELTS. Việt Nam mình bị cuồng IELTS quá. Người ta cần gì, năng lực bản thân cần gì thì thi cái đó thôi. Nếu TOEIC, VSTEP đủ dùng thì thi TOEIC, VSTEP. Nếu các trường bắt TOEFL thì thi TOEFL. Các trường nước ngoài thậm chí còn yêu cầu GRE ở bậc cao học (từ vựng chắc bố của mấy thằng kia luôn quá).
 
-{{hr()}}
+---
 
 Mình thi IELTS quá trễ để được miễn môn Tiếng Anh khi thi tốt nghiệp và để nộp xét tuyển đại học bằng chứng chỉ ngoại ngữ.
 
@@ -37,7 +37,7 @@ Lý do mình thi là vì (1) và (4) ở trên. Mình biết thừa (1) với m�
 
 (mấy đứa chuyên Anh cùng khóa gà vl)
 
-{{hr()}}
+---
 
 Hồi trước, có một trung tâm luyện IELTS có đến quảng cáo ở bên ngoài thư viện trường mình. Họ cũng tư vấn mình đủ kiểu cho đến khi mình tiết lộ mình đã có IELTS 8.0. Họ hỏi mình rằng có IELTS thì cơ hội học hành và cơ hội việc làm trong lĩnh vực CNTT thì như thế nào.
 

@@ -23,7 +23,7 @@ taxonomies:
     </figcaption>
 </figure>
 
-{{hr()}}
+---
 
 Tôi mới đáp xuống Sài Gòn hơn nửa ngày rồi. Tết năm nay, tôi về quê ngoại ở Hà Tĩnh, mừng thọ bà ngoại tuổi 70. Sau 24 tiếng đồng hồ di chuyển từ Hà Tĩnh xuống Sài Gòn (+7 tiếng nghỉ chân giữa đường ở Kon Tum, tiện thể thăm thầy cô và bạn bè cũ), tôi chỉ còn một chút sức lực cuối cùng để xách cái vali lên tầng 5. Nên là đến tối, tôi mới ngồi gõ dòng này.
 
@@ -35,7 +35,7 @@ Cái nắng ở vùng cao tuy có cảm giác rát hơn, nhưng nếu chạy tr�
 
 Lời cuối cùng, với tôi thì không nơi nào có khí hậu tuyệt vời như ở Kon Tum: đẹp, hài hòa và dễ chịu. Phải chi có cách nào bê cái khí hậu ở đó về đây thì quá đã.
 
-{{hr()}}
+---
 
 Năm lớp 7, giảng viên Công Nghệ lớp tôi nói rằng: một ngày ở Kon Tum có cả đủ bốn mùa. Sáng sớm - mùa xuân dịu dàng, giữa trưa - mùa hè đỏng đảnh, chiều tà - mùa thu hiền hòa, và đêm - mùa đông lạnh giá.
 
