@@ -203,7 +203,12 @@ Trưa thì có đứa rủ ra PGP ăn mì mala. Đây cũng là món tôi rất 
 
 Ngoài ra, rất hay nữa là quầy cơm gà giờ được bán bởi 2 anh chị người Việt (họ nói tiếng Anh và tiếng Hoa nhưng accent rất lạ, phải đến lúc họ giao tiếp với nhau thì tôi mới nghe ra là người Việt). Lúc đầu, tôi còn đặt bằng Singlish, nhưng nghe thấy tiếng Việt là tôi nói tiếng Việt luôn cho khỏe =)))) Chị thu ngân mới tập sự được 2 ngày, lại nghe giọng người Việt mua hàng nên cũng hơi bối rối xíu =))))
 
-![chickenrice](chickenrice.jpg)
+<figure style="margin: 0;">
+  <img src="chickenrice.jpg" alt="Đĩa cơm gà Hải Nam ở PGP">
+  <figcaption style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">
+    Đĩa cơm gà PGP này xúc động vl, tôi phải chờ nguyên tuần mới được đớp huhu
+  </figcaption>
+</figure>
 
 Bọn trẻ con trước giờ chỉ biết mala là món ngon nhất ở PGP rồi chê các món khác. Bọn nó đâu biết được món cơm gà này là cứu cánh của tôi khi căn tin ở hall đóng cửa đâu =)))) Cho các em một miếng là hiểu ngay vấn đề. Mỗi tội cơm gà quay + thêm gà giờ là 5 đô thay vì 4.5 đô như hồi trước.
 
