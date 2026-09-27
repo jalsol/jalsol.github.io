@@ -38,9 +38,9 @@ Chúng tôi chọn thủy cung cho chill và đỡ nắng.
 
 ## Chủ Nhật, 20/9
 
-Sáng hôm đó cả bọn dậy trễ nên làm tí kaya toast rồi chém gió, rồi chạy qua HarborFront để lượn sang thủy cung.
+Sáng hôm đó cả bọn dậy trễ nên làm tí kaya toast rồi chém gió, rồi chạy qua HarbourFront để lượn sang thủy cung.
 
-Có một vấn đề: đến HarborFront thì lại thèm ăn. 5 anh em lại ngồi hốc, chia nhau 2 đĩa pad thái, 2 tô tomyum, 1 tô cơm thịt kho Đài, 1 đĩa cơm rang bò trứng và mỗi đứa thêm một ly trà sữa thái xanh. 100% would do again.
+Có một vấn đề: đến HarbourFront thì lại thèm ăn. 5 anh em lại ngồi hốc, chia nhau 2 đĩa pad thái, 2 tô tomyum, 1 tô cơm thịt kho Đài, 1 đĩa cơm rang bò trứng và mỗi đứa thêm một ly trà sữa thái xanh. 100% would do again.
 
 No căng rồi thì anh em chạy ra thủy cung. Đoạn đầu cầm vé vào cổng, anh em được nhân viên hướng dẫn tạo dáng chụp hình (cơ mà lấy hình thì tốn phí nên thôi kệ luôn, cũng không có hình cho mọi người xem). Highlight ở đây chắc là mấy con cá mập với cá đuối, nhất là ở trong bể open, nơi mà có tỉ loài cá mà không con nào cắn nhau. Hơi tiếc vì quầy cá heo đang bảo trì mất.
 
